@@ -1,0 +1,146 @@
+[{
+  "name": "Plovdiv",
+  "iso2": "BG",
+  "country": "Bulgaria",
+  "id": 728193
+}, {
+  "name": "Vienna",
+  "iso2": "AT",
+  "country": "Austria",
+  "id": 2761369
+}, {
+  "name": "Brussels",
+  "iso2": "BE",
+  "country": "Belgium",
+  "id": 2800866
+}, {
+  "name": "Sofia",
+  "iso2": "BG",
+  "country": "Bulgaria",
+  "id": 727011
+}, {
+  "name": "Zagreb",
+  "iso2": "HR",
+  "country": "Croatia",
+  "id": 3186886
+}, {
+  "name": "Nicosia",
+  "iso2": "CY",
+  "country": "Cyprus",
+  "id": 146268
+}, {
+  "name": "Prague",
+  "iso2": "CZ",
+  "country": "Czech Republic",
+  "id": 3067696
+}, {
+  "name": "Copenhagen",
+  "iso2": "DK",
+  "country": "Denmark",
+  "id": 2618425
+}, {
+  "name": "Tallinn",
+  "iso2": "EE",
+  "country": "Estonia",
+  "id": 588409
+}, {
+  "name": "Helsinki",
+  "iso2": "FI",
+  "country": "Finland",
+  "id": 658226
+}, {
+  "name": "Paris",
+  "iso2": "FR",
+  "country": "France",
+  "id": 6455259
+}, {
+  "name": "Berlin",
+  "iso2": "DE",
+  "country": "Germany",
+  "id": 2950159
+}, {
+  "name": "Gibraltar",
+  "iso2": "GI",
+  "country": "Gibraltar",
+  "id": 2411586
+}, {
+  "name": "Athens",
+  "iso2": "GR",
+  "country": "Greece",
+  "id": 264371
+}, {
+  "name": "Budapest",
+  "iso2": "HU",
+  "country": "Hungary",
+  "id": 3054643
+}, {
+  "name": "Dublin",
+  "iso2": "IE",
+  "country": "Ireland",
+  "id": 2964574
+}, {
+  "name": "Riga",
+  "iso2": "LV",
+  "country": "Latvia",
+  "id": 456172
+}, {
+  "name": "Vilnius",
+  "iso2": "LT",
+  "country": "Lithuania",
+  "id": 593116
+}, {
+  "name": "Luxembourg",
+  "iso2": "LU",
+  "country": "Luxembourg",
+  "id": 2960316
+}, {
+  "name": "Valletta",
+  "iso2": "MT",
+  "country": "Malta",
+  "id": 2562305
+}, {
+  "name": "Amsterdam",
+  "iso2": "NL",
+  "country": "Netherlands",
+  "id": 2759794
+}, {
+  "name": "Warsaw",
+  "iso2": "PL",
+  "country": "Poland",
+  "id": 756135
+}, {
+  "name": "Lisbon",
+  "iso2": "PT",
+  "country": "Portugal",
+  "id": 2267057
+}, {
+  "name": "Bucharest",
+  "iso2": "RO",
+  "country": "Romania",
+  "id": 683506
+}, {
+  "name": "Bratislava",
+  "iso2": "SK",
+  "country": "Slovakia",
+  "id": 3060972
+}, {
+  "name": "Ljubljana",
+  "iso2": "SI",
+  "country": "Slovenia",
+  "id": 3196359
+}, {
+  "name": "Madrid",
+  "iso2": "ES",
+  "country": "Spain",
+  "id": 6359304
+}, {
+  "name": "Stockholm",
+  "iso2": "SE",
+  "country": "Sweden",
+  "id": 2673730
+}, {
+  "name": "London",
+  "iso2": "GB",
+  "country": "United Kingdom of Great Britain and Northern Ireland",
+  "id": 2643743
+}]

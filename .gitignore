@@ -4,10 +4,13 @@
 /dist
 /tmp
 /out-tsc
+firebase/.firebase/
+firebase/public
 
 # dependencies
 /node_modules
 node_modules
+update
 
 # IDEs and editors
 /.idea

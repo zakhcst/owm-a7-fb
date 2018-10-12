@@ -1,27 +1,52 @@
-# OwmA6Fb
+## Open Weather Maps(OWM) 5 Day Forecast
+
+### Angular 6, Angular Material and Firebase based project.
+
+Libraries
+
+- FlexLayout
+- Angular Material
+- AngularFire2
+
+
+Features
+
+* Angular
+  - components
+  - services
+  - custom pipes
+  - rxjs
+  - ngxs
+
+
+* Firebase
+
+  - realtime database
+  - cloud functions (NodeJS v8)
+  - docker facility for testing cloud functions locally (NodeJS v8 )
+  - hosting
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
 
-## Development server
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
+### Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### Link
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Development build is depolyed at: https://owm-a6-fb.firebaseapp.com/
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Preview
+
+![alt text](https://raw.githubusercontent.com/zakhcst/owm-a6-fb/master/misc/preview1.png)
+
+### Coverage
+
+![alt text](https://raw.githubusercontent.com/zakhcst/owm-a6-fb/master/misc/owm-a6-fb-coverage-all.png)
+
+![alt text](https://raw.githubusercontent.com/zakhcst/owm-a6-fb/master/misc/owm-a6-fb-coverage-services.png)
