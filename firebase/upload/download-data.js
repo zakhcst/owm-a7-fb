@@ -1,9 +1,9 @@
 var admin = require('firebase-admin');
-var serviceAccount = require('../../../owm-a6-fb-credentials/owm-a6-fb-firebase-adminsdk-kdv5b-8c3ede325e.json');
+var serviceAccount = require('../../../owm-a7-fb-credentials/owm-a7-fb-firebase-adminsdk-kdv5b-8c3ede325e.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://owm-a6-fb.firebaseio.com'
+  databaseURL: 'https://owm-a7-fb.firebaseio.com'
 });
 
 var db = admin.database();

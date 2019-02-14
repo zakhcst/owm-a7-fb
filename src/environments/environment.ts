@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyBWFkpsktPetQerfNSIOl2Es67OCFdlGUI',
-    authDomain: 'owm-a6-fb.firebaseapp.com',
-    databaseURL: 'https://owm-a6-fb.firebaseio.com',
-    projectId: 'owm-a6-fb',
-    storageBucket: 'owm-a6-fb.appspot.com',
-    messagingSenderId: '976333526482'
+    apiKey: 'AIzaSyCT-Uab-tDlXLBKzWdv7rq4exZchMDRyR8',
+    authDomain: 'owm-a7-fb.firebaseapp.com',
+    databaseURL: 'https://owm-a7-fb.firebaseio.com',
+    projectId: 'owm-a7-fb',
+    storageBucket: 'owm-a7-fb.appspot.com',
+    messagingSenderId: '1062734348256'
   }
 };
 

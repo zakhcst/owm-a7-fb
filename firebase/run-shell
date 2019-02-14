@@ -1,1 +1,1 @@
-firebase functions:shell --token $FB_TOKEN --project 'owm-a6-fb'
+firebase functions:shell --token $FB_TOKEN --project 'owm-a7-fb'

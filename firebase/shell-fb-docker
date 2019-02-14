@@ -3,8 +3,8 @@ docker run \
   -it \
   -e "FB_TOKEN=$FB_TOKEN" \
   --rm \
-  -v ${HOME}/projects/owm-a6-fb/firebase/functions:/firebase/functions \
+  -v ${HOME}/projects/owm-a7-fb/firebase/functions:/firebase/functions \
   -v ${HOME}/.config:/root/.config \
   firebase-app-8 \
   /bin/bash
-  #/bin/bash -c "echo FB_TOKEN:$FB_TOKEN && cd functions && ls -la && firebase functions:shell --token $FB_TOKEN --project 'owm-a6-fb'"
+  #/bin/bash -c "echo FB_TOKEN:$FB_TOKEN && cd functions && ls -la && firebase functions:shell --token $FB_TOKEN --project 'owm-a7-fb'"

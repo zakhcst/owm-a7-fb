@@ -3,5 +3,5 @@ docker run \
   -it \
   --rm \
   firebase-app \
-  /bin/bash -c "echo FB_TOKEN:$FB_TOKEN && cd functions && firebase serve --only functions --token $FB_TOKEN --project 'owm-a6-fb' --debug"
+  /bin/bash -c "echo FB_TOKEN:$FB_TOKEN && cd functions && firebase serve --only functions --token $FB_TOKEN --project 'owm-a7-fb' --debug"
 
