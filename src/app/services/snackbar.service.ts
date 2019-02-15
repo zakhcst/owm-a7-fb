@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material';
 import { AppSnackBarInnerComponent } from '../components/app-snack-bar-inner/app-snack-bar-inner.component';
 import { ConstantsService } from './constants.service';
@@ -8,7 +8,7 @@ import { SnackbarDataModel } from '../models/snackbar.model';
 })
 export class SnackbarService {
   public q = [];
-  constructor(private _matSnackbar: MatSnackBar) {}
+  constructor(private _matSnackbar: MatSnackBar, private zone: NgZone) {}
 
   // The non buffered version cancels(hides) the previous message regardless of the duration
   // show(data) {
@@ -25,19 +25,23 @@ export class SnackbarService {
       this.q.push(data);
     }
     if (this.q[0] === data) {
-      const snackbarRef = this.ref(data);
-      snackbarRef.afterDismissed().subscribe(() => {
-        this.q.shift();
-        if (this.q.length > 0) {
-          this.show(this.q[0]);
-        }
+      this.zone.run(() => {
+        const snackbarRef = this.ref(data);
+        snackbarRef.afterDismissed().subscribe(() => {
+          this.q.shift();
+          if (this.q.length > 0) {
+            this.show(this.q[0]);
+          }
+        });
       });
     }
   }
 
   ref(data: SnackbarDataModel): MatSnackBarRef<AppSnackBarInnerComponent> {
     return this._matSnackbar.openFromComponent(AppSnackBarInnerComponent, {
-      duration: ConstantsService.snackbarDuration * (data.class === 'snackbar__error' ? 2 : 1),
+      duration:
+        ConstantsService.snackbarDuration *
+        (data.class === 'snackbar__error' ? 2 : 1),
       data,
       horizontalPosition: 'right',
       verticalPosition: 'bottom',
