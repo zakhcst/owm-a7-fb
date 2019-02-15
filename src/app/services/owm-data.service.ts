@@ -24,7 +24,7 @@ export class OwmDataService {
   // in order to prevent exceeding OWM requests dev quote.
   // The additional logic for processing/reformating the data
   // is required in the front end in order to avoid
-  // http requests out of Firebase Cloud Functions
+  // Firebase Cloud Functions outbound http requests
   getData(cityId: string) {
     return this._cities.updateReads(cityId).pipe(
       switchMap(() => from(this._fb.getData(cityId))),

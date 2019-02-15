@@ -148,16 +148,16 @@
     <div fxLayout="row">
       <span fxFlex fxLayoutAlign="start center">
         <span *ngIf="!loadingStats">
-          OWM Requests:{{ stats.r || 0 }} Updates:{{ stats.u || 0 }}
+          OWM Requests:{{ stats?.r || 0 }} Updates:{{ stats?.u || 0 }}
         </span>
       </span>
       <span fxFlex></span>
       <span fxFlex fxLayoutAlign="end center">
         <span *ngIf="!loadingCities && !loadingOwmData" fxLayoutAlign="end center">
           {{ cities[selectedCityId].name + ' ' }} Requests:{{
-          cities[selectedCityId].r || 0
+          cities[selectedCityId]?.r || 0
           }}
-          Updates:{{ cities[selectedCityId].u || 0 }}
+          Updates:{{ cities[selectedCityId]?.u || 0 }}
         </span>
       </span>
     </div>

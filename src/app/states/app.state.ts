@@ -56,7 +56,7 @@ export class AppHistoryState {
           }`,
           class: 'snackbar__info'
         });
-        localStorage.lastCityId = action.payload.cityId;
+        localStorage.setItem('lastCityId', action.payload.cityId);
         return this._history.setDataToFB(ip, newEntry);
       })
     );

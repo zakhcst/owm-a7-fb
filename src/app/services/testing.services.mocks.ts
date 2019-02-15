@@ -85,7 +85,7 @@ export class MockOwmStatsService {
   getData(error?: any) {
     const sample = { r: 100, u: 100 };
     const lsError = localStorage.getItem('mockOwmStatsServiceError');
-    const stats = JSON.parse(localStorage.getItem('mockOwmStatsService') || null);
+    const stats = JSON.parse(localStorage.getItem('mockOwmStatsService'));
     return error || lsError
       ? throwError(new Error('MockOwmStatsService:getData'), asyncScheduler)
       : of(stats || sample, asyncScheduler);
