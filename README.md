@@ -1,6 +1,6 @@
 ## Open Weather Maps(OWM) 5 Day Forecast
 
-### Angular 6, Angular Material and Firebase based project.
+### Angular 7, Angular Material and Firebase based project.
 
 Libraries
 
@@ -8,18 +8,17 @@ Libraries
 - Angular Material
 - AngularFire2
 
+Featured
 
-Features
+- Angular
 
-* Angular
   - components
   - services
   - custom pipes
   - rxjs
   - ngxs
 
-
-* Firebase
+- Firebase
 
   - realtime database
   - cloud functions (NodeJS v8)
@@ -39,7 +38,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ### Link
 
 Development build is depolyed at: https://owm-a7-fb.firebaseapp.com/
-
 
 ### Preview
 
