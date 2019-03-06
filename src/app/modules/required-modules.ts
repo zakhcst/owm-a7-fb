@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { LayoutsModules } from './layouts/layouts.modules';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { NgxsModule } from '@ngxs/store';
 import { AppHistoryState, AppErrorsState } from '../states/app.state';
 

@@ -5,7 +5,7 @@ import { take } from 'rxjs/operators';
 import { OwmStats } from '../../models/owm-stats.model';
 import { TimeTemplate } from '../../models/hours.model';
 import { CitiesModel } from '../../models/cities.model';
-import { AppErrorPayloadModel } from 'src/app/states/app.models';
+import { AppErrorPayloadModel } from '../../states/app.models';
 
 import { ConstantsService } from '../../services/constants.service';
 import { CitiesService } from '../../services/cities.service';
