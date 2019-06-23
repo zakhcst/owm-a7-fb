@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { TimeTemplate } from '../models/hours.model';
+import { ITimeTemplate } from '../models/hours.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConstantsService {
-  constructor() {}
+  constructor() { }
 
   public static readonly owmData = 'owm';
   public static readonly historyLog = 'history-log';
@@ -18,22 +18,29 @@ export class ConstantsService {
   public static readonly getIpUrl = 'https://us-central1-owm-a6-fb.cloudfunctions.net/getip';
   public static readonly ipv4RE = new RegExp('^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$');
   public static readonly owmIconsUrl = 'https://openweathermap.org/img/w/';
-  public static readonly windIconsUrl = 'assets/icons8-windsock-16.png';
-  public static readonly pressureIconsUrl = 'assets/icons8-atmospheric-pressure-16.png';
-  public static readonly humidityIconsUrl = 'assets/icons8-hygrometer-16.png';
+  public static readonly iconsOwm = 'assets/icons-list/';
+  public static readonly iconWind = 'assets/icons8-windsock-16.png';
+  public static readonly iconPressure = 'assets/icons8-atmospheric-pressure-16.png';
+  public static readonly iconHumidity = 'assets/icons8-hygrometer-16.png';
   public static readonly arrow000Deg = String.fromCodePoint(8593);
   public static readonly snackbarDuration = 2500;
 
+  public static readonly weatherParams = {
+    temperature: { title: 'Temperature', lineColor: '#ff0000', icon: 'assets/icons-list/' },
+    wind: { title: 'Wind', lineColor: '#0000ff', icon: 'assets/icons8-windsock-16.png' },
+    humidity: { title: 'Humidity', lineColor: '#eeee33', icon: 'assets/icons8-hygrometer-16.png' },
+    pressure: { title: 'Pressure', lineColor: '#00ff00', icon: 'assets/icons8-atmospheric-pressure-16.png' },
+  };
 
-  public static readonly timeTemplate: TimeTemplate[] = [
-    { hour:  0, bgColor: '#4060bb', textColor: 'white'},
-    { hour:  3, bgColor: '#4060bb', textColor: 'white'},
-    { hour:  6, bgColor: '#5080dd', textColor: 'white'},
-    { hour:  9, bgColor: '#70b0ff', textColor: 'black'},
-    { hour: 12, bgColor: '#90c0ff', textColor: 'black'},
-    { hour: 15, bgColor: '#90c0ff', textColor: 'black'},
-    { hour: 18, bgColor: '#70b0ff', textColor: 'black'},
-    { hour: 21, bgColor: '#5080dd', textColor: 'white'}
+  public static readonly timeTemplate: ITimeTemplate[] = [
+    { hour: 0, bgColor: '#305090', textColor: 'white' },
+    { hour: 3, bgColor: '#4060bb', textColor: 'white' },
+    { hour: 6, bgColor: '#6090ee', textColor: 'white' },
+    { hour: 9, bgColor: '#70b0ff', textColor: 'black' },
+    { hour: 12, bgColor: '#90c0ff', textColor: 'black' },
+    { hour: 15, bgColor: '#a0d0ff', textColor: 'black' },
+    { hour: 18, bgColor: '#70c0ff', textColor: 'black' },
+    { hour: 21, bgColor: '#5080dd', textColor: 'white' }
   ];
 
 }

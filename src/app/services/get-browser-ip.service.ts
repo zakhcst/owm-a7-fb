@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConstantsService } from './constants.service';
 import { of, Observable } from 'rxjs';
-import { switchMap, share, catchError } from 'rxjs/operators';
+import { switchMap, share, catchError, shareReplay } from 'rxjs/operators';
 import { ErrorsService } from './errors.service';
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import { ErrorsService } from './errors.service';
 export class GetBrowserIpService {
   private _cache$: Observable<string>;
 
-  constructor(private _http: HttpClient, private _errors: ErrorsService) {}
+  constructor(private _http: HttpClient, private _errors: ErrorsService) { }
 
   getIP() {
     if (!this._cache$) {
@@ -28,8 +28,7 @@ export class GetBrowserIpService {
           });
           return of('ip-error');
         }),
-        share(),
-
+        shareReplay(1),
       );
     }
     return this._cache$;

@@ -1,0 +1,166 @@
+<mat-card
+  class="forecast-card"
+  [ngSwitch]="loadingError"
+  [ngStyle]="{ 'background-color': cardBackground }"
+>
+  <div fxLayout="column" fxFill class="content" *ngSwitchCase="true">
+    <h3>Connection or service problem. Please reload or try later.</h3>
+  </div>
+  <div fxLayout="column" fxFill class="content" *ngSwitchCase="false">
+    <div fxFlex fxLayout="row" [fxHide]="loadingOwmData">
+      <!-- / Day/Date column-->
+      <div
+        #dateColumn
+        class="table-column_0"
+        fxLayout="column"
+        [ngStyle]="{ color: dateColumnTextColor }"
+      >
+        <div fxFlex fxLayout="column" id="daycolumn">
+          <div
+            fxFlex
+            fxLayoutAlign="start center"
+            class="table-cell_date"
+            *ngFor="
+              let dataDaily of weatherData?.listByDate | keyvalue;
+              index as $index
+            "
+          >
+            <span fxLayout="column" fxLayoutAlign="end center">
+              <span>{{ dataDaily.key | date: 'EEE' }}</span>
+              <span>{{ dataDaily.key | date: 'dd' }}</span>
+              <span>{{ dataDaily.key | date: 'MMM' }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Legent column -->
+      <div
+        [ngStyle]="{ color: dateColumnTextColor }"
+        fxFlex="0 0 auto"
+        fxLayoutAlign="center center"
+        fxLayout="column"
+      >
+        <svg [attr.height.px]="400" [attr.width.px]="30">
+          >
+          <path
+            d="M16,400L16,380"
+            [attr.stroke]="weatherParams.temperature.lineColor"
+            stroke-width="2"
+            fill-opacity="1"
+            fill="none"
+          ></path>
+          <text
+            x="20"
+            y="370"
+            font-family="Arial"
+            font-size="12"
+            font-style="italic"
+            transform="rotate(-90 20 370)"
+            stroke="none"
+            stroke-width="0"
+            [attr.fill]="dateColumnTextColor"
+          >
+            Temperature, Celsius
+          </text>
+          <path
+            d="M16,220L16,200"
+            [attr.stroke]="weatherParams.wind.lineColor"
+            stroke-width="2"
+            fill-opacity="1"
+            fill="none"
+          ></path>
+          <text
+            x="20"
+            y="190"
+            font-family="Arial"
+            font-size="12"
+            font-style="italic"
+            transform="rotate(-90 20 190)"
+            stroke="none"
+            stroke-width="0"
+            [attr.fill]="dateColumnTextColor"
+          >
+            Wind, m/s
+          </text>
+          <path
+            d="M16,110L16,90"
+            [attr.stroke]="weatherParams.humidity.lineColor"
+            stroke-width="2"
+            fill-opacity="1"
+            fill="none"
+          ></path>
+          <text
+            x="20"
+            y="80"
+            font-family="Arial"
+            font-size="12"
+            font-style="italic"
+            transform="rotate(-90 20 80)"
+            stroke="none"
+            stroke-width="0"
+            [attr.fill]="dateColumnTextColor"
+          >
+            Humidity, %
+          </text>
+        </svg>
+      </div>
+
+      <!-- chart -->
+      <div fxFlex fxFill fxLayout="column">
+        <div
+          fxFlex
+          fxFill
+          fxLayout="row"
+          *ngFor="let dataDaily of weatherData?.listByDate | keyvalue"
+          (click)="clickedDay(dataDaily)"
+        >
+          <google-chart
+            #chartElement
+            style="width: 100%;"
+            [dynamicResize]="true"
+            [type]="chart[dataDaily.key].type"
+            [data]="chart[dataDaily.key].data"
+            [columnNames]="chart[dataDaily.key].columnNames"
+            [options]="chart[dataDaily.key].options"
+          >
+          </google-chart>
+        </div>
+      </div>
+
+      <!-- / Day/Date column-->
+      <div fxFlex="0 0 auto" fxLayoutAlign="center center" fxLayout="column">
+        <svg [attr.height.px]="400" [attr.width.px]="30">
+          <path
+            d="M16,220L16,200"
+            [attr.stroke]="weatherParams.pressure.lineColor"
+            stroke-width="2"
+            fill-opacity="1"
+            fill="none"
+          ></path>
+          <text
+            x="20"
+            y="190"
+            font-family="Arial"
+            font-size="12"
+            font-style="italic"
+            transform="rotate(-90 20 190)"
+            stroke="none"
+            stroke-width="0"
+            [attr.fill]="dateColumnTextColor"
+          >
+            Pressure, hPa
+          </text>
+        </svg>
+      </div>
+    </div>
+
+    <div
+      fxFlex
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      *ngIf="loadingOwmData"
+    >
+      <mat-spinner diameter="50"></mat-spinner>
+    </div>
+  </div>
+</mat-card>

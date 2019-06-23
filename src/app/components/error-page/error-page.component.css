@@ -1,0 +1,10 @@
+:host {
+  display: grid;
+  height: 100vh;
+
+  place-items: center;
+
+  background-size: contain;
+  color: lightslategray;
+  background-color: darkslategrey;
+}

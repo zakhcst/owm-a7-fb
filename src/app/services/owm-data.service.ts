@@ -6,7 +6,7 @@ import { DataService } from './data.service';
 import { CitiesService } from './cities.service';
 import { OwmFallbackDataService } from './owm-fallback-data.service';
 import { ErrorsService } from './errors.service';
-import { OwmDataModel } from '../models/owm-data.model';
+import { IOwmData } from '../models/owm-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +25,10 @@ export class OwmDataService {
   // The additional logic for processing/reformating the data
   // is required in the front end in order to avoid
   // Firebase Cloud Functions outbound http requests
-  getData(cityId: string) {
+  getData(cityId: string): Observable<IOwmData>  {
     return this._cities.updateReads(cityId).pipe(
       switchMap(() => from(this._fb.getData(cityId))),
-      switchMap((fbdata: OwmDataModel) => {
+      switchMap((fbdata: IOwmData) => {
         if (fbdata !== null && this.isNotExpired(fbdata)) {
           return of(fbdata);
         }
@@ -37,7 +37,7 @@ export class OwmDataService {
       catchError(err => {
         this._errors.add({
           userMessage: 'Connection or service problem',
-          logMessage: 'OwmDataService:getData:_fb.getData: ' + err.message
+          logMessage: 'OwmDataService:getData:_fb.getData: ' + (err.message || err)
         });
         return this._owmFallback.getData();
       })
@@ -46,12 +46,12 @@ export class OwmDataService {
 
   requestNewOwmData(cityId: string) {
     return this._owm.getData(cityId).pipe(
-      map((res: OwmDataModel) => this.setListByDate(res)),
+      map((res: IOwmData) => this.setListByDate(res)),
       switchMap(res => from(this._fb.setData(cityId, res))),
     );
   }
 
-  setListByDate(data: OwmDataModel): OwmDataModel {
+  setListByDate(data: IOwmData): IOwmData {
     data.listByDate = data.list.reduce((accumulator: any, item: any) => {
       const dateObj = new Date(item.dt * 1000);
       const hour = dateObj.getUTCHours();
@@ -69,7 +69,7 @@ export class OwmDataService {
     return data;
   }
 
-  isNotExpired(data: OwmDataModel): boolean {
+  isNotExpired(data: IOwmData): boolean {
     // expired data is when either [0] || .updated is older than 3 hours
     const now = new Date().valueOf();
     const firstDateTime =

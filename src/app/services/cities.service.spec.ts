@@ -8,15 +8,15 @@ import {
 } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment.prod';
-import { CityModel } from '../models/cities.model';
+import { ICity } from '../models/cities.model';
 
 describe('CitiesService', () => {
   let service: CitiesService;
   let angularFireService: MockAngularFireService;
-  const testData: CityModel = {
-    name: 'testData: CityModel: nameString',
-    country: 'testData: CityModel: countryString',
-    iso2: 'testData: CityModel: iso2String'
+  const testData: ICity = {
+    name: 'testData: ICity: nameString',
+    country: 'testData: ICity: countryString',
+    iso2: 'testData: ICity: iso2String'
   };
 
   beforeEach(async(() => {

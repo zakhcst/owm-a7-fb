@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorsService } from './errors.service';
-
+import { IOwmStats } from '../models/owm-stats.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,9 +12,9 @@ export class OwmStatsService {
   constructor(
     private _db: AngularFireDatabase,
     private _errors: ErrorsService
-  ) {}
+  ) { }
 
-  getData() {
+  getData(): Observable<IOwmStats> {
     return this._db
       .object('/stats')
       .valueChanges()

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription, forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { OwmStats } from '../../models/owm-stats.model';
-import { TimeTemplate } from '../../models/hours.model';
-import { CitiesModel } from '../../models/cities.model';
+import { IOwmStats } from '../../models/owm-stats.model';
+import { ITimeTemplate } from '../../models/hours.model';
+import { ICities } from '../../models/cities.model';
 import { AppErrorPayloadModel } from '../../states/app.models';
 
 import { ConstantsService } from '../../services/constants.service';
@@ -22,11 +22,12 @@ import { HistoryService } from '../../services/history.service';
 })
 export class ForecastComponent implements OnInit {
   selectedCityId: string = ConstantsService.defaultCityId;
-  timeTemplate: TimeTemplate[] = ConstantsService.timeTemplate;
+  timeTemplate: ITimeTemplate[] = ConstantsService.timeTemplate;
   iconsUrl: string = ConstantsService.owmIconsUrl;
-  iconWind: string = ConstantsService.windIconsUrl;
-  iconHumidity: string = ConstantsService.humidityIconsUrl;
-  iconPressure: string = ConstantsService.pressureIconsUrl;
+  iconsOwm: string = ConstantsService.iconsOwm;
+  iconWind: string = ConstantsService.iconWind;
+  iconHumidity: string = ConstantsService.iconHumidity;
+  iconPressure: string = ConstantsService.iconPressure;
   arrow000Deg: string = ConstantsService.arrow000Deg;
 
   loadingOwmData = true;
@@ -34,9 +35,9 @@ export class ForecastComponent implements OnInit {
   loadingStats = true;
   loadingError = false;
 
-  cities: CitiesModel;
+  cities: ICities;
   cities$: Observable<any>;
-  stats: OwmStats;
+  stats: IOwmStats;
   statsSubscription: Subscription;
   ip: string;
   ipSubscription: Subscription;
@@ -65,7 +66,7 @@ export class ForecastComponent implements OnInit {
     this.ipSubscription = this._ip.getIP().subscribe(
       ip => {
         this.ip = ip === 'ip-error' ? null : ip;
-        this.ipSubscription.unsubscribe();
+        // this.ipSubscription.unsubscribe();
       },
       err => this.addError('ngOnInit: ipSubscription', err.message)
     );

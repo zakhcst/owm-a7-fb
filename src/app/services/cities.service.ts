@@ -1,26 +1,44 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { from, Observable } from 'rxjs';
-import { switchMap, take, share } from 'rxjs/operators';
-import { CityModel, CitiesModel } from '../models/cities.model';
+import { from, Observable, throwError, combineLatest, of } from 'rxjs';
+import {
+  switchMap,
+  take,
+  shareReplay,
+  catchError
+} from 'rxjs/operators';
+import { ICity, ICities } from '../models/cities.model';
+import { cities } from './testing.services.mocks';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class CitiesService {
-  constructor(private _db: AngularFireDatabase) {}
+  constructor(private _db: AngularFireDatabase) { }
 
-  getData(): Observable<CitiesModel> {
-    return from(this._db.object<CitiesModel>('/cities').valueChanges());
+  getData(): Observable<ICities> {
+    return this._db
+      .object<ICities>('/cities')
+      .valueChanges()
+      .pipe(
+        take(1),
+        shareReplay(1)
+      );
   }
 
   updateReads(cityId: string) {
-    const ref = this._db.object(`/cities/${cityId}`);
+    if (!cityId) {
+      return throwError('CitiesService: updateReads: CityId not provided');
+    }
+    const ref = this._db.object(`/stats/${cityId}`);
     return ref.valueChanges().pipe(
       take(1),
-      switchMap((city: CityModel) => {
-        return from(ref.update({ r: (city.r || 0) + 1 }));
+      switchMap((city: ICity) => {
+        return from(ref.update({ reads: (city && city.reads || 0) + 1 }));
+      }),
+      catchError(err => {
+        console.log(err);
+        return throwError('CitiesService: updateReads: ' + err);
       })
     );
   }

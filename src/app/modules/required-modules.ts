@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { LayoutsModules } from './layouts/layouts.modules';
@@ -35,4 +35,4 @@ import { AppHistoryState, AppErrorsState } from '../states/app.state';
   ]
 })
 
-export class RequiredModules {}
+export class RequiredModules { }

@@ -1,0 +1,23 @@
+.stats-card {
+  height: calc(100vh - 94px);
+  padding: 10px;
+  margin: 10px;
+  background-color: #ddf;
+  /* font-size: 10px; */
+  overflow-y: overlay;
+  z-index: 0;
+}
+
+.odd {
+  background-color: #ccf;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

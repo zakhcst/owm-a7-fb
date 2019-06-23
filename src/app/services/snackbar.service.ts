@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material';
 import { AppSnackBarInnerComponent } from '../components/app-snack-bar-inner/app-snack-bar-inner.component';
 import { ConstantsService } from './constants.service';
-import { SnackbarDataModel } from '../models/snackbar.model';
+import { ISnackbarData } from '../models/snackbar.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +20,7 @@ export class SnackbarService {
   // The two cases are when:
   // client calls with a new message - just pushes the new message to the q
   // or self invoked on dismissing the previous one and there are more messages.
-  show(data: SnackbarDataModel) {
+  show(data: ISnackbarData) {
     if (this.q[0] !== data) {
       this.q.push(data);
     }
@@ -37,7 +37,7 @@ export class SnackbarService {
     }
   }
 
-  ref(data: SnackbarDataModel): MatSnackBarRef<AppSnackBarInnerComponent> {
+  ref(data: ISnackbarData): MatSnackBarRef<AppSnackBarInnerComponent> {
     return this._matSnackbar.openFromComponent(AppSnackBarInnerComponent, {
       duration:
         ConstantsService.snackbarDuration *

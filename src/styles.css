@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 * {
   padding: 0;
@@ -7,15 +7,15 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 10px;
-}
-
 .snackbar__info {
   color: greenyellow;
-  background: black;
+  background: rgb(59, 59, 59);
 }
 .snackbar__error {
   color: red;
   background: black;
+}
+
+.scroll-this {
+  overflow: auto;
 }

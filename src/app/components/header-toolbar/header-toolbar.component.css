@@ -1,0 +1,41 @@
+.mat-toolbar-header {
+  width: 100vw;
+  /* position: relative; */
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+}
+
+.header-actions-container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header-action {
+  margin-left: 10px !important;
+  font-size: 60%;
+}
+
+.header-action-xs {
+  margin-top: 10px !important;
+  font-size: 60%;
+}
+
+.header-actions-container-xs {
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+}

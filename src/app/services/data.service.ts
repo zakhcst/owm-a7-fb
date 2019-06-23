@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { ConstantsService } from './constants.service';
-import { OwmDataModel } from '../models/owm-data.model';
+import { IOwmData } from '../models/owm-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class DataService {
   getData(cityId: string) {
     return this._db.object(ConstantsService.owmData + '/' + cityId).valueChanges();
   }
-  setData(cityId: string, data: OwmDataModel) {
+  setData(cityId: string, data: IOwmData) {
     const ref = this._db.object(ConstantsService.owmData + '/' + cityId);
     return ref.set(data);
   }

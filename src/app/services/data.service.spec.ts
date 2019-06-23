@@ -8,14 +8,14 @@ import {
   AngularFireDatabase
 } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
-import { OwmDataModel } from '../models/owm-data.model';
+import { IOwmData } from '../models/owm-data.model';
 import { getNewDataObject } from './testing.services.mocks';
 
 
 describe('DataService', () => {
   let service: DataService;
   const testIP = 'ip';
-  const testData: OwmDataModel = getNewDataObject();
+  const testData: IOwmData = getNewDataObject();
   let serviceFB: any;
 
   beforeEach(async(() => {

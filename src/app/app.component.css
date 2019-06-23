@@ -1,0 +1,6 @@
+.routing-spinner {
+  z-index: 1000;
+  position: absolute;
+  top: calc(100vh / 2);
+  left: calc((100vw - 50px )/ 2)
+}

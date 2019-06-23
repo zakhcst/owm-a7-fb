@@ -1,7 +1,7 @@
 import { asyncScheduler, of, throwError } from 'rxjs';
 
-import { OwmDataModel } from '../models/owm-data.model';
-import { CitiesModel } from '../models/cities.model';
+import { IOwmData } from '../models/owm-data.model';
+import { ICities } from '../models/cities.model';
 import {
   AppErrorPayloadModel,
   AppHistoryPayloadModel
@@ -9,20 +9,20 @@ import {
 
 import dataJSON from '../../assets/owm-fallback-data.json';
 import citiesJSON from '../../../misc/cities-obj.json';
-import { SnackbarDataModel } from '../models/snackbar.model';
+import { ISnackbarData } from '../models/snackbar.model';
 import { CitiesService } from './cities.service';
 
-export const data = <OwmDataModel>(<any>dataJSON);
-export const getNewDataObject = (state?: string): OwmDataModel => {
-  const fallbackData: OwmDataModel = JSON.parse(JSON.stringify(data));
+export const data = <IOwmData>(<any>dataJSON);
+export const getNewDataObject = (state?: string): IOwmData => {
+  const fallbackData: IOwmData = JSON.parse(JSON.stringify(data));
   if (state === 'owm') {
     delete fallbackData.listByDate;
   }
   return fallbackData;
 };
 
-export const cities = <CitiesModel>(<any>citiesJSON);
-export const getNewCitiesObject = (): CitiesModel =>
+export const cities = <ICities>(<any>citiesJSON);
+export const getNewCitiesObject = (): ICities =>
   JSON.parse(JSON.stringify(cities));
 
 export class MockOwmService {
@@ -42,18 +42,18 @@ export class MockOwmService {
 
 export class MockDataService {
   error = false;
-  dbData: OwmDataModel;
+  dbData: IOwmData;
   getData(cityId: string) {
     this.dbData = getNewDataObject();
     return of(cityId ? this.dbData : null, asyncScheduler);
   }
-  setData(cityId: string, owmData: OwmDataModel) {
+  setData(cityId: string, owmData: IOwmData) {
     this.dbData = owmData;
     return owmData && !this.error ? Promise.resolve() : Promise.reject();
   }
 }
 export class MockOwmDataService {
-  dbData: OwmDataModel;
+  dbData: IOwmData;
   getData(cityId: string) {
     const lsError = localStorage.getItem('mockOwmDataServiceError');
     this.dbData = getNewDataObject();
@@ -167,9 +167,9 @@ export class MockAngularFireService {
   }
 }
 export class MockSnackbarService {
-  data: SnackbarDataModel[] = [];
+  data: ISnackbarData[] = [];
 
-  show(newData: SnackbarDataModel) {
+  show(newData: ISnackbarData) {
     this.data.push(newData);
   }
 }

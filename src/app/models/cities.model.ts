@@ -1,14 +1,16 @@
-export interface CityModel {
+export interface ICity {
   name: string;
   country: string;
   iso2: string;
   r?: number;
   u?: number;
+  reads?: number;
+  updates?: number;
 }
-export interface CitiesModel {
-  [cityId: string]: CityModel;
+export interface ICities {
+  [cityId: string]: ICity;
 }
-export interface CityByKey {
+export interface ICityByKey {
   key?: string;
-  value?: CityModel;
+  value?: ICity;
 }
