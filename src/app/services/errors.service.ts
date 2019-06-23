@@ -9,7 +9,7 @@ import { AppErrorPayloadModel, ErrorRecordModel } from '../states/app.models';
   providedIn: 'root'
 })
 export class ErrorsService {
-  constructor(private _db: AngularFireDatabase, private _store: Store) {}
+  constructor(private _db: AngularFireDatabase, private _store: Store) { }
 
   setDataToFB(ip: string, data: ErrorRecordModel) {
     const refKey =
@@ -22,7 +22,7 @@ export class ErrorsService {
     return ref.set(data.logMessage);
   }
 
-  add(messages: AppErrorPayloadModel ) {
-    this._store.dispatch(new SetErrorsState(messages));
+  add(messages: AppErrorPayloadModel) {
+    return this._store.dispatch(new SetErrorsState(messages));
   }
 }

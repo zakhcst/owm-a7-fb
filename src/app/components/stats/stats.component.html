@@ -1,0 +1,47 @@
+<mat-card class="stats-card" [ngSwitch]="loadingError">
+  <div fxLayout="column" fxFill *ngSwitchCase="true">
+    <h3>Connection or service problem. Please reload or try later.</h3>
+  </div>
+
+  <div fxLayout="column" fxFill *ngSwitchCase="false">
+    <p>Client IPv4: {{ ip }}</p>
+    <br />
+
+    <div fxFlex="0 0 auto" FxFill fxLayout="row">
+      <span fxFlex></span>
+      <span fxFlex>All clients</span>
+      <span fxFlex>Requests</span>
+      <span fxFlex>Updates</span>
+    </div>
+    <hr />
+    <div fxFlex="0 0 auto" FxFill fxLayout="row">
+      <span fxFlex>Owm</span>
+      <span fxFlex></span>
+      <span fxFlex>{{ stats.r }}</span>
+      <span fxFlex>{{ stats.u }}</span>
+    </div>
+
+    <hr />
+
+    <div
+      fxFlex
+      FxFill
+      fxLayout="column"
+      class="scroll-this"
+      [@showCityStats]="citiesLength"
+    >
+      <div
+      *ngFor="let city of cities | keyvalue; let odd = odd"
+        fxFlex
+        FxFill
+        fxLayout="row"
+        [class.odd]="odd"
+      >
+        <span fxFlex class="truncate">{{ city.value.name }}</span>
+        <span fxFlex class="truncate">{{ city.value.country }}</span>
+        <span fxFlex>{{ stats[city.key]?.reads || city.value.r }}</span>
+        <span fxFlex>{{ stats[city.key]?.updates || city.value.u }}</span>
+      </div>
+    </div>
+  </div>
+</mat-card>

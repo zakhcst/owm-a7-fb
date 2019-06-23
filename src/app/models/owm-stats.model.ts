@@ -1,4 +1,4 @@
-export interface OwmStats {
+export interface IOwmStats {
   r?: number;
   u?: number;
 }

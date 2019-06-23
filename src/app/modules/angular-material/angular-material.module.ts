@@ -4,15 +4,15 @@ import {
   MatSelectModule,
   MatProgressSpinnerModule,
   MatCardModule,
-  MatSnackBarModule
+  MatSnackBarModule,
   // MatTableModule,
-  // MatButtonModule,
+  MatButtonModule,
   // MatIconModule,
   // MatProgressBarModule,
   // MatDividerModule,
   // MatPaginatorModule,
   // MatSidenavModule,
-  // MatToolbarModule,
+  MatToolbarModule,
   // MatListModule,
   // MatSortModule,
   // MatSlideToggleModule
@@ -21,16 +21,21 @@ import {
 @NgModule({
   imports: [
     CommonModule,
+    MatButtonModule,
     MatSelectModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
   ],
   exports: [
+    CommonModule,
+    MatButtonModule,
     MatSelectModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
   ]
 })
 export class AngularMaterialModule {}

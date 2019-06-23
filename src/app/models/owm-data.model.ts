@@ -1,28 +1,28 @@
-export interface OwmDataModel {
-  city: OwmCityModel;
+export interface IOwmData {
+  city: IOwmCity;
   cnt: number;
   cod: string;
-  list: OwmDataTimeSlotUnitModel[];
+  list: IOwmDataTimeSlotUnit[];
   message: number;
   updated?: number;
   listByDate?: {
-    [dateValue: string]: OwmDataTimeSlotUnitModel;
+    [dateValue: string]: IOwmDataTimeSlotUnit;
   };
 }
 
-export interface CoordsModel {
-  lat: number;
-  lon: number;
-}
-
-export interface OwmCityModel {
-  coord: CoordsModel;
+export interface IOwmCity {
+  coord: ICoords;
   country: string;
   id: number;
   name: string;
 }
 
-export interface OwmDataTimeSlotUnitModel {
+export interface ICoords {
+  lat: number;
+  lon: number;
+}
+
+export interface IOwmDataTimeSlotUnit {
   clouds?: {
     all: number;
   };

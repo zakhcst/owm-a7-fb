@@ -1,4 +1,4 @@
-export interface SnackbarDataModel {
+export interface ISnackbarData {
   message: string;
   class: string;
 }

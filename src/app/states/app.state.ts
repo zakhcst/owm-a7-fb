@@ -38,25 +38,25 @@ export class AppHistoryState {
     context: StateContext<AppHistoryModel>,
     action: SetHistoryState
   ) {
+    const { cityId, cityName, countryISO2 } = action.payload;
     return this._ip.getIP().pipe(
-      // Update local history state
       switchMap(ip => {
         const newEntry: HistoryRecordModel = {
-          cityId: action.payload.cityId,
+          cityId,
           time: new Date().valueOf()
         };
         const update = {
           ip,
           sessionHistory: [...context.getState().sessionHistory, newEntry]
         };
+
         context.patchState(update);
+        localStorage.setItem('lastCityId', cityId);
+
         this._snackbar.show({
-          message: `Selected: ${action.payload.cityName}, ${
-            action.payload.countryISO2
-          }`,
+          message: `Selected: ${cityName}, ${countryISO2}`,
           class: 'snackbar__info'
         });
-        localStorage.setItem('lastCityId', action.payload.cityId);
         return this._history.setDataToFB(ip, newEntry);
       })
     );

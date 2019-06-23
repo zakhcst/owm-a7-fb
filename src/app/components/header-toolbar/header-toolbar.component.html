@@ -1,0 +1,65 @@
+<mat-toolbar color="primary" class="mat-toolbar-header" *ngIf="toolbarShow">
+  <span
+    fxHide.gt-xs
+    style="font-size: 1.5rem"
+    (click)="toggleActionButtonsXS($event)"
+    >&#9776;&nbsp;</span
+  >
+
+  <span>OWM Forecast</span>
+  <span class="header-actions-container">
+    <ng-container *ngFor="let action of toolbarActions">
+      <mat-form-field
+        *ngIf="action['type'] === 'selectCities'"
+        class="header-action"
+      >
+        <mat-select
+          placeholder="City"
+          [(value)]="selectedCityId"
+          (selectionChange)="selectionChange()"
+          fxFlex
+        >
+          <mat-option
+            fxFlex
+            *ngFor="let city of cities | keyvalue | sortCities"
+            [value]="city.key"
+          >
+            <span fxFlex fxLayoutAlign="space-between" fxFill fxLayout="row">
+              <span>{{ city.value.name }}&nbsp;</span>
+              <span fxFlex fxLayoutAlign="end center">{{
+                city.value.iso2
+              }}</span>
+            </span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <a
+        fxHide.xs
+        mat-button
+        mat-mini-fab
+        [routerLink]="[action['path']]"
+        class="header-action"
+        *ngIf="action['type'] === 'button'"
+        >{{ action['title'] }}</a
+      >
+    </ng-container>
+  </span>
+</mat-toolbar>
+
+<div class="header-actions-container-xs" *ngIf="showActionButtonsXS === true">
+  <ng-container *ngFor="let action of toolbarActions">
+    <a
+      fxHide.gt-xs
+      mat-button
+      mat-mini-fab
+      [routerLink]="[action['path']]"
+      class="header-action-xs"
+      *ngIf="action['type'] === 'button'"
+      >{{ action['title'] }}</a
+    >
+  </ng-container>
+</div>
+
+<dir (click)="hideActionButtonsXS($event)">
+  <router-outlet></router-outlet>
+</dir>

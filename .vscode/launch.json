@@ -8,6 +8,7 @@
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome",
+      "runtimeExecutable": "/usr/bin/google-chrome-stable",
       "url": "http://localhost:8080",
       "webRoot": "${workspaceFolder}"
     },
@@ -17,6 +18,13 @@
       "runtimeExecutable": "/usr/bin/google-chrome-stable",
       "name": "Launch Chrome against localhost",
       "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "Attach to Chrome",
+      "port": 9222,
       "webRoot": "${workspaceFolder}"
     },
     {

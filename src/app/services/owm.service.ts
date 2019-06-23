@@ -4,7 +4,7 @@ import { ConstantsService } from './constants.service';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorsService } from './errors.service';
-import { OwmDataModel } from '../models/owm-data.model';
+import { IOwmData } from '../models/owm-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ import { OwmDataModel } from '../models/owm-data.model';
 export class OwmService {
   constructor(private _http: HttpClient, private _errors: ErrorsService) {}
 
-  getData(cityId: string): Observable<OwmDataModel> {
+  getData(cityId: string): Observable<IOwmData> {
     const owmRequestUrl =
       ConstantsService.default5DayForecastUrl +
       '?id=' +
@@ -22,7 +22,7 @@ export class OwmService {
       '&APPID=' +
       ConstantsService.defaultAPPID;
 
-    return this._http.get<OwmDataModel>(owmRequestUrl).pipe(
+    return this._http.get<IOwmData>(owmRequestUrl).pipe(
       catchError(err => {
         this._errors.add({
           userMessage: 'Connection or service problem',
