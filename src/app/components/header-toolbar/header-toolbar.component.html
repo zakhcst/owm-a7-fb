@@ -48,18 +48,19 @@
 
 <div class="header-actions-container-xs" *ngIf="showActionButtonsXS === true">
   <ng-container *ngFor="let action of toolbarActions">
-    <a
+    <!-- mat-button -->
+    <button
       fxHide.gt-xs
-      mat-button
       mat-mini-fab
       [routerLink]="[action['path']]"
       class="header-action-xs"
       *ngIf="action['type'] === 'button'"
-      >{{ action['title'] }}</a
     >
+      {{ action['title'] }}
+    </button>
   </ng-container>
 </div>
 
-<dir (click)="hideActionButtonsXS($event)">
+<div (click)="hideActionButtonsXS($event)">
   <router-outlet></router-outlet>
-</dir>
+</div>

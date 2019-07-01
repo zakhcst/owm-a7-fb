@@ -2,25 +2,20 @@
   height: calc(100vh - 94px);
   padding: 10px;
   margin: 10px;
-  background-color: #ddd;
+  background-color: #ddf;
   /* font-size: 10px; */
   overflow-y: overlay;
   z-index: 0;
 }
 
 .odd {
-  background-color: #ccc;
-}
-
-.elipses {
-  overflow: hidden;
-  flex-wrap: nowrap;
+  background-color: #ccf;
 }
 
 .truncate {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 ::-webkit-scrollbar {

@@ -79,7 +79,7 @@ export class HeaderToolbarComponent implements OnInit, OnDestroy {
   }
 
   toggleActionButtonsXS($event) {
-    this.showActionButtonsXS =  this.showActionButtonsXS ? false : true;
+    this.showActionButtonsXS = this.showActionButtonsXS ? false : true;
   }
 
   hideActionButtonsXS($event) {

@@ -31,10 +31,11 @@
       [@showCityStats]="citiesLength"
     >
       <div
-      *ngFor="let city of cities | keyvalue; let odd = odd"
+        *ngFor="let city of cities | keyvalue; let odd = odd"
         fxFlex
         FxFill
         fxLayout="row"
+        fxLayoutAlign="start center"
         [class.odd]="odd"
       >
         <span fxFlex class="truncate">{{ city.value.name }}</span>

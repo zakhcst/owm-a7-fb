@@ -6,40 +6,31 @@
   <div fxLayout="column" fxFill class="content" *ngSwitchCase="true">
     <h3>Connection or service problem. Please reload or try later.</h3>
   </div>
+
   <div fxLayout="column" fxFill class="content" *ngSwitchCase="false">
     <!-- A row of Day/Date & Hours columns-->
     <div fxFlex fxLayout="row" [fxHide]="loadingOwmData">
-      <div #fullHeightColumn></div>
       <!-- Day/Date column-->
-      <div
-        class="table-column_0"
-        fxLayout="column"
-        [ngStyle]="{ color: dateColumnTextColor }"
-      >
-        <div
-          fxFlex="10%"
-          fxFlex.gt-xs="5%"
-          fxLayout="column"
-          class="table-cell_00"
-          fxLayoutAlign="center"
-        ></div>
+      <div #fullHeightColumn></div>
 
-        <div fxFlex fxLayout="column" id="daycolumn">
-          <div
-            fxFlex
-            fxLayoutAlign="start center"
+      <div fxLayout="column">
+        <div
+          fxFlex
+          class="table-column_0"
+          [ngStyle]="{ color: dateColumnTextColor }"
+        >
+          <span></span>
+          <span
             class="table-cell_date"
             *ngFor="
               let dataDaily of weatherData?.listByDate | keyvalue;
               index as $index
             "
           >
-            <span fxLayout="column" fxLayoutAlign="end center">
-              <span>{{ dataDaily.key | date: 'EEE' }}</span>
-              <span>{{ dataDaily.key | date: 'dd' }}</span>
-              <span>{{ dataDaily.key | date: 'MMM' }}</span>
-            </span>
-          </div>
+            <div>{{ dataDaily.key | date: 'EEE' }}</div>
+            <div>{{ dataDaily.key | date: 'dd' }}</div>
+            <div>{{ dataDaily.key | date: 'MMM' }}</div>
+          </span>
         </div>
         <div
           id="scroll-bar-filler"
@@ -52,42 +43,30 @@
       <!-- / Day/Date column-->
 
       <!-- Hours columns-->
-      <div fxFlex fxFill fxLayout="column" class="scroll-this" #gridContainer>
-        <div fxFlex="10%" fxFlex.gt-xs="5%" fxLayout="row">
-          <span
-            fxFlex
-            fxLayoutAlign="center center"
-            class="table-header-background"
-            *ngFor="let timeSlot of timeTemplate; index as ind"
-            [ngStyle]="{
-              'background-color': timeTemplate[ind].bgColor,
-              color: timeTemplate[ind].textColor,
-              border:
-                (isCurrentTimeSlot(timeSlot) ? '1' : '0') + 'px solid black'
-            }"
-          >
-            {{ (timeSlot.hour > 9 ? '' : '0') + timeSlot.hour + ':00' }}
-          </span>
-        </div>
-        <!-- show a row for each day -->
-        <div
-          fxFlex
-          *ngFor="let dataDaily of weatherData?.listByDate | keyvalue"
-          [@showTimeSlot]="listByDateLength * timeTemplate.length"
+      <div #gridContainer fxFlex class="grid-container scroll-this">
+        <span
+          fxLayoutAlign="center center"
+          class="table-header-background"
+          *ngFor="let timeSlot of timeTemplate; index as ind"
+          [ngStyle]="{
+            'background-color': timeTemplate[ind].bgColor,
+            color: timeTemplate[ind].textColor,
+            border: (isCurrentTimeSlot(timeSlot) ? '1' : '0') + 'px solid black'
+          }"
         >
-          <!-- show each timeslot in the day's row -->
-          <span
-            fxFlex
-            fxLayout="row"
-            *ngFor="let timeSlot of timeTemplate; index as ind"
-          >
+          {{ (timeSlot.hour > 9 ? '' : '0') + timeSlot.hour + ':00' }}
+        </span>
+
+        <ng-container
+          *ngFor="let dataDaily of weatherData?.listByDate | keyvalue"
+        >
+          <ng-container *ngFor="let timeSlot of timeTemplate; index as ind">
             <span
-              fxFlex
-              class="table-cell_data_empty-background"
               *ngIf="!dataDaily.value[timeSlot.hour]"
+              class="table-cell_data-background"
             ></span>
+
             <span
-              fxFlex
               *ngIf="dataDaily.value[timeSlot.hour]"
               class="table-cell_data-background"
               [ngStyle]="{
@@ -196,8 +175,8 @@
                 </span>
               </div>
             </span>
-          </span>
-        </div>
+          </ng-container>
+        </ng-container>
       </div>
       <!-- Hours columns-->
     </div>

@@ -3,15 +3,6 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
-import {
-  trigger,
-  // state,
-  style,
-  animate,
-  transition,
-  query,
-  stagger
-} from '@angular/animations';
 import { Observable, Subscription } from 'rxjs';
 import { take, filter, map, distinctUntilKeyChanged } from 'rxjs/operators';
 
@@ -25,31 +16,12 @@ import { ErrorsService } from '../../services/errors.service';
 import { IOwmData } from 'src/app/models/owm-data.model';
 
 @Component({
-  selector: 'app-forecast-flex',
-  templateUrl: './forecast-flex.component.html',
-  styleUrls: ['./forecast-flex.component.css'],
-  animations: [
-    trigger('showTimeSlot', [
-      transition(':enter', [
-        query(
-          ':enter',
-          [
-            style({ opacity: 0 }),
-            stagger('0.1s', [
-              animate(
-                '0.3s',
-                style({ opacity: 1 })
-              )
-            ])
-          ],
-          { optional: true }
-        )
-      ])
-    ])
-  ]
+  selector: 'app-forecast-grid',
+  templateUrl: './forecast-grid.component.html',
+  styleUrls: ['./forecast-grid.component.css'],
 })
 
-export class ForecastFlexComponent implements OnInit, OnDestroy {
+export class ForecastGridComponent implements OnInit, OnDestroy {
 
   timeTemplate: ITimeTemplate[] = ConstantsService.timeTemplate;
   iconsUrl: string = ConstantsService.owmIconsUrl;
@@ -133,11 +105,10 @@ export class ForecastFlexComponent implements OnInit, OnDestroy {
     return fullHeightColumn.clientHeight - gridContainer.clientHeight;
   }
 
-
   addError(custom: string, errorMessage: string) {
     const errorLog: AppErrorPayloadModel = {
       userMessage: 'Connection or service problem. Please reload or try later.',
-      logMessage: `ForecastFlexComponent: ${custom}: ${errorMessage}`
+      logMessage: `ForecastGridComponent: ${custom}: ${errorMessage}`
     };
     this._errors.add(errorLog);
   }

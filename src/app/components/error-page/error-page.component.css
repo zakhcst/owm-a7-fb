@@ -7,12 +7,4 @@
   background-size: contain;
   color: lightslategray;
   background-color: darkslategrey;
-  /* background-image: radial-gradient(
-      circle at 100%,
-      #000,
-      #333 25%,
-      #eee 50%,
-      transparent 75%
-    ) */
-  /* url("/assets/misc/starfield.png") */
 }

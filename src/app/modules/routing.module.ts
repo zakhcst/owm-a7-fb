@@ -8,8 +8,9 @@ import { HeaderToolbarComponent } from 'src/app/components/header-toolbar/header
 import { HeaderToolbarModule } from '../components/header-toolbar/header-toolbar.module';
 
 const stats = { path: 'stats', title: 'Stats', type: 'button' };
-const gchart = { path: 'forecast-gchart', title: 'GChart', type: 'button' };
+const forecastGChart = { path: 'forecast-gchart', title: 'GChart', type: 'button' };
 const forecastFlex = { path: 'forecast-flex', title: 'Flex', type: 'button' };
+const forecastGrid = { path: 'forecast-grid', title: 'Grid', type: 'button' };
 const forecastAll = { path: '/forecast-all', title: 'All', type: 'button' };
 const selectCities = { path: '', title: 'selectCities', type: 'selectCities' };
 
@@ -19,45 +20,53 @@ const appRoutes: Routes = [
     component: HeaderToolbarComponent,
     data: {
       toolbarActions: {
-        stats: [
+        'stats': [
           forecastFlex,
-          gchart,
+          forecastGrid,
+          forecastGChart,
           forecastAll,
         ],
         'forecast-flex': [
           selectCities,
           stats,
-          gchart,
+          forecastGrid,
+          forecastGChart,
+          forecastAll,
+        ],
+        'forecast-grid': [
+          selectCities,
+          stats,
+          forecastFlex,
+          forecastGChart,
           forecastAll,
         ],
         'forecast-gchart': [
           selectCities,
           stats,
           forecastFlex,
+          forecastGrid,
           forecastAll,
         ]
-        // stats1: { stats: true, text: true, all: true },
-        // 'forecast-Flex': {
-        //   stats: 'button',
-        //   'forecast-all': 'button',
-        //   selectCities: 'selectCities',
-        //   'google-chart': 'button'
-        // }
       }
     },
     children: [
       {
-        path: 'stats',
+        path: stats.path,
         loadChildren: 'src/app/components/stats/stats.module#StatsModule',
         pathMatch: 'full'
       },
       {
-        path: 'forecast-flex',
+        path: forecastFlex.path,
         loadChildren: 'src/app/components/forecast-flex/forecast-flex.module#ForecastFlexModule',
         pathMatch: 'full'
       },
       {
-        path: 'forecast-gchart',
+        path: forecastGrid.path,
+        loadChildren: 'src/app/components/forecast-grid/forecast-grid.module#ForecastGridModule',
+        pathMatch: 'full'
+      },
+      {
+        path: forecastGChart.path,
         loadChildren: 'src/app/components/forecast-gchart/forecast-gchart.module#ForecastGChartModule',
         pathMatch: 'full'
       },

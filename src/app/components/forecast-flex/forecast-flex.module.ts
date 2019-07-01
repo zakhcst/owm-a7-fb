@@ -9,17 +9,13 @@ const componentRoutes: Routes = [
   {
     path: '',
     component: ForecastFlexComponent,
-    resolve: { cities: ResolverCitiesService },
+    resolve: { cities: ResolverCitiesService }
   }
 ];
 
 @NgModule({
-  declarations: [ForecastFlexComponent,
-  ],
-  imports: [
-    RouterModule.forChild(componentRoutes),
-    SharedModule
-  ],
-  exports: [RouterModule],
+  declarations: [ForecastFlexComponent],
+  imports: [RouterModule.forChild(componentRoutes), SharedModule],
+  exports: [RouterModule]
 })
-export class ForecastFlexModule { }
+export class ForecastFlexModule {}

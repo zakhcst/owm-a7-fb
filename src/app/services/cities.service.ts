@@ -33,7 +33,7 @@ export class CitiesService {
     const ref = this._db.object(`/stats/${cityId}`);
     return ref.valueChanges().pipe(
       take(1),
-      switchMap((city: ICity) => {
+      switchMap((city: any) => {
         return from(ref.update({ reads: (city && city.reads || 0) + 1 }));
       }),
       catchError(err => {
