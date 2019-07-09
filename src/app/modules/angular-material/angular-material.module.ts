@@ -15,7 +15,7 @@ import {
   MatToolbarModule,
   // MatListModule,
   // MatSortModule,
-  // MatSlideToggleModule
+  MatSlideToggleModule,
 } from '@angular/material';
 
 @NgModule({
@@ -27,6 +27,7 @@ import {
     MatCardModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatSlideToggleModule,
   ],
   exports: [
     CommonModule,
@@ -36,6 +37,7 @@ import {
     MatCardModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatSlideToggleModule,
   ]
 })
 export class AngularMaterialModule {}

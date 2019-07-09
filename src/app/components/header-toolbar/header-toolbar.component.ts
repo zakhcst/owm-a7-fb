@@ -1,4 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  HostBinding
+} from '@angular/core';
 import { ICities } from '../../models/cities.model';
 import {
   ActivatedRoute,
@@ -6,36 +14,61 @@ import {
   ChildActivationEnd,
   NavigationEnd
 } from '@angular/router';
-import { filter, switchMap, map, tap } from 'rxjs/operators';
+import { MediaObserver } from '@angular/flex-layout';
+import { filter, switchMap, map } from 'rxjs/operators';
 import { combineLatest, Subscription, of } from 'rxjs';
 import { CitiesService } from 'src/app/services/cities.service';
 import { ConstantsService } from 'src/app/services/constants.service';
 import { ErrorsService } from 'src/app/services/errors.service';
 import { HistoryService } from 'src/app/services/history.service';
 import { AppErrorPayloadModel } from 'src/app/states/app.models';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-header-toolbar',
   templateUrl: './header-toolbar.component.html',
   styleUrls: ['./header-toolbar.component.css']
 })
-export class HeaderToolbarComponent implements OnInit, OnDestroy {
+export class HeaderToolbarComponent
+  implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild(MatToolbar) matToolbar: MatToolbar;
+
+  @HostBinding('attr.style')
+  public get valueAsStyle(): any {
+    // console.log('HostBinding');
+    // console.log(' this.toolbarHeight', this.toolbarHeight);
+    if (this.matToolbar) {
+      this.toolbarHeight = this.matToolbar._elementRef.nativeElement.clientHeight;
+    }
+    return this.sanitizer.bypassSecurityTrustStyle(
+      `--toolbar-height: ${this.toolbarHeight}px`
+    );
+  }
+
   toolbarActions: [] = [];
   toolbarShow = true;
   cities: ICities;
   selectedCityId: string = ConstantsService.defaultCityId;
   subscriptions: Subscription;
   showActionButtonsXS = false;
+  xs = false;
+  eventPathEndSegment = '';
+  activeActionButtonBg = 'red';
+  allowedActionButtonBg = 'green';
+  toolbarHeight: number;
 
   constructor(
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
     private _cities: CitiesService,
     private _history: HistoryService,
-    private _errors: ErrorsService
+    private _errors: ErrorsService,
+    public mediaObserver: MediaObserver,
+    private sanitizer: DomSanitizer,
   ) {
     const eventNavigationEnd = this._router.events.pipe(
-      filter((event) => event instanceof NavigationEnd),
+      filter(event => event instanceof NavigationEnd),
       map(
         (event: ChildActivationEnd) =>
           event['urlAfterRedirects'].split('/').pop() ||
@@ -49,37 +82,57 @@ export class HeaderToolbarComponent implements OnInit, OnDestroy {
     ])
       .pipe(
         switchMap(([activatedRouteData, eventPathEndSegment]) => {
-          if (eventPathEndSegment in activatedRouteData.toolbarActions &&
-            this.toolbarActions !== activatedRouteData.toolbarActions[eventPathEndSegment]
+          if (
+            eventPathEndSegment in activatedRouteData.toolbarActions &&
+            this.toolbarActions !==
+              activatedRouteData.toolbarActions[eventPathEndSegment]
           ) {
-            this.toolbarActions = activatedRouteData.toolbarActions[eventPathEndSegment];
+            this.toolbarActions =
+              activatedRouteData.toolbarActions[eventPathEndSegment];
+            this.eventPathEndSegment = eventPathEndSegment;
             this.toolbarShow = true;
-            const hasSelectCities = this.toolbarActions.some(action => action['type'] === 'selectCities');
-            return hasSelectCities && !this.cities && this._cities.getData() || of(null);
+            const hasSelectCities = this.toolbarActions.some(
+              action => action['type'] === 'selectCities'
+            );
+            return (
+              (hasSelectCities && !this.cities && this._cities.getData()) ||
+              of(null)
+            );
           }
           this.toolbarShow = false;
           return of(null);
         })
       )
-      .subscribe(cities => {
-        if (cities) {
-          this.cities = cities;
-          this.selectionChange(null);
-        }
-      },
+      .subscribe(
+        cities => {
+          if (cities) {
+            this.cities = cities;
+            this.selectionChange(null);
+          }
+        },
         err => {
           this.addError('ngOnInit: onChange: subscribe', err.message);
-        });
+        }
+      );
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.toolbarHeight = this.matToolbar._elementRef.nativeElement.clientHeight;
+  }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
   }
 
-  toggleActionButtonsXS($event) {
-    this.showActionButtonsXS = this.showActionButtonsXS ? false : true;
+  isXs() {
+    return this.mediaObserver.isActive('xs');
+  }
+
+  toggleActionButtonsXS($event: any) {
+    this.showActionButtonsXS =
+      this.isXs() && this.showActionButtonsXS ? false : true;
   }
 
   hideActionButtonsXS($event) {

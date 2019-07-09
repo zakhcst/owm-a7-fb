@@ -6,6 +6,7 @@ import { StatsComponent } from './stats.component';
 import { ResolverCitiesService } from '../../modules/routing-resolvers/resolver-cities.service';
 import { ResolverIpService } from '../../modules/routing-resolvers/resolver-ip.service';
 import { ResolverStatsService } from '../../modules/routing-resolvers/resolver-stats.service';
+import { ResolverHistoryLogService } from '../../modules/routing-resolvers/resolver-history-log.service';
 
 const componentRoutes: Routes = [
   {
@@ -15,6 +16,7 @@ const componentRoutes: Routes = [
       ip: ResolverIpService,
       cities: ResolverCitiesService,
       stats: ResolverStatsService,
+      historyLog: ResolverHistoryLogService,
     }
   }
 ];

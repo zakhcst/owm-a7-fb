@@ -1,0 +1,13 @@
+<a
+  mat-button
+  mat-mini-fab
+  class="button-action"
+  [disabled]="disabled"
+  [ngStyle]="{
+    color: 'white',
+    background: disabled ? selectedActionButtonBg : actionButtonBg,
+    'font-size': '60%',
+    margin: xs ? '10px 0 0 0' : '0 0 0 10px'
+  }"
+  [routerLink]="[action['path']]"
+  >{{ action['title'] }}</a>

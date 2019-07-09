@@ -1,7 +1,6 @@
 .forecast-card {
-  height: calc(100vh - 94px);
+  height: 100%;
   padding: 5px;
-  margin: 10px;
 }
 
 .content {

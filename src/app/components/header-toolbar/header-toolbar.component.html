@@ -1,12 +1,16 @@
-<mat-toolbar color="primary" class="mat-toolbar-header" *ngIf="toolbarShow">
-  <span
-    fxHide.gt-xs
-    style="font-size: 1.5rem"
-    (click)="toggleActionButtonsXS($event)"
-    >&#9776;&nbsp;</span
-  >
+<mat-toolbar
+  class="toolbar"
+  color="primary"
+  *ngIf="toolbarShow"
+>
 
-  <span>OWM Forecast</span>
+  <span (click)="toggleActionButtonsXS($event)"
+  >
+    <span fxHide.gt-xs style="font-size: 1.5rem">
+      &#9776;&nbsp;
+    </span>
+    OWM Forecast
+  </span>
   <span class="header-actions-container">
     <ng-container *ngFor="let action of toolbarActions">
       <mat-form-field
@@ -33,34 +37,28 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <a
-        fxHide.xs
-        mat-button
-        mat-mini-fab
-        [routerLink]="[action['path']]"
-        class="header-action"
-        *ngIf="action['type'] === 'button'"
-        >{{ action['title'] }}</a
-      >
+
+      <app-action-button
+        *ngIf="isXs() === false && action['type'] === 'button'"
+        [action]="action"
+        [disabled]="eventPathEndSegment === action['path']"
+        [xs]="false"
+        ></app-action-button>
     </ng-container>
   </span>
 </mat-toolbar>
 
 <div class="header-actions-container-xs" *ngIf="showActionButtonsXS === true">
   <ng-container *ngFor="let action of toolbarActions">
-    <!-- mat-button -->
-    <button
-      fxHide.gt-xs
-      mat-mini-fab
-      [routerLink]="[action['path']]"
-      class="header-action-xs"
-      *ngIf="action['type'] === 'button'"
-    >
-      {{ action['title'] }}
-    </button>
+      <app-action-button
+      *ngIf="isXs() === true && action['type'] === 'button'"
+      [action]="action"
+      [disabled]="eventPathEndSegment === action['path']"
+      [xs]="true"
+      ></app-action-button>
   </ng-container>
 </div>
 
-<div (click)="hideActionButtonsXS($event)">
+<div class="container-toolbar-outlet" (click)="hideActionButtonsXS($event)">
   <router-outlet></router-outlet>
 </div>

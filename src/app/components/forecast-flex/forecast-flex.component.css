@@ -1,7 +1,6 @@
 .forecast-card {
-  height: calc(100vh - 94px);
+  height: 100%;
   padding: 5px;
-  margin: 10px;
 }
 
 .content {
@@ -41,9 +40,10 @@
   padding: 2px 0 2px 0;
   transition: 0.1s;
 }
+
 .table-cell_data-background:hover {
-  /* transform: rotateX(360deg); */
-  transform:  scale(0.9);
+  transform: scale(0.95);
+  font-weight: bold;
 }
 
 .table-secondary_data_line {

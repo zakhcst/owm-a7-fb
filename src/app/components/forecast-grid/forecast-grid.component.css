@@ -1,7 +1,6 @@
 .forecast-card {
-  height: calc(100vh - 94px);
+  height: 100%;
   padding: 5px;
-  margin: 10px;
   --header-cell-height: 40px;
   --data-cell-min-width: 120px;
 }
@@ -9,6 +8,7 @@
 .content {
   font-size: 16px;
 }
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(8, minmax(var(--data-cell-min-width), 1fr));
@@ -40,8 +40,8 @@
   transition: 0.1s;
 }
 .table-cell_data-background:hover {
-  transform:  scale(0.9);
-
+  transform: scale(0.95);
+  font-weight: bold;
 }
 
 .table-secondary_data_line {

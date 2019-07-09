@@ -3,13 +3,16 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../modules/shared.module';
 import { HeaderToolbarComponent } from './header-toolbar.component';
+import { ActionButtonComponent } from '../action-button/action-button.component';
 
 @NgModule({
-  declarations: [HeaderToolbarComponent],
-  imports: [
+  declarations: [HeaderToolbarComponent, ActionButtonComponent],
+  imports: [RouterModule, SharedModule],
+  exports: [
     RouterModule,
-    SharedModule
-  ],
-  exports: [RouterModule, SharedModule, HeaderToolbarComponent]
+    SharedModule,
+    HeaderToolbarComponent,
+    ActionButtonComponent
+  ]
 })
-export class HeaderToolbarModule { }
+export class HeaderToolbarModule {}

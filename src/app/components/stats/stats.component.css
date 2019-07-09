@@ -1,15 +1,17 @@
 .stats-card {
-  height: calc(100vh - 94px);
+  height: 100%;
   padding: 10px;
-  margin: 10px;
   background-color: #ddf;
-  /* font-size: 10px; */
   overflow-y: overlay;
   z-index: 0;
 }
 
 .odd {
   background-color: #ccf;
+}
+
+.scroll-this {
+  overflow: auto;
 }
 
 .truncate {
@@ -20,4 +22,22 @@
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+@media only screen and (max-height: 599px) {
+  .stats-card {
+    font-size: 60%;
+  }
+}
+
+@media only screen and (min-height: 600px) {
+  .stats-card {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (min-height: 800px) {
+  .stats-card {
+    font-size: 100%;
+  }
 }
