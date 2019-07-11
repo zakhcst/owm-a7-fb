@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import {
   trigger,
-  // state,
   style,
   animate,
   transition,
@@ -26,7 +25,7 @@ import { ITimeTemplate } from '../../models/hours.model';
 import { ConstantsService } from '../../services/constants.service';
 import { OwmDataService } from '../../services/owm-data.service';
 import { ErrorsService } from '../../services/errors.service';
-import { IOwmData } from 'src/app/models/owm-data.model';
+import { IOwmData } from '../../models/owm-data.model';
 
 @Component({
   selector: 'app-forecast-flex',
@@ -58,12 +57,6 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('gridContainer') gridContainer: ElementRef;
 
   timeTemplate: ITimeTemplate[] = ConstantsService.timeTemplate;
-  iconsUrl: string = ConstantsService.owmIconsUrl;
-  iconsOwm: string = ConstantsService.iconsOwm;
-  iconWind: string = ConstantsService.iconWind;
-  iconHumidity: string = ConstantsService.iconHumidity;
-  iconPressure: string = ConstantsService.iconPressure;
-  arrow000Deg: string = ConstantsService.arrow000Deg;
   cardBackground: string;
   dateColumnTextColor: string;
 
@@ -71,7 +64,7 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
   loadingStats = true;
   loadingError = false;
 
-  weatherData: any;
+  weatherData: IOwmData;
   listByDateLength = 0;
   weatherData$: Observable<IOwmData>;
   weatherDataSubscription: Subscription;
@@ -104,6 +97,10 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
     this.weatherDataSubscription.unsubscribe();
   }
 
+  ngAfterViewInit() {
+    this.hasScrollbar();
+  }
+
   onChange(eventSelectedCityId: string) {
     this.loadingOwmData = true;
     this.weatherData$ = this._data.getData(eventSelectedCityId).pipe(take(1));
@@ -126,21 +123,14 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   setCardBg2TimeSlotBg() {
-    const hour = new Date().getHours();
-    const timeSlot = this.timeTemplate.find(
-      timeSlotStart =>
-        timeSlotStart.hour <= hour && timeSlotStart.hour + 3 > hour
-    );
+    const timeSlot = this.timeTemplate.find(this.isCurrentTimeSlot);
     this.cardBackground = timeSlot.bgColor;
     this.dateColumnTextColor = timeSlot.textColor;
   }
+
   isCurrentTimeSlot(timeSlot: ITimeTemplate): boolean {
     const hour = new Date().getHours();
     return timeSlot.hour <= hour && hour < timeSlot.hour + 3;
-  }
-
-  ngAfterViewInit() {
-    this.hasScrollbar();
   }
 
   hasScrollbar() {
