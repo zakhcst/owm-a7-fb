@@ -11,9 +11,7 @@
     <!-- A row of Day/Date & Hours columns-->
     <div fxFlex fxLayout="row" [fxHide]="loadingOwmData">
       <!-- Day/Date column-->
-      <div #fullHeightColumn></div>
-
-      <div fxLayout="column">
+      <div #fullHeightColumn fxLayout="column">
         <div
           fxFlex
           class="table-column_0"
@@ -33,12 +31,11 @@
           </span>
         </div>
         <div
-          id="scroll-bar-filler"
-          *ngIf="scrollbarHeight(fullHeightColumn, gridContainer) > 0"
+          id="scrollbar-infill"
           [ngStyle]="{
-            height: scrollbarHeight(fullHeightColumn, gridContainer) + 'px'
+            height: scrollbarHeight + 'px'
           }"
-        ></div>
+          ></div>
       </div>
       <!-- / Day/Date column-->
 

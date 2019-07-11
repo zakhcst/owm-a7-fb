@@ -2,6 +2,10 @@ import {
   Component,
   OnInit,
   OnDestroy,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  HostListener,
 } from '@angular/core';
 import {
   trigger,
@@ -49,7 +53,9 @@ import { IOwmData } from 'src/app/models/owm-data.model';
   ]
 })
 
-export class ForecastFlexComponent implements OnInit, OnDestroy {
+export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('fullHeightColumn') fullHeightColumn: ElementRef;
+  @ViewChild('gridContainer') gridContainer: ElementRef;
 
   timeTemplate: ITimeTemplate[] = ConstantsService.timeTemplate;
   iconsUrl: string = ConstantsService.owmIconsUrl;
@@ -69,10 +75,13 @@ export class ForecastFlexComponent implements OnInit, OnDestroy {
   listByDateLength = 0;
   weatherData$: Observable<IOwmData>;
   weatherDataSubscription: Subscription;
+  scrollbarHeight = 0;
 
-  @Select((state: any) => state.activity) activity$: Observable<
-    AppHistoryModel
-  >;
+  @Select((state: any) => state.activity) activity$: Observable<AppHistoryModel>;
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.hasScrollbar();
+  }
 
   constructor(private _data: OwmDataService, private _errors: ErrorsService) { }
 
@@ -106,6 +115,7 @@ export class ForecastFlexComponent implements OnInit, OnDestroy {
 
         this.loadingOwmData = false;
         this.setCardBg2TimeSlotBg();
+        this.hasScrollbar();
       },
       err => {
         this.loadingOwmData = false;
@@ -124,15 +134,23 @@ export class ForecastFlexComponent implements OnInit, OnDestroy {
     this.cardBackground = timeSlot.bgColor;
     this.dateColumnTextColor = timeSlot.textColor;
   }
-  isCurrentTimeSlot(timeSlot) {
+  isCurrentTimeSlot(timeSlot: ITimeTemplate): boolean {
     const hour = new Date().getHours();
     return timeSlot.hour <= hour && hour < timeSlot.hour + 3;
   }
 
-  scrollbarHeight(fullHeightColumn, gridContainer) {
-    return fullHeightColumn.clientHeight - gridContainer.clientHeight;
+  ngAfterViewInit() {
+    this.hasScrollbar();
   }
 
+  hasScrollbar() {
+    if (this.fullHeightColumn) {
+      setTimeout(() => {
+        this.scrollbarHeight =
+          this.fullHeightColumn.nativeElement.clientHeight - this.gridContainer.nativeElement.clientHeight;
+      }, 0);
+    }
+  }
 
   addError(custom: string, errorMessage: string) {
     const errorLog: AppErrorPayloadModel = {

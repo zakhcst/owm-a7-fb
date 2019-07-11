@@ -36,8 +36,6 @@ export class HeaderToolbarComponent
 
   @HostBinding('attr.style')
   public get valueAsStyle(): any {
-    // console.log('HostBinding');
-    // console.log(' this.toolbarHeight', this.toolbarHeight);
     if (this.matToolbar) {
       this.toolbarHeight = this.matToolbar._elementRef.nativeElement.clientHeight;
     }

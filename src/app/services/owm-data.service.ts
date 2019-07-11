@@ -6,12 +6,14 @@ import { DataService } from './data.service';
 import { CitiesService } from './cities.service';
 import { OwmFallbackDataService } from './owm-fallback-data.service';
 import { ErrorsService } from './errors.service';
-import { IOwmData } from '../models/owm-data.model';
+import { IOwmData, IOwmDataObjectByCityId } from '../models/owm-data.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OwmDataService {
+  private cachedData: IOwmDataObjectByCityId = {};
+
   constructor(
     private _owm: OwmService,
     private _fb: DataService,
@@ -25,21 +27,31 @@ export class OwmDataService {
   // The additional logic for processing/reformating the data
   // is required in the front end in order to avoid
   // Firebase Cloud Functions outbound http requests
-  getData(cityId: string): Observable<IOwmData>  {
+  getData(cityId: string): Observable<IOwmData> {
+    if (this.cachedData[cityId] && this.isNotExpired(this.cachedData[cityId])) {
+      return of(this.cachedData[cityId]);
+    }
+
     return this._cities.updateReads(cityId).pipe(
       switchMap(() => from(this._fb.getData(cityId))),
       switchMap((fbdata: IOwmData) => {
         if (fbdata !== null && this.isNotExpired(fbdata)) {
+          this.cachedData[cityId] = fbdata;
           return of(fbdata);
         }
-        return this.requestNewOwmData(cityId).pipe(switchMap(() => of(fbdata)));
+        return this.requestNewOwmData(cityId).pipe(
+          switchMap(() => {
+            return of(fbdata);
+          })
+        );
       }),
       catchError(err => {
         this._errors.add({
           userMessage: 'Connection or service problem',
-          logMessage: 'OwmDataService:getData:_fb.getData: ' + (err.message || err)
+          logMessage:
+            'OwmDataService:getData:_fb.getData: ' + (err.message || err)
         });
-        return this._owmFallback.getData();
+        return this.cachedData[cityId] ? of(this.cachedData[cityId]) : this._owmFallback.getData();
       })
     );
   }
@@ -47,7 +59,10 @@ export class OwmDataService {
   requestNewOwmData(cityId: string) {
     return this._owm.getData(cityId).pipe(
       map((res: IOwmData) => this.setListByDate(res)),
-      switchMap(res => from(this._fb.setData(cityId, res))),
+      tap(listByDate => {
+        this.cachedData[cityId] = listByDate;
+      }),
+      switchMap(res => from(this._fb.setData(cityId, res)))
     );
   }
 

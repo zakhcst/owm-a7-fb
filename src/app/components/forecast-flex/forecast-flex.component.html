@@ -9,9 +9,9 @@
   <div fxLayout="column" fxFill class="content" *ngSwitchCase="false">
     <!-- A row of Day/Date & Hours columns-->
     <div fxFlex fxLayout="row" [fxHide]="loadingOwmData">
-      <div #fullHeightColumn></div>
       <!-- Day/Date column-->
       <div
+        #fullHeightColumn
         class="table-column_0"
         fxLayout="column"
         [ngStyle]="{ color: dateColumnTextColor }"
@@ -42,12 +42,11 @@
           </div>
         </div>
         <div
-          id="scroll-bar-filler"
-          *ngIf="scrollbarHeight(fullHeightColumn, gridContainer) > 0"
+          id="scrollbar-infill"
           [ngStyle]="{
-            height: scrollbarHeight(fullHeightColumn, gridContainer) + 'px'
+            height: scrollbarHeight + 'px'
           }"
-        ></div>
+          ></div>
       </div>
       <!-- / Day/Date column-->
 
@@ -101,11 +100,11 @@
             >
               <div fxFlex="25%" fxLayout="row" fxLayoutAlign="center center">
                 <img
-                  [src]="
-                    iconsOwm +
-                    dataDaily.value[timeSlot.hour].weather[0].icon +
-                    '.png'
-                  "
+                [src]="
+                iconsOwm +
+                dataDaily.value[timeSlot.hour].weather[0].icon +
+                '.png'
+                "
                 />
                 {{ dataDaily.value[timeSlot.hour].weather[0].main }}
                 {{

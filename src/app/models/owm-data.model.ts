@@ -10,6 +10,10 @@ export interface IOwmData {
   };
 }
 
+export interface IOwmDataObjectByCityId {
+  [cityId: string]: IOwmData;
+}
+
 export interface IOwmCity {
   coord: ICoords;
   country: string;
