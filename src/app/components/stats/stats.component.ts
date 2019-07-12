@@ -4,14 +4,12 @@ import { IOwmStats } from 'src/app/models/owm-stats.model';
 import { ICities } from 'src/app/models/cities.model';
 import {
   trigger,
-  // state,
   style,
   animate,
   transition,
   query,
   stagger
 } from '@angular/animations';
-import { IHistoryLog } from 'src/app/models/history-log.model';
 
 @Component({
   selector: 'app-stats',
@@ -48,34 +46,12 @@ export class StatsComponent implements OnInit {
     this._route.data.subscribe(data => {
       this.ip = data.ip;
       this.stats = data.stats;
-      this.cities = {
-        ...data.cities,
-        // ...Object.fromEntries(
-        //   Object.entries(data.cities).map(ent => {
-        //     ent[0] = ent[0] + 'xx';
-        //     return ent;
-        //   })
-        // )
-      };
+      this.cities = data.cities;
       this.citiesLength = Object.keys(data.cities).length;
-      this.historyLog = {
-        ...data.historyLog,
-        // ...Object.fromEntries(
-        //   Object.entries(data.historyLog).map(ent => {
-        //     ent[0] = ent[0] + 'xx';
-        //     return ent;
-        //   })),
-        // ...Object.fromEntries(
-        //   Object.entries(data.historyLog).map(ent => {
-        //     ent[0] = ent[0] + 'xxxxx';
-        //     return ent;
-        //   })),
-      };
-      // Object.entries(data.historyLog).reduce((acc, ipEntry ) => {
-      //   const timeEntries = Object.entries(ip)
-      //   acc.push({});
-      //   return acc;
-      // }, []);
+      this.historyLog = Object.entries(data.historyLog).map((ent: any[]) => {
+        ent[1] = Object.entries(ent[1]).sort((a, b) => (a[0] < b[0] ? 1 : -1));
+        return ent;
+      }).sort((a, b) => (a[1][0] < b[1][0] ? 1 : -1));
     });
   }
 }

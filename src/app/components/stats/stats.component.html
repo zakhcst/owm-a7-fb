@@ -22,6 +22,7 @@
         <span fxFlex>Date</span>
         <span fxFlex>Time</span>
         <span fxFlex>City</span>
+        <span fxFlex>#</span>
       </div>
       <hr />
       <div
@@ -30,47 +31,44 @@
         class="scroll-this"
         [@showStats]="citiesLength"
       >
-        <!-- <div
-          *ngFor="let logEntryIp of historyLog | keyvalue; let odd = odd"
-          fxLayout="row"
-          fxLayoutAlign="start center"
-          [class.odd]="odd"
-        >
-          <span fxFlex>{{ logEntryIp.key | replace: '-':'.' }}</span>
-          <span fxFlex>{{ (logEntryIp.value | keyvalue)[0].key | date: 'dd/MM/yyyy' }}</span>
-          <span fxFlex>{{ (logEntryIp.value | keyvalue)[0].key | date: 'HH:mm' }}</span>
-          <span fxFlex>{{ cities[(logEntryIp.value | keyvalue)[0].value].name }}</span>
-
-        </div> -->
         <ng-container
-        *ngFor="let logEntryIp of historyLog | keyvalue; let odd=odd"
+        *ngFor="let logEntryIp of historyLog; let odd=odd"
         >
           <div
             fxLayout="row"
             fxLayoutAlign="start center"
-            [class.odd]="odd"
-            (click)="showDetails[logEntryIp.key] = !showDetails[logEntryIp.key]"
+            [ngClass]="{ odd: (odd && !showDetails[logEntryIp[0]]), selected: showDetails[logEntryIp[0]]}"
+            (click)="showDetails[logEntryIp[0]] = !showDetails[logEntryIp[0]]"
           >
-            <span fxFlex>{{ logEntryIp.key | replace: '-':'.' }}</span>
-            <span fxFlex>{{ (logEntryIp.value | keyvalue | sortKeys:-1)[0].key | date: 'dd/MM/yyyy' }}</span>
-            <span fxFlex>{{ (logEntryIp.value | keyvalue | sortKeys:-1)[0].key | date: 'HH:mm' }}</span>
-            <span fxFlex>{{ cities[(logEntryIp.value | keyvalue)[0].value].name }}</span>
+            <span fxFlex>
+            <span >
+              {{ showDetails[logEntryIp[0]] ? '&#x23F7;' : '&#x23F5;'}}
+            </span>
+            <span >
+              {{ logEntryIp[0] | replace: '-':'.'}}
+            </span>
+            </span>
+            <span fxFlex>{{ logEntryIp[1][0][0] | date: 'dd/MM/yyyy' }}</span>
+            <span fxFlex>{{ logEntryIp[1][0][0] | date: 'HH:mm' }}</span>
+            <span fxFlex>{{ cities[logEntryIp[1][0][1]].name }}</span>
+            <span fxFlex>{{ logEntryIp[1].length }}</span>
           </div>
 
-          <ng-container *ngIf="showDetails[logEntryIp.key]">
+          <ng-container *ngIf="showDetails[logEntryIp[0]]">
             <ng-container
-              *ngFor="let logEntryTime of logEntryIp.value | keyvalue | sortKeys:-1; let oddsub=odd"
+              *ngFor="let logEntryTime of logEntryIp[1]; let oddsub=odd; let ind=index;"
               >
               <div
                 fxLayout="row"
                 fxLayoutAlign="start center"
-                [class.odd]="odd !== oddsub"
-                (click)="showDetails[logEntryIp.key] = !showDetails[logEntryIp.key]"
+                [class.odd]="oddsub"
+                (click)="showDetails[logEntryIp[0]] = !showDetails[logEntryIp[0]]"
               >
                 <span fxFlex></span>
-                <span fxFlex>{{ logEntryTime.key | date: 'dd/MM/yyyy' }}</span>
-                <span fxFlex>{{ logEntryTime.key | date: 'HH:mm:ss' }}</span>
-                <span fxFlex>{{ cities[logEntryTime.value].name }}</span>
+                <span fxFlex>{{ logEntryTime[0] | date: 'dd/MM/yyyy' }}</span>
+                <span fxFlex>{{ logEntryTime[0] | date: 'HH:mm:ss' }}</span>
+                <span fxFlex>{{ cities[logEntryTime[1]].name }}</span>
+                <span fxFlex></span>
               </div>
             </ng-container>
           </ng-container>
