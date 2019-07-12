@@ -7,10 +7,16 @@
 }
 
 .odd {
-  background-color: #ccf;
+  background-color: #ccccff80;
 }
 .selected {
-  background-color: rgb(171, 199, 194);
+  background-color: #bbd5c680;
+}
+.selected-even {
+  background-color: #d5be9580;
+}
+.hovered:hover {
+  background-color: #cf9e9e;
 }
 
 .scroll-this {
