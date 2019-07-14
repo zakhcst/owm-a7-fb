@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
 import { ErrorPageComponent } from 'src/app/components/error-page/error-page.component';
 import { SharedModule } from './shared.module';
 import { HeaderToolbarComponent } from 'src/app/components/header-toolbar/header-toolbar.component';
@@ -81,13 +80,13 @@ const appRoutes: Routes = [
     path: 'forecast-all',
     loadChildren: 'src/app/components/forecast/forecast.module#ForecastModule'
   },
-  { path: 'error', component: ErrorPageComponent },
+  { path: 'error', component: ErrorPageComponent, data: { errorMessage: ' Error Page', redirectPage: '/toolbar/forecast-flex'} },
   { path: '', redirectTo: 'toolbar/forecast-flex', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: ErrorPageComponent, data: { errorMessage: ' Page Not Found', redirectPage: '/toolbar/forecast-flex'} }
 ];
 
 @NgModule({
-  declarations: [PageNotFoundComponent],
+  declarations: [],
   imports: [
     SharedModule,
     RouterModule.forRoot(

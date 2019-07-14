@@ -9,37 +9,41 @@ import { ErrorsService } from './errors.service';
 })
 export class GetBrowserIpService {
   private _cache$: Observable<string>;
+  private ipError = false;
 
-  constructor(private _http: HttpClient, private _errors: ErrorsService) { }
+  constructor(private _http: HttpClient, private _errors: ErrorsService) {}
 
   getIP() {
-    if (!this._cache$) {
+    if (!this._cache$ || this.ipError) {
       this._cache$ = this.requestIP().pipe(
-        switchMap((ipString: string) => {
-          if (this.validateIP(ipString)) {
-            return of(ipString);
-          }
-          return of('ip-error');
-        }),
+        switchMap(this.validateIP),
         catchError(err => {
           this._errors.add({
             userMessage: 'Connection or service problem',
             logMessage: 'GetBrowserIpService: getIP: ' + err.message
           });
-          return of('ip-error');
+          return this.setIPError();
         }),
-        shareReplay(1),
+        shareReplay(1)
       );
     }
     return this._cache$;
   }
 
-  requestIP(): Observable<string> {
-    return this._http
-      .get(ConstantsService.getIpUrl, { responseType: 'text' });
+  setIPError() {
+    this.ipError = true;
+    return of('ip-error');
   }
 
-  validateIP(testString: string): boolean {
-    return ConstantsService.ipv4RE.test(testString);
+  requestIP(): Observable<string> {
+    return this._http.get(ConstantsService.getIpUrl, { responseType: 'text' });
+  }
+
+  validateIP(ipString: string): Observable<string> {
+    if (ConstantsService.ipv4RE.test(ipString)) {
+      this.ipError = false;
+      return of(ipString);
+    }
+    return this.setIPError();
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { timer } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { take, switchMap, map, filter } from 'rxjs/operators';
+import { ConstantsService } from 'src/app/services/constants.service';
 
 @Component({
   selector: 'app-error-page',
@@ -9,19 +10,33 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./error-page.component.css']
 })
 export class ErrorPageComponent implements OnInit {
-  redirectDelay = 6;
-  redirectPage = '/toolbar/forecast-flex';
-  count;
+  redirectPage: string;
+  errorMessage: string;
+  viewCount: number;
 
-  constructor(private _router: Router) { }
+  constructor(
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    timer(0, 1000).pipe(take(this.redirectDelay))
-      .subscribe(count => {
-        this.count = this.redirectDelay - count - 1;
-        if (this.count === 0) {
+    this._activatedRoute.data
+      .pipe(
+        take(1),
+        switchMap(activatedRouteData => {
+          this.errorMessage = activatedRouteData.errorMessage;
+          this.redirectPage = activatedRouteData.redirectPage;
+          return timer(0, 1000);
+        }),
+        take(ConstantsService.redirectDelay + 1),
+        map((timerCount: number) => {
+          this.viewCount = ConstantsService.redirectDelay - timerCount;
+          return timerCount;
+        }),
+        filter((timerCount: number) => timerCount === ConstantsService.redirectDelay)
+      )
+      .subscribe((timerCount: number) => {
           this._router.navigate([this.redirectPage]);
-        }
       });
   }
 }
