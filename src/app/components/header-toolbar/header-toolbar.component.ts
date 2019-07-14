@@ -51,9 +51,6 @@ export class HeaderToolbarComponent
   subscriptions: Subscription;
   showActionButtonsXS = false;
   xs = false;
-  eventPathEndSegment = '';
-  activeActionButtonBg = 'red';
-  allowedActionButtonBg = 'green';
   toolbarHeight: number;
 
   constructor(
@@ -87,7 +84,6 @@ export class HeaderToolbarComponent
           ) {
             this.toolbarActions =
               activatedRouteData.toolbarActions[eventPathEndSegment];
-            this.eventPathEndSegment = eventPathEndSegment;
             this.toolbarShow = true;
             const hasSelectCities = this.toolbarActions.some(
               action => action['type'] === 'selectCities'
