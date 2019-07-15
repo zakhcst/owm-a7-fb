@@ -15,18 +15,20 @@
   fxLayout="column"
   fxLayoutAlign="center center"
 >
-  <div fxFlex="25%" fxLayout="row" fxLayoutAlign="center center">
+  <div fxFlex="25%" fxLayout="row" fxLayoutAlign="center center" class="description">
     <img [src]="iconsOwm + dataDaily[timeSlot.hour].weather[0].icon + '.png'" />
+    <span>
       {{ dataDaily[timeSlot.hour].weather[0].main }}
       {{ dataDaily[timeSlot.hour].main.temp | number: '1.0-0' }}&#176;C
+    </span>
   </div>
 
-  <div fxFlex fxLayout="column">
+  <div fxFlex fxLayout="column" class="details">
     <span
       fxFlex="25%"
       fxLayout="row"
       fxLayoutAlign="start end"
-      class="table-secondary_data_line"
+      class="table-secondary_data_line pressure"
     >
       <img [src]="iconPressure" />
       <span fxFill class="table-secondary_data-opacity">
@@ -41,7 +43,7 @@
       fxFlex="25%"
       fxLayout="row"
       fxLayoutAlign="start end"
-      class="table-secondary_data_line"
+      class="table-secondary_data_line wind"
     >
       <img [src]="iconWind" />
       <span fxFill class="table-secondary_data-opacity" fxLayout="row">
@@ -71,7 +73,7 @@
       fxFlex="25%"
       fxLayout="row"
       fxLayoutAlign="start end"
-      class="table-secondary_data_line"
+      class="table-secondary_data_line humidity"
     >
       <img [src]="iconHumidity" />
       <span fxFill class="table-secondary_data-opacity">

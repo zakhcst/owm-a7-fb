@@ -8,10 +8,115 @@
   margin: 2px;
   padding: 2px 0 2px 0;
   transition: 0.1s;
+  --animation-duration-description: 6s;
+  --animation-duration-details: 3s;
 }
 
 .table-cell_data-background:hover {
   transform: scale(0.95);
+}
+
+.table-cell_data-background:hover .description img {
+  position: relative;
+  animation-name: move-image;
+  animation-duration: var(--animation-duration-description);
+}
+@keyframes move-image {
+  0% {
+    top: 0px;
+    left: 0;
+  }
+  25% {
+    top: 25px;
+  }
+  50% {
+    top: 0px;
+    left: 70px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.table-cell_data-background:hover .description span {
+  position: relative;
+  animation-name: move-span;
+  animation-duration: var(--animation-duration-description);
+}
+@keyframes move-span {
+  0% {
+    top: 0px;
+    left: 0;
+  }
+  50% {
+    top: 0px;
+    left: -40px;
+  }
+  100% {
+    top: 0px;
+    left: 0;
+  }
+}
+
+.table-cell_data-background:hover .details .pressure {
+  position: relative;
+  animation-name: move-pressure;
+  animation-duration: var(--animation-duration-details);
+  animation-fill-mode: both;
+}
+@keyframes move-pressure {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 25px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.table-cell_data-background:hover .details .wind {
+  position: relative;
+  animation-name: move-wind;
+  animation-duration: var(--animation-duration-details);
+  animation-fill-mode: both;
+}
+@keyframes move-wind {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 30px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.table-cell_data-background:hover .details .humidity {
+  position: relative;
+  animation-name: move-humidity;
+  animation-duration: var(--animation-duration-details);
+  animation-fill-mode: both;
+}
+@keyframes move-humidity {
+  0% {
+    top: 0px;
+    opacity: 1;
+  }
+  30% {
+    top: 10px;
+    opacity: 0;
+  }
+  70% {
+    top: 10px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 .table-secondary_data_line {
@@ -26,8 +131,6 @@
 .table-secondary_data-opacity {
   opacity: 0.6;
 }
-
-
 
 @media only screen and (max-height: 400px) {
   img {
@@ -77,6 +180,3 @@
     height: auto;
   }
 }
-
-
-
