@@ -58,67 +58,6 @@
   }
 }
 
-.table-cell_data-background:hover .details .pressure {
-  position: relative;
-  animation-name: move-pressure;
-  animation-duration: var(--animation-duration-details);
-  animation-fill-mode: both;
-}
-@keyframes move-pressure {
-  0% {
-    top: 0px;
-  }
-  50% {
-    top: 25px;
-  }
-  100% {
-    top: 0;
-  }
-}
-
-.table-cell_data-background:hover .details .wind {
-  position: relative;
-  animation-name: move-wind;
-  animation-duration: var(--animation-duration-details);
-  animation-fill-mode: both;
-}
-@keyframes move-wind {
-  0% {
-    top: 0px;
-  }
-  50% {
-    top: 30px;
-  }
-  100% {
-    top: 0;
-  }
-}
-
-.table-cell_data-background:hover .details .humidity {
-  position: relative;
-  animation-name: move-humidity;
-  animation-duration: var(--animation-duration-details);
-  animation-fill-mode: both;
-}
-@keyframes move-humidity {
-  0% {
-    top: 0px;
-    opacity: 1;
-  }
-  30% {
-    top: 10px;
-    opacity: 0;
-  }
-  70% {
-    top: 10px;
-    opacity: 0;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-
 .table-secondary_data_line {
   margin: 2px 0 2px 0;
 }
