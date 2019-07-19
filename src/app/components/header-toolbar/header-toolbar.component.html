@@ -1,8 +1,11 @@
 <mat-toolbar class="toolbar" color="primary" *ngIf="toolbarShow">
-  <span (click)="toggleActionButtonsXS($event)">
-    <span fxHide.gt-xs style="font-size: 1.5rem">
-      &#9776;&nbsp;
-    </span>
+  <!-- &#9776;&nbsp;&#x2715; -->
+  <span class="toolbar-menu-toggle-xs" (click)="toggleActionButtonsXS($event)" *ngIf="isXs()">
+    <span class="icon-bar top-bar"    [ngClass]="{'show-action-buttons-xs': showActionButtonsXS}"></span>
+    <span class="icon-bar middle-bar" [ngClass]="{'show-action-buttons-xs': showActionButtonsXS}"></span>
+    <span class="icon-bar bottom-bar" [ngClass]="{'show-action-buttons-xs': showActionButtonsXS}"></span>
+  </span>
+  <span>
     OWM Forecast
   </span>
   <span class="header-actions-container">

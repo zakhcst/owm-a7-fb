@@ -17,11 +17,11 @@ import {
 import { MediaObserver } from '@angular/flex-layout';
 import { filter, switchMap, map } from 'rxjs/operators';
 import { combineLatest, Subscription, of } from 'rxjs';
-import { CitiesService } from 'src/app/services/cities.service';
-import { ConstantsService } from 'src/app/services/constants.service';
-import { ErrorsService } from 'src/app/services/errors.service';
-import { HistoryService } from 'src/app/services/history.service';
-import { AppErrorPayloadModel } from 'src/app/states/app.models';
+import { CitiesService } from '../../services/cities.service';
+import { ConstantsService } from '../../services/constants.service';
+import { ErrorsService } from '../../services/errors.service';
+import { HistoryService } from '../../services/history.service';
+import { AppErrorPayloadModel } from '../../states/app.models';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatToolbar } from '@angular/material/toolbar';
 

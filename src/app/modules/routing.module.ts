@@ -20,34 +20,34 @@ const appRoutes: Routes = [
     data: {
       toolbarActions: {
         'stats': [
-          stats,
           forecastFlex,
           forecastGrid,
           forecastGChart,
+          stats,
           forecastAll,
         ],
         'forecast-flex': [
           selectCities,
-          stats,
           forecastFlex,
           forecastGrid,
           forecastGChart,
+          stats,
           forecastAll,
         ],
         'forecast-grid': [
           selectCities,
-          stats,
           forecastFlex,
           forecastGrid,
           forecastGChart,
+          stats,
           forecastAll,
         ],
         'forecast-gchart': [
           selectCities,
-          stats,
           forecastFlex,
           forecastGrid,
           forecastGChart,
+          stats,
           forecastAll,
         ]
       }

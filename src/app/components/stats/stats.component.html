@@ -4,15 +4,15 @@
       <p>Current client IPv4: {{ ip }}</p>
       <span fxFlex></span>
       <span fxLayout="row" fxLayoutAlign="start center">
-        IP&nbsp;
+        Cities&nbsp;
         <mat-slide-toggle
-          class=""
+          style="transform: rotate(180deg)"
           [color]="'primary'"
           [checked]="checkedCities"
           (toggleChange)="checkedCities = !checkedCities"
         >
-          Cities
-        </mat-slide-toggle>
+      </mat-slide-toggle>
+      &nbsp;IP
       </span>
     </div>
     <br />
