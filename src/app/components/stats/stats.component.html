@@ -47,7 +47,7 @@
             }"
             (click)="showDetails[logEntryIp[0]] = !showDetails[logEntryIp[0]]"
           >
-            <span fxFlex>
+            <span fxFlex class="truncate">
               {{ showDetails[logEntryIp[0]] ? '&#x23F7;' : '&#x23F5;' }}
               {{ logEntryIp[0] | replace: '-':'.' }}
             </span>

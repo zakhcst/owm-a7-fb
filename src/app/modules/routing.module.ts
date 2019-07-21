@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
-import { ErrorPageComponent } from 'src/app/components/error-page/error-page.component';
 import { SharedModule } from './shared.module';
-import { HeaderToolbarComponent } from 'src/app/components/header-toolbar/header-toolbar.component';
+import { HeaderToolbarComponent } from '../components/header-toolbar/header-toolbar.component';
 import { HeaderToolbarModule } from '../components/header-toolbar/header-toolbar.module';
+import { ErrorPageComponent } from '../components/error-page/error-page.component';
+// import { HomeComponent } from '../components/home/home.component';
+import { HomeModule } from '../components/home/home.module';
 
 const stats = { path: 'stats', title: 'Stats', type: 'button' };
 const forecastGChart = { path: 'forecast-gchart', title: 'GChart', type: 'button' };
@@ -80,20 +82,25 @@ const appRoutes: Routes = [
     path: 'forecast-all',
     loadChildren: 'src/app/components/forecast/forecast.module#ForecastModule'
   },
-  { path: 'error', component: ErrorPageComponent, data: { errorMessage: ' Error Page', redirectPage: '/toolbar/forecast-flex'} },
-  { path: '', redirectTo: 'toolbar/forecast-flex', pathMatch: 'full' },
-  { path: '**', component: ErrorPageComponent, data: { errorMessage: ' Page Not Found', redirectPage: '/toolbar/forecast-flex'} }
+  {
+    path: 'home',
+    loadChildren: 'src/app/components/home/home.module#HomeModule'
+  },
+  { path: 'error', component: ErrorPageComponent, data: { errorMessage: ' Error Page', redirectPage: 'home'} },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: ErrorPageComponent, data: { errorMessage: ' Page Not Found', redirectPage: 'home'} }
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [ErrorPageComponent],
   imports: [
     SharedModule,
     RouterModule.forRoot(
       appRoutes
       // , { enableTracing: true } // <-- debugging purposes only
     ),
-    HeaderToolbarModule
+    HeaderToolbarModule,
+    HomeModule
   ],
   exports: [SharedModule, RouterModule]
 })

@@ -22,6 +22,8 @@ export class ConstantsService {
   public static readonly iconWind = 'assets/icons8-windsock-16.png';
   public static readonly iconPressure = 'assets/icons8-atmospheric-pressure-16.png';
   public static readonly iconHumidity = 'assets/icons8-hygrometer-16.png';
+  public static readonly iconGithub = 'assets/icon32-github.svg';
+  public static readonly iconExtLink = 'assets/icon24-external-link.svg';
   public static readonly arrow000Deg = String.fromCodePoint(8593);
   public static readonly snackbarDuration = 2500;
   public static readonly redirectDelay = 5;

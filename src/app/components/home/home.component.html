@@ -1,0 +1,81 @@
+<div class="container">
+  <header>
+    <h2>
+      Open Weather Map
+    </h2>
+    <h3>
+      5 Day Forecast
+    </h3>
+  </header>
+
+  <div class="grid-container">
+    <img src="favicon.ico" />
+    <div>Database</div>
+    <div>Hosted</div>
+    <img src="{{ constants.iconGithub }}" />
+
+    <span>7</span>
+    <span>Firebase RTDB</span>
+    <a
+      class="link-action"
+      [routerLink]="['/toolbar/forecast-flex']"
+      routerLinkActive="active"
+      >Firebase</a
+    >
+    <a
+      class="link-action"
+      href="https://github.com/zakhcst/owm-a7-fb"
+      routerLinkActive="active"
+    >
+      <img src="{{ constants.iconExtLink }}" />
+    </a>
+
+    <span>7</span>
+    <span>Firebase RTDB</span>
+    <a
+      class="link-action"
+      href="https://owm-a7-fb.appspot.com/"
+      routerLinkActive="active"
+      >GCP AE(f1)
+    </a>
+    <a
+      class="link-action"
+      href="https://github.com/zakhcst/owm-a7-fb/tree/gcp"
+      routerLinkActive="active"
+    >
+      <img src="{{ constants.iconExtLink }}" />
+    </a>
+
+    <span>6</span>
+    <span>Firebase RTDB</span>
+    <a
+      class="link-action"
+      href="https://owm-a6-fb.firebaseapp.com/"
+      routerLinkActive="active"
+      >Firebase</a
+    >
+    <a
+      class="link-action"
+      href="https://github.com/zakhcst/owm-a6-fb"
+      routerLinkActive="active"
+    >
+      <img src="{{ constants.iconExtLink }}" />
+    </a>
+
+    <span>1.6</span>
+    <span>OWM Requests</span>
+    <a
+      class="link-action"
+      href="https://owm-weather-forecast.firebaseapp.com/"
+      routerLinkActive="active"
+      >Firebase</a
+    >
+    <a
+      class="link-action"
+      href="https://github.com/zakhcst/owm-weather-forecast"
+      routerLinkActive="active"
+    >
+      <img src="{{ constants.iconExtLink }}" />
+    </a>
+  </div>
+</div>

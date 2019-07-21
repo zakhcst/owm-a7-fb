@@ -12,10 +12,10 @@ import { AppRoutingModule } from './modules/routing.module';
 import { AppErrorHandlerService } from './services/app-error-handler.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor.service';
-import { ErrorPageComponent } from './components/error-page/error-page.component';
+
 
 @NgModule({
-  declarations: [AppComponent, AppSnackBarInnerComponent, ErrorPageComponent],
+  declarations: [AppComponent, AppSnackBarInnerComponent],
 
   imports: [
     HttpClientModule,
