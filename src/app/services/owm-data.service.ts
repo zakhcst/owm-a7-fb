@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, from, Observable } from 'rxjs';
+import { of, from, Observable, throwError } from 'rxjs';
 import { switchMap, catchError, map, tap } from 'rxjs/operators';
 import { OwmService } from './owm.service';
 import { DataService } from './data.service';
@@ -62,7 +62,15 @@ export class OwmDataService {
       tap(listByDate => {
         this.cachedData[cityId] = listByDate;
       }),
-      switchMap(res => from(this._fb.setData(cityId, res)))
+      switchMap(res => from(this._fb.setData(cityId, res))),
+      catchError(err => {
+        this._errors.add({
+          userMessage: 'Connection or service problem',
+          logMessage:
+            'OwmDataService:getData:_fb.getData: requestNewOwmData: ' + (err.message || err)
+        });
+        return throwError('CitiesService: updateReads: ' + err);
+      })
     );
   }
 
