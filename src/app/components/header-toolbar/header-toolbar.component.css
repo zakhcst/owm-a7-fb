@@ -2,6 +2,7 @@
   height: calc(100vh - var(--toolbar-height));
   margin: 0;
   padding: 10px;
+  background-image: url('../../../assets/backgroungs/default.jpg');
 }
 
 .toolbar {
@@ -12,7 +13,6 @@
   display: flex;
   flex: 1 1 auto;
   flex-wrap: nowrap;
-  /* font-weight: lighter; */
 }
 
 .header-actions-container {

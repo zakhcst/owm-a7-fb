@@ -1,8 +1,8 @@
 <mat-card
   class="forecast-card"
   [ngSwitch]="loadingError"
-  [ngStyle]="{ 'background-color': cardBackground }"
->
+  >
+  <!-- [ngStyle]="{ 'background-color': cardBackground }" -->
   <div fxLayout="column" fxFill class="content" *ngSwitchCase="true">
     <h3>Connection or service problem. Please reload or try later.</h3>
   </div>

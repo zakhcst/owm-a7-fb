@@ -65,6 +65,7 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.weatherDataSubscription.unsubscribe();
+    this.weatherData.listByDate = this.dataTempHolder;
   }
 
   onChange(eventSelectedCityId: string) {

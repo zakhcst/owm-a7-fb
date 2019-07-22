@@ -1,9 +1,9 @@
 .stats-card {
   height: 100%;
   padding: 10px;
-  background-color: #ddf;
   overflow-y: overlay;
   z-index: 0;
+  background-color: transparent;
 }
 
 .odd {

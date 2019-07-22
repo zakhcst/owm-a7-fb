@@ -3,6 +3,7 @@
   padding: 5px;
   --header-cell-height: 40px;
   --data-cell-min-width: 120px;
+  background: transparent;
 }
 
 .content {

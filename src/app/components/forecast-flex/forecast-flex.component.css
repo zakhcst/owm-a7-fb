@@ -1,6 +1,7 @@
 .forecast-card {
   height: 100%;
   padding: 5px;
+  background: transparent;
 }
 
 .content {
@@ -10,7 +11,8 @@
 .table-header-background {
   min-width: 120px;
   margin: 2px;
-  background-color: rgba(119, 139, 255, 0.575);
+  background-color: #778bff93;
+  box-sizing: border-box;
 }
 
 .table-column_0 {

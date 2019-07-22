@@ -60,7 +60,7 @@
           <ng-container *ngIf="showDetails[logEntryIp[0]]">
             <ng-container
               *ngFor="
-                let logEntryTime of logEntryIp[1];
+                let logEntryTime of logEntryIp[2];
                 let oddsub = odd;
                 let ind = index
               "
@@ -113,7 +113,7 @@
         [@showStats]="citiesLength"
       >
         <div
-          *ngFor="let city of cities | keyvalue; let odd = odd"
+          *ngFor="let city of cities | keyvalue | sortCities ; let odd = odd"
           fxFlex
           fxLayout="row"
           fxLayoutAlign="start center"

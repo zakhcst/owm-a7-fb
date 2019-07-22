@@ -48,10 +48,15 @@ export class StatsComponent implements OnInit {
       this.stats = data.stats;
       this.cities = data.cities;
       this.citiesLength = Object.keys(data.cities).length;
-      this.historyLog = Object.entries(data.historyLog).map((ent: any[]) => {
-        ent[1] = Object.entries(ent[1]).sort((a, b) => (a[0] < b[0] ? 1 : -1));
-        return ent;
-      }).sort((a, b) => (a[1][0] < b[1][0] ? 1 : -1));
+      this.historyLog = Object.entries(data.historyLog)
+        .map((ent: any[]) => {
+          ent[1] = Object.entries(ent[1]).sort((a, b) =>
+            a[0] < b[0] ? 1 : -1
+          );
+          ent[2] = ent[1].length > 10 ? ent[1].splice(0, 10) : ent[1];
+          return ent;
+        })
+        .sort((a, b) => (a[1][0] < b[1][0] ? 1 : -1));
     });
   }
 }

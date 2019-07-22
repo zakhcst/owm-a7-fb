@@ -8,7 +8,7 @@
   *ngIf="dataDaily[timeSlot.hour]"
   class="table-cell_data-background"
   [ngStyle]="{
-    'background-color': timeSlot.bgColor,
+    'background-color': timeSlot.bgColor + '40',
     color: timeSlot.textColor,
     border: (isCurrentTimeSlot ? '1' : '0') + 'px solid black'
   }"

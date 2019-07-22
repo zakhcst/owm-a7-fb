@@ -1,8 +1,9 @@
 <mat-card
   class="forecast-card"
   [ngSwitch]="loadingError"
-  [ngStyle]="{ 'background-color': cardBackground }"
->
+  >
+  <!-- [ngStyle]="{ 'background-color': cardBackground }" -->
+
   <div fxLayout="column" fxFill class="content" *ngSwitchCase="true">
     <h3>Connection or service problem. Please reload or try later.</h3>
   </div>
@@ -60,7 +61,7 @@
             class="table-header-background"
             *ngFor="let timeSlot of timeTemplate; index as ind"
             [ngStyle]="{
-              'background-color': timeTemplate[ind].bgColor,
+              'background-color': timeTemplate[ind].bgColor + '40',
               color: timeTemplate[ind].textColor,
               border:
                 (isCurrentTimeSlot(timeSlot) ? '1' : '0') + 'px solid black'
@@ -75,11 +76,11 @@
           fxLayout="row"
           *ngFor="let dataDaily of weatherData?.listByDate | keyvalue"
           [@showTimeSlot]="listByDateLength * timeTemplate.length"
-        >
+          >
           <!-- show each timeslot in the day's row -->
           <ng-container *ngFor="let timeSlot of timeTemplate; index as ind">
             <app-data-cell
-              fxFlex="1 1 auto"
+              fxFlex
               [dataDaily]="dataDaily.value"
               [timeSlot]="timeSlot"
               [isCurrentTimeSlot]="isCurrentTimeSlot(timeSlot)"
