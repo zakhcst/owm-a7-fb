@@ -56,7 +56,7 @@ export class StatsComponent implements OnInit {
           ent[2] = ent[1].length > 10 ? ent[1].splice(0, 10) : ent[1];
           return ent;
         })
-        .sort((a, b) => (a[1][0] < b[1][0] ? 1 : -1));
+        .sort((a, b) => (a[2][0] < b[2][0] ? 1 : -1));
     });
   }
 }

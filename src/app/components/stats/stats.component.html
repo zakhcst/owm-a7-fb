@@ -51,9 +51,9 @@
               {{ showDetails[logEntryIp[0]] ? '&#x23F7;' : '&#x23F5;' }}
               {{ logEntryIp[0] | replace: '-':'.' }}
             </span>
-            <span fxFlex>{{ logEntryIp[1][0][0] | date: 'dd/MM/yyyy' }}</span>
-            <span fxFlex>{{ logEntryIp[1][0][0] | date: 'HH:mm' }}</span>
-            <span fxFlex>{{ cities[logEntryIp[1][0][1]].name }}</span>
+            <span fxFlex>{{ logEntryIp[2][0][0] | date: 'dd/MM/yyyy' }}</span>
+            <span fxFlex>{{ logEntryIp[2][0][0] | date: 'HH:mm' }}</span>
+            <span fxFlex>{{ cities[logEntryIp[2][0][1]].name }}</span>
             <span fxFlex>{{ logEntryIp[1].length }}</span>
           </div>
 
