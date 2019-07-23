@@ -5,7 +5,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
-  HostListener,
+  HostListener
 } from '@angular/core';
 import {
   trigger,
@@ -16,7 +16,13 @@ import {
   stagger
 } from '@angular/animations';
 import { Observable, Subscription } from 'rxjs';
-import { take, filter, map, distinctUntilKeyChanged } from 'rxjs/operators';
+import {
+  take,
+  filter,
+  map,
+  distinctUntilKeyChanged,
+  tap
+} from 'rxjs/operators';
 
 import { Select } from '@ngxs/store';
 import { AppErrorPayloadModel, AppHistoryModel } from '../../states/app.models';
@@ -38,12 +44,7 @@ import { IOwmData } from '../../models/owm-data.model';
           ':enter',
           [
             style({ opacity: 0 }),
-            stagger('0.1s', [
-              animate(
-                '0.3s',
-                style({ opacity: 1 })
-              )
-            ])
+            stagger('0.1s', [animate('0.3s', style({ opacity: 1 }))])
           ],
           { optional: true }
         )
@@ -51,7 +52,6 @@ import { IOwmData } from '../../models/owm-data.model';
     ])
   ]
 })
-
 export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('fullHeightColumn') fullHeightColumn: ElementRef;
   @ViewChild('gridContainer') gridContainer: ElementRef;
@@ -68,18 +68,21 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
   listByDateLength = 0;
   weatherData$: Observable<IOwmData>;
   weatherDataSubscription: Subscription;
+  activitySubscription: Subscription;
   scrollbarHeight = 0;
 
-  @Select((state: any) => state.activity) activity$: Observable<AppHistoryModel>;
+  @Select((state: any) => state.activity) activity$: Observable<
+    AppHistoryModel
+  >;
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.hasScrollbar();
   }
 
-  constructor(private _data: OwmDataService, private _errors: ErrorsService) { }
+  constructor(private _data: OwmDataService, private _errors: ErrorsService) {}
 
   ngOnInit() {
-    this.activity$
+    this.activitySubscription = this.activity$
       .pipe(
         map(
           activity =>
@@ -94,7 +97,12 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy() {
-    this.weatherDataSubscription.unsubscribe();
+    if (this.weatherDataSubscription) {
+      this.weatherDataSubscription.unsubscribe();
+    }
+    if (this.activitySubscription) {
+      this.activitySubscription.unsubscribe();
+    }
   }
 
   ngAfterViewInit() {
@@ -103,7 +111,9 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onChange(eventSelectedCityId: string) {
     this.loadingOwmData = true;
-    this.weatherData$ = this._data.getData(eventSelectedCityId).pipe(take(1));
+    this.weatherData$ = this._data.getData(eventSelectedCityId).pipe(
+      take(1),
+    );
 
     this.weatherDataSubscription = this.weatherData$.subscribe(
       data => {
@@ -117,7 +127,7 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
       err => {
         this.loadingOwmData = false;
         this.loadingError = true;
-        this.addError('ForecastFlexComponent: ngOnInit: onChange: subscribe', err.message);
+        this.addError('ngOnInit: onChange: subscribe', err.message);
       }
     );
   }
@@ -137,7 +147,8 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.fullHeightColumn) {
       setTimeout(() => {
         this.scrollbarHeight =
-          this.fullHeightColumn.nativeElement.clientHeight - this.gridContainer.nativeElement.clientHeight;
+          this.fullHeightColumn.nativeElement.clientHeight -
+          this.gridContainer.nativeElement.clientHeight;
       }, 0);
     }
   }

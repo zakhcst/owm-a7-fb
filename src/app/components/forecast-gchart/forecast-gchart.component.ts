@@ -38,6 +38,7 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
   weatherData: any;
   weatherData$: Observable<any>;
   weatherDataSubscription: Subscription;
+  activitySubscription: Subscription;
   chart: {} = {};
   dateColumn: ViewContainerRef;
   weatherParams = ConstantsService.weatherParams;
@@ -49,7 +50,7 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
 
   constructor(private _data: OwmDataService, private _errors: ErrorsService) {}
   ngOnInit() {
-    this.activity$
+    this.activitySubscription = this.activity$
       .pipe(
         map(
           activity =>
@@ -64,9 +65,11 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.weatherDataSubscription.unsubscribe();
-    if (Object.keys(this.weatherData.listByDate).length === 1) {
-      this.weatherData.listByDate = this.dataTempHolder;
+    if (this.weatherDataSubscription) {
+      this.weatherDataSubscription.unsubscribe();
+    }
+    if (this.activitySubscription) {
+      this.activitySubscription.unsubscribe();
     }
   }
 
@@ -80,6 +83,7 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
     this.weatherDataSubscription = this.weatherData$.subscribe(
       data => {
         this.weatherData = data;
+        this.weatherData.listByDateActive = this.weatherData.listByDate;
         this.loadingOwmData = false;
         this.setCardBg2TimeSlotBg();
         this.setGChartData();
@@ -205,18 +209,17 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
           }
         },
         legend: 'none',
-        backgroundColor: this.cardBackground
+        backgroundColor: 'transparent'
       };
     });
   }
 
   clickedDay(dataDaily: any) {
-    if (Object.keys(this.weatherData.listByDate).length === 1) {
-      this.weatherData.listByDate = this.dataTempHolder;
+    if (Object.keys(this.weatherData.listByDateActive).length === 1) {
+      this.weatherData.listByDateActive = this.weatherData.listByDate;
     } else {
-      this.dataTempHolder = this.weatherData.listByDate;
-      this.weatherData.listByDate = {};
-      this.weatherData.listByDate[dataDaily.key] = dataDaily.value;
+      this.weatherData.listByDateActive = {};
+      this.weatherData.listByDateActive[dataDaily.key] = dataDaily.value;
     }
   }
 

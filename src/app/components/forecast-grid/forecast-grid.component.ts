@@ -8,7 +8,7 @@ import {
   HostListener
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { take, filter, map, distinctUntilKeyChanged } from 'rxjs/operators';
+import { take, filter, map, distinctUntilKeyChanged, tap } from 'rxjs/operators';
 
 import { Select } from '@ngxs/store';
 import { AppErrorPayloadModel, AppHistoryModel } from '../../states/app.models';
@@ -17,7 +17,7 @@ import { ITimeTemplate } from '../../models/hours.model';
 import { ConstantsService } from '../../services/constants.service';
 import { OwmDataService } from '../../services/owm-data.service';
 import { ErrorsService } from '../../services/errors.service';
-import { IOwmData } from 'src/app/models/owm-data.model';
+import { IOwmData } from '../../models/owm-data.model';
 
 @Component({
   selector: 'app-forecast-grid',
@@ -49,19 +49,17 @@ export class ForecastGridComponent implements OnInit, OnDestroy, AfterViewInit {
   weatherData: any;
   weatherData$: Observable<IOwmData>;
   weatherDataSubscription: Subscription;
+  activitySubscription: Subscription;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.hasScrollbar();
   }
 
-  constructor(
-    private _data: OwmDataService,
-    private _errors: ErrorsService,
-  ) {}
+  constructor(private _data: OwmDataService, private _errors: ErrorsService) {}
 
   ngOnInit() {
-    this.activity$
+    this.activitySubscription = this.activity$
       .pipe(
         map(
           activity =>
@@ -76,7 +74,16 @@ export class ForecastGridComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy() {
-    this.weatherDataSubscription.unsubscribe();
+    if (this.weatherDataSubscription) {
+      this.weatherDataSubscription.unsubscribe();
+    }
+    if (this.activitySubscription) {
+      this.activitySubscription.unsubscribe();
+    }
+  }
+
+  ngAfterViewInit() {
+    this.hasScrollbar();
   }
 
   onChange(eventSelectedCityId: string) {
@@ -109,15 +116,12 @@ export class ForecastGridComponent implements OnInit, OnDestroy, AfterViewInit {
     return timeSlot.hour <= hour && hour < timeSlot.hour + 3;
   }
 
-  ngAfterViewInit() {
-    this.hasScrollbar();
-  }
-
   hasScrollbar() {
     if (this.fullHeightColumn) {
       setTimeout(() => {
         this.scrollbarHeight =
-          this.fullHeightColumn.nativeElement.clientHeight - this.gridContainer.nativeElement.clientHeight;
+          this.fullHeightColumn.nativeElement.clientHeight -
+          this.gridContainer.nativeElement.clientHeight;
       }, 0);
     }
   }

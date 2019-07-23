@@ -24,6 +24,10 @@ export class OwmService {
 
     return this._http.get<IOwmData>(owmRequestUrl).pipe(
       catchError(err => {
+        // openweathermap.org/faq
+        // Q: API calls return an error 429
+        // A: You will get the error 429 if you have FREE tariff and make more than 60 API calls per minute
+        // To do update error message at quota error
         this._errors.add({
           userMessage: 'Connection or service problem',
           logMessage: 'OwmService: getData: ' + err.message

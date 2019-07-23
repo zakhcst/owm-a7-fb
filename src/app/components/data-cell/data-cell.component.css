@@ -15,6 +15,7 @@
 
 .table-cell_data-background:hover {
   transform: scale(0.95);
+  border: 1px solid black;
 }
 
 .table-cell_data-background:hover .description {

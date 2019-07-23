@@ -7,8 +7,7 @@ import {
   shareReplay,
   catchError
 } from 'rxjs/operators';
-import { ICity, ICities } from '../models/cities.model';
-import { cities } from './testing.services.mocks';
+import { ICities } from '../models/cities.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +26,7 @@ export class CitiesService {
   }
 
   updateReads(cityId: string) {
+    console.log('updateReads(cityId: string)', cityId)
     if (!cityId) {
       return throwError('CitiesService: updateReads: CityId not provided');
     }

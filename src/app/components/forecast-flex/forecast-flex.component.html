@@ -62,11 +62,10 @@
             *ngFor="let timeSlot of timeTemplate; index as ind"
             [ngStyle]="{
               'background-color': timeTemplate[ind].bgColor + '40',
-              color: timeTemplate[ind].textColor,
-              border:
-                (isCurrentTimeSlot(timeSlot) ? '1' : '0') + 'px solid black'
+              color: timeTemplate[ind].textColor
             }"
-          >
+            >
+            <!-- border:(isCurrentTimeSlot(timeSlot) ? '1' : '0') + 'px solid black' -->
             {{ (timeSlot.hour > 9 ? '' : '0') + timeSlot.hour + ':00' }}
           </span>
         </div>

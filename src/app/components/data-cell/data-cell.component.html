@@ -9,12 +9,12 @@
   class="table-cell_data-background"
   [ngStyle]="{
     'background-color': timeSlot.bgColor + '40',
-    color: timeSlot.textColor,
-    border: (isCurrentTimeSlot ? '1' : '0') + 'px solid black'
+    color: timeSlot.textColor
   }"
   fxLayout="column"
   fxLayoutAlign="center center"
->
+  >
+  <!-- border: (isCurrentTimeSlot ? '1' : '0') + 'px solid black' -->
   <div fxFlex="25%" fxLayout="row" fxLayoutAlign="center center" class="description">
     <img [src]="iconsOwm + dataDaily[timeSlot.hour].weather[0].icon + '.png'" />
     <span>

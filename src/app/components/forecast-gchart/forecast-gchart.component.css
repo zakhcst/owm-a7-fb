@@ -1,6 +1,7 @@
 .forecast-card {
   height: 100%;
   padding: 5px;
+  background: transparent;
 }
 
 .content {

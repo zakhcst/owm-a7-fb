@@ -1,8 +1,8 @@
 <mat-card
   class="forecast-card"
   [ngSwitch]="loadingError"
-  [ngStyle]="{ 'background-color': cardBackground }"
->
+  >
+  <!-- [ngStyle]="{ 'background-color': cardBackground }" -->
   <div fxLayout="column" fxFill class="content" *ngSwitchCase="true">
     <h3>Connection or service problem. Please reload or try later.</h3>
   </div>
@@ -21,7 +21,7 @@
             fxLayoutAlign="start center"
             class="table-cell_date"
             *ngFor="
-              let dataDaily of weatherData?.listByDate | keyvalue;
+              let dataDaily of weatherData?.listByDateActive | keyvalue;
               index as $index
             "
           >
@@ -111,7 +111,7 @@
           fxFlex
           fxFill
           fxLayout="row"
-          *ngFor="let dataDaily of weatherData?.listByDate | keyvalue"
+          *ngFor="let dataDaily of weatherData?.listByDateActive | keyvalue"
           (click)="clickedDay(dataDaily)"
         >
           <google-chart
