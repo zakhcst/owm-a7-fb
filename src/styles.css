@@ -19,3 +19,7 @@
 .scroll-this {
   overflow: auto;
 }
+
+.flex-justify-center {
+  justify-self: center;
+}

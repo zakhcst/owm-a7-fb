@@ -23,7 +23,7 @@ export class OwmDataService {
   ) {}
 
   // Caching the data for 3h
-  // in order to prevent exceeding OWM requests dev quote.
+  // in order to prevent exceeding OWM requests dev quota.
   // The additional logic for processing/reformating the data
   // is required in the front end in order to avoid
   // Firebase Cloud Functions outbound http requests

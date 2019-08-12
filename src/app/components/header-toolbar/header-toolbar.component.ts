@@ -39,7 +39,7 @@ export class HeaderToolbarComponent
     if (this.matToolbar) {
       this.toolbarHeight = this.matToolbar._elementRef.nativeElement.clientHeight;
     }
-    return this.sanitizer.bypassSecurityTrustStyle(
+    return this._sanitizer.bypassSecurityTrustStyle(
       `--toolbar-height: ${this.toolbarHeight}px`
     );
   }
@@ -60,7 +60,7 @@ export class HeaderToolbarComponent
     private _history: HistoryService,
     private _errors: ErrorsService,
     public mediaObserver: MediaObserver,
-    private sanitizer: DomSanitizer,
+    private _sanitizer: DomSanitizer,
   ) {
     const eventNavigationEnd = this._router.events.pipe(
       filter(event => event instanceof NavigationEnd),

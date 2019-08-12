@@ -7,25 +7,26 @@
       5 Day Forecast
     </h3>
     <br />
-    Angular Test Projects
+    Angular Versions Test Projects
   </header>
 
   <div class="grid-container">
     <img src="favicon.ico" />
     <div>Database</div>
-    <div>Hosted</div>
+    <div>Host</div>
     <div class="flex-justify-center">
       <img src="{{ constants.iconGithub }}" />
     </div>
 
     <span>7</span>
-    <span>Firebase RTDB</span>
+    <span class="fb-text-color">Firebase RTDB</span>
     <a
-      class="link-action"
+      class="link-action fb-text-color"
       [routerLink]="['/toolbar/forecast-flex']"
       routerLinkActive="active"
-      >Firebase</a
-    >
+      >Firebase
+      <img src="{{ constants.iconExtLink }}" />
+    </a>
     <div class="flex-justify-center">
       <a
         class="link-action"
@@ -37,9 +38,9 @@
     </div>
 
     <span>7</span>
-    <span>Firebase RTDB</span>
+    <span class="fb-text-color">Firebase RTDB</span>
     <a
-      class="link-action"
+      class="link-action gae-text-color"
       href="https://owm-a7-fb.appspot.com/"
       routerLinkActive="active"
       >GCP AE(f1)
@@ -56,9 +57,9 @@
     </div>
 
     <span>6</span>
-    <span>Firebase RTDB</span>
+    <span class="fb-text-color">Firebase RTDB</span>
     <a
-      class="link-action"
+      class="link-action fb-text-color"
       href="https://owm-a6-fb.firebaseapp.com/"
       routerLinkActive="active"
       >Firebase
@@ -77,7 +78,7 @@
     <span>1.6</span>
     <span>OWM Requests</span>
     <a
-      class="link-action"
+      class="link-action fb-text-color"
       href="https://owm-weather-forecast.firebaseapp.com/"
       routerLinkActive="active"
       >Firebase

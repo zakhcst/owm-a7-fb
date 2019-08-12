@@ -1,7 +1,7 @@
 .container {
   height: 100vh;
   width: 100vw;
-  background-image: url("../../../assets/backgroungs/default.jpg");
+  background-image: url('../../../assets/backgroungs/default.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@ header {
   align-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 30px;
-
+  color: white;
 }
 
 .link-action {
@@ -31,16 +31,25 @@ header {
   text-decoration: none;
   position: relative;
 }
+
 .link-action::after {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0%;
-  height: 2px;
-  content: ' ';
-  background-color: black;
-  transition: width 0.33s, background-color 0.5s;
-}
-.link-action:hover::after {
   width: 100%;
+  height: 2px;
+  content: '';
+  background-color: white;
+  transition: all 0.33s;
+  transform: scaleX(0);
+}
+
+.link-action:hover::after {
+  transform: scaleX(1);
+}
+
+.fb-text-color {
+  background: linear-gradient(90deg, rgba(255,151,0,1) 0%, rgba(255,224,0,1) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
