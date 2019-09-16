@@ -7,6 +7,8 @@ import { CitiesService } from './cities.service';
 import { OwmFallbackDataService } from './owm-fallback-data.service';
 import { ErrorsService } from './errors.service';
 import { IOwmData, IOwmDataObjectByCityId } from '../models/owm-data.model';
+import { Store } from '@ngxs/store';
+import { SetDataState } from '../states/app.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,8 @@ export class OwmDataService {
     private _fb: DataService,
     private _cities: CitiesService,
     private _owmFallback: OwmFallbackDataService,
-    private _errors: ErrorsService
+    private _errors: ErrorsService,
+    private _store: Store
   ) {}
 
   // Caching the data for 3h
@@ -29,7 +32,9 @@ export class OwmDataService {
   // Firebase Cloud Functions outbound http requests
   getData(cityId: string): Observable<IOwmData> {
     if (this.cachedData[cityId] && this.isNotExpired(this.cachedData[cityId])) {
-      return of(this.cachedData[cityId]);
+      return of(this.cachedData[cityId]).pipe(tap((data: IOwmData) => {
+        this._store.dispatch(new SetDataState(data));
+      }));
     }
 
     return this._cities.updateReads(cityId).pipe(
@@ -52,6 +57,9 @@ export class OwmDataService {
             'OwmDataService:getData:_fb.getData: ' + (err.message || err)
         });
         return this.cachedData[cityId] ? of(this.cachedData[cityId]) : this._owmFallback.getData();
+      }),
+      tap((data: IOwmData) => {
+        this._store.dispatch(new SetDataState(data));
       })
     );
   }

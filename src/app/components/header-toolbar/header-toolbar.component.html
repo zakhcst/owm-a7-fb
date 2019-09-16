@@ -1,9 +1,23 @@
 <mat-toolbar class="toolbar" color="primary" *ngIf="toolbarShow">
+  <!-- ===          X -->
   <!-- &#9776;&nbsp;&#x2715; -->
-  <span class="toolbar-menu-toggle-xs" (click)="toggleActionButtonsXS($event)" *ngIf="isXs()">
-    <span class="icon-bar top-bar"    [ngClass]="{'show-action-buttons-xs': showActionButtonsXS}"></span>
-    <span class="icon-bar middle-bar" [ngClass]="{'show-action-buttons-xs': showActionButtonsXS}"></span>
-    <span class="icon-bar bottom-bar" [ngClass]="{'show-action-buttons-xs': showActionButtonsXS}"></span>
+  <span
+    class="toolbar-menu-toggle-xs"
+    (click)="toggleActionButtonsXS($event)"
+    *ngIf="isXs()"
+  >
+    <span
+      class="icon-bar top-bar"
+      [ngClass]="{ 'show-action-buttons-xs': showActionButtonsXS }"
+    ></span>
+    <span
+      class="icon-bar middle-bar"
+      [ngClass]="{ 'show-action-buttons-xs': showActionButtonsXS }"
+    ></span>
+    <span
+      class="icon-bar bottom-bar"
+      [ngClass]="{ 'show-action-buttons-xs': showActionButtonsXS }"
+    ></span>
   </span>
   <a class="home-button" [routerLink]="['/home']">
     OWM Forecast
@@ -13,19 +27,20 @@
       <mat-form-field
         *ngIf="action['type'] === 'selectCities'"
         class="header-action"
+        style="width: 120px;"
       >
         <mat-select
+          fxFlex
           placeholder="City"
           [(value)]="selectedCityId"
           (selectionChange)="selectionChange()"
-          fxFlex
         >
           <mat-option
             fxFlex
             *ngFor="let city of cities | keyvalue | sortCities"
             [value]="city.key"
           >
-            <span fxFlex fxLayoutAlign="space-between" fxFill fxLayout="row">
+            <span fxFlex fxFill fxLayoutAlign="space-between" fxLayout="row">
               <span>{{ city.value.name }}&nbsp;</span>
               <span fxFlex fxLayoutAlign="end center">{{
                 city.value.iso2
@@ -61,6 +76,6 @@
   </ng-container>
 </div>
 
-<div class="container-toolbar-outlet" (click)="hideActionButtonsXS($event)">
+<div class="container-toolbar-outlet" (click)="hideActionButtonsXS($event)" #containertoolbaroutlet>
   <router-outlet></router-outlet>
 </div>

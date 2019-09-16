@@ -16,7 +16,7 @@ import {
 } from '@angular/router';
 import { MediaObserver } from '@angular/flex-layout';
 import { filter, switchMap, map } from 'rxjs/operators';
-import { combineLatest, Subscription, of } from 'rxjs';
+import { Subscription, of, Observable } from 'rxjs';
 import { CitiesService } from '../../services/cities.service';
 import { ConstantsService } from '../../services/constants.service';
 import { ErrorsService } from '../../services/errors.service';
@@ -24,6 +24,8 @@ import { HistoryService } from '../../services/history.service';
 import { AppErrorPayloadModel } from '../../states/app.models';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatToolbar } from '@angular/material/toolbar';
+import { Select } from '@ngxs/store';
+import { IOwmData } from 'src/app/models/owm-data.model';
 
 @Component({
   selector: 'app-header-toolbar',
@@ -33,6 +35,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 export class HeaderToolbarComponent
   implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(MatToolbar) matToolbar: MatToolbar;
+  @ViewChild('containertoolbaroutlet') containerToolbarOutlet: ElementRef;
 
   @HostBinding('attr.style')
   public get valueAsStyle(): any {
@@ -52,6 +55,9 @@ export class HeaderToolbarComponent
   showActionButtonsXS = false;
   xs = false;
   toolbarHeight: number;
+  weatherBackgroundImg: string;
+
+  @Select((state: any) => state.data) data$: Observable<IOwmData>;
 
   constructor(
     private _router: Router,
@@ -59,24 +65,62 @@ export class HeaderToolbarComponent
     private _cities: CitiesService,
     private _history: HistoryService,
     private _errors: ErrorsService,
-    public mediaObserver: MediaObserver,
     private _sanitizer: DomSanitizer,
+    public mediaObserver: MediaObserver
   ) {
-    const eventNavigationEnd = this._router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(
-        (event: ChildActivationEnd) =>
-          event['urlAfterRedirects'].split('/').pop() ||
-          event['url'].split('/').pop()
-      ),
-      filter(eventPathEndSegment => !!eventPathEndSegment)
-    );
-    this.subscriptions = combineLatest([
-      this._activatedRoute.data,
-      eventNavigationEnd
-    ])
+    // const eventNavigationEnd = this._router.events.pipe(
+    //   filter(event => event instanceof NavigationEnd),
+    //   map(
+    //     (event: ChildActivationEnd) =>
+    //       event['urlAfterRedirects'].split('/').pop() ||
+    //       event['url'].split('/').pop()
+    //   ),
+    //   filter(eventPathEndSegment => !!eventPathEndSegment)
+    // );
+    // this.subscriptions = combineLatest([
+    //   this._activatedRoute.data,
+    //   eventNavigationEnd
+    // ])
+    //   .pipe(
+    //     switchMap(([activatedRouteData, eventPathEndSegment]) => {
+    //       if (
+    //         eventPathEndSegment in activatedRouteData.toolbarActions &&
+    //         this.toolbarActions !== activatedRouteData.toolbarActions[eventPathEndSegment]
+    //       ) {
+    //         this.toolbarActions = activatedRouteData.toolbarActions[eventPathEndSegment];
+    //         this.toolbarShow = true;
+    //         const hasSelectCities = this.toolbarActions.some(
+    //           action => action['type'] === 'selectCities'
+    //         );
+    //         return (
+    //           (hasSelectCities && !this.cities && this._cities.getData()) ||
+    //           of(null)
+    //         );
+    //       }
+    //       this.toolbarShow = false;
+    //       return of(null);
+    //     })
+    //   )
+    //   .subscribe(
+    //     cities => {
+    //       if (cities) {
+    //         this.cities = cities;
+    //         this.selectionChange(null);
+    //       }
+    //     },
+    //     err => {
+    //       this.addError('ngOnInit: onChange: subscribe', err.message);
+    //     }
+    //   );
+  }
+
+  ngOnInit() {
+    this.subscriptions = this._activatedRoute.data
       .pipe(
-        switchMap(([activatedRouteData, eventPathEndSegment]) => {
+        switchMap(activatedRouteData => {
+          const eventPathEndSegment = this._router.routerState.snapshot.url
+            .split('/')
+            .pop();
           if (
             eventPathEndSegment in activatedRouteData.toolbarActions &&
             this.toolbarActions !==
@@ -108,9 +152,23 @@ export class HeaderToolbarComponent
           this.addError('ngOnInit: onChange: subscribe', err.message);
         }
       );
-  }
 
-  ngOnInit() {}
+    const subscriptionBgImg: Subscription = this.data$
+      .pipe(
+        map((data: IOwmData) => ConstantsService.getWeatherBgImg(data)),
+        filter((imgPath: string) => {
+          const currentBg = this.containerToolbarOutlet.nativeElement.style[
+            'background-image'
+          ];
+          return currentBg !== `url("${imgPath}")`;
+        }),
+      )
+      .subscribe((imgPath: string) => {
+        this.containerToolbarOutlet.nativeElement.style['background-image'] = `url(${imgPath})`;
+      });
+
+    this.subscriptions.add(subscriptionBgImg);
+  }
 
   ngAfterViewInit() {
     this.toolbarHeight = this.matToolbar._elementRef.nativeElement.clientHeight;

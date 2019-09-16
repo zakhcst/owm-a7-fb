@@ -8,7 +8,7 @@ import { ConstantsService } from 'src/app/services/constants.service';
   templateUrl: './data-cell.component.html',
   styleUrls: ['./data-cell.component.css']
 })
-export class DataCellComponent implements OnInit {
+export class DataCellComponent {
   @Input() dataDaily: IOwmDataTimeSlotUnit;
   @Input() timeSlot: ITimeTemplate;
   @Input() isCurrentTimeSlot: boolean;
@@ -19,9 +19,5 @@ export class DataCellComponent implements OnInit {
   iconHumidity: string = ConstantsService.iconHumidity;
   iconPressure: string = ConstantsService.iconPressure;
   arrow000Deg: string = ConstantsService.arrow000Deg;
-  cardBackground: string;
-  dateColumnTextColor: string;
   constructor() {}
-
-  ngOnInit() {}
 }

@@ -20,11 +20,8 @@
             fxFlex
             fxLayoutAlign="start center"
             class="table-cell_date"
-            *ngFor="
-              let dataDaily of weatherData?.listByDateActive | keyvalue;
-              index as $index
-            "
-          >
+            *ngFor="let dataDaily of listByDateActive | keyvalue;index as $index"
+            >
             <span fxLayout="column" fxLayoutAlign="end center">
               <span>{{ dataDaily.key | date: 'EEE' }}</span>
               <span>{{ dataDaily.key | date: 'dd' }}</span>
@@ -111,9 +108,9 @@
           fxFlex
           fxFill
           fxLayout="row"
-          *ngFor="let dataDaily of weatherData?.listByDateActive | keyvalue"
+          *ngFor="let dataDaily of listByDateActive | keyvalue"
           (click)="clickedDay(dataDaily)"
-        >
+          >
           <google-chart
             #chartElement
             style="width: 100%;"

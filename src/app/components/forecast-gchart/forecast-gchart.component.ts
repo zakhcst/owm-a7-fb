@@ -42,7 +42,7 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
   chart: {} = {};
   dateColumn: ViewContainerRef;
   weatherParams = ConstantsService.weatherParams;
-  dataTempHolder: any;
+  listByDateActive: any;
 
   @Select((state: any) => state.activity) activity$: Observable<
     AppHistoryModel
@@ -83,7 +83,7 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
     this.weatherDataSubscription = this.weatherData$.subscribe(
       data => {
         this.weatherData = data;
-        this.weatherData.listByDateActive = this.weatherData.listByDate;
+        this.listByDateActive = this.weatherData.listByDate;
         this.loadingOwmData = false;
         this.setCardBg2TimeSlotBg();
         this.setGChartData();
@@ -215,11 +215,11 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
   }
 
   clickedDay(dataDaily: any) {
-    if (Object.keys(this.weatherData.listByDateActive).length === 1) {
-      this.weatherData.listByDateActive = this.weatherData.listByDate;
+    if (Object.keys(this.listByDateActive).length === 1) {
+      this.listByDateActive = this.weatherData.listByDate;
     } else {
-      this.weatherData.listByDateActive = {};
-      this.weatherData.listByDateActive[dataDaily.key] = dataDaily.value;
+      this.listByDateActive = {};
+      this.listByDateActive[dataDaily.key] = dataDaily.value;
     }
   }
 

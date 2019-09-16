@@ -1,5 +1,5 @@
 import { State, Action, StateContext } from '@ngxs/store';
-import { SetHistoryState, SetErrorsState } from './app.actions';
+import { SetHistoryState, SetErrorsState, SetDataState } from './app.actions';
 import {
   AppHistoryModel,
   HistoryRecordModel,
@@ -11,6 +11,7 @@ import { SnackbarService } from '../services/snackbar.service';
 import { switchMap } from 'rxjs/operators';
 import { HistoryService } from '../services/history.service';
 import { ErrorsService } from '../services/errors.service';
+import { IOwmData } from '../models/owm-data.model';
 
 const defaultActivity = {
   ip: '',
@@ -107,5 +108,18 @@ export class AppErrorsState {
         return this._errors.setDataToFB(ip, newEntry);
       })
     );
+  }
+}
+
+@State<IOwmData>({
+  name: 'data',
+  defaults: null
+})
+export class AppDataState {
+  constructor() {}
+
+  @Action(SetDataState)
+  setDataState(context: StateContext<IOwmData>, action: SetDataState) {
+    context.setState(action.payload);
   }
 }

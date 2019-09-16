@@ -21,7 +21,6 @@ import {
   filter,
   map,
   distinctUntilKeyChanged,
-  tap
 } from 'rxjs/operators';
 
 import { Select } from '@ngxs/store';
@@ -62,7 +61,7 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
 
   loadingOwmData = true;
   loadingStats = true;
-  loadingError = false;
+  // loadingError = false;
 
   weatherData: IOwmData;
   listByDateLength = 0;
@@ -126,7 +125,7 @@ export class ForecastFlexComponent implements OnInit, OnDestroy, AfterViewInit {
       },
       err => {
         this.loadingOwmData = false;
-        this.loadingError = true;
+        // this.loadingError = true;
         this.addError('ngOnInit: onChange: subscribe', err.message);
       }
     );

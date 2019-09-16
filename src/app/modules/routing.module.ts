@@ -97,7 +97,7 @@ const appRoutes: Routes = [
     SharedModule,
     RouterModule.forRoot(
       appRoutes
-      // , { enableTracing: true } // <-- debugging purposes only
+      // , { enableTracing: true } // debugging only
     ),
     HeaderToolbarModule,
     HomeModule

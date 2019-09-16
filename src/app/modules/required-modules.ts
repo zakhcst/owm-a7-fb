@@ -9,7 +9,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { LayoutsModules } from './layouts/layouts.modules';
 import { environment } from '../../environments/environment';
 import { NgxsModule } from '@ngxs/store';
-import { AppHistoryState, AppErrorsState } from '../states/app.state';
+import { AppHistoryState, AppErrorsState, AppDataState } from '../states/app.state';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { AppHistoryState, AppErrorsState } from '../states/app.state';
     AngularFireDatabaseModule,
     AngularMaterialModule,
     LayoutsModules,
-    NgxsModule.forRoot([AppHistoryState, AppErrorsState],
+    NgxsModule.forRoot([AppHistoryState, AppErrorsState, AppDataState],
       { developmentMode: !environment.production }),
   ],
   exports: [
