@@ -2,7 +2,7 @@
   height: calc(100vh - var(--toolbar-height));
   margin: 0;
   padding: 10px;
-  background-image: url("../../../assets/backgrounds/default.jpg");
+  background-image: url('../../../assets/backgrounds/default.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -89,6 +89,22 @@
   font-size: 60%;
 }
 
+.button-action:hover:not(.active),
+.button-action-xs:hover:not(.active) {
+  background-color: orange;
+  animation-name: changecolor;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+@keyframes changecolor {
+  0% {
+    color: white;
+  }
+  50% {
+    color: black;
+  }
+}
 .toolbar-menu-toggle-xs {
   display: flex;
   flex-direction: column;
@@ -145,11 +161,8 @@
   background-color: red;
 }
 
-.toolbar-menu-toggle-xs:hover > .top-bar, .toolbar-menu-toggle-xs:hover > .middle-bar, .toolbar-menu-toggle-xs:hover > .bottom-bar {
+.toolbar-menu-toggle-xs:hover > .top-bar,
+.toolbar-menu-toggle-xs:hover > .middle-bar,
+.toolbar-menu-toggle-xs:hover > .bottom-bar {
   background-color: yellow;
 }
-/* .top-bar:hover,
-.middle-bar:hover,
-.bottom-bar:hover {
-  background-color: red;
-} */
