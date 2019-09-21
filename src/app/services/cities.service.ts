@@ -26,7 +26,6 @@ export class CitiesService {
   }
 
   updateReads(cityId: string) {
-    console.log('updateReads(cityId: string)', cityId)
     if (!cityId) {
       return throwError('CitiesService: updateReads: CityId not provided');
     }

@@ -48,7 +48,7 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
     AppHistoryModel
   >;
 
-  constructor(private _data: OwmDataService, private _errors: ErrorsService) {}
+  constructor(private _data: OwmDataService, private _errors: ErrorsService) { }
   ngOnInit() {
     this.activitySubscription = this.activity$
       .pipe(
@@ -76,7 +76,7 @@ export class ForecastGChartComponent implements OnInit, OnDestroy {
   onChange(eventSelectedCityId: string) {
     this.loadingOwmData = true;
     if (this.weatherData$) {
-      this.ngOnDestroy();
+      this.weatherDataSubscription.unsubscribe();
     }
     this.weatherData$ = this._data.getData(eventSelectedCityId).pipe(take(1));
 
