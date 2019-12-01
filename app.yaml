@@ -1,0 +1,17 @@
+runtime: nodejs10
+
+instance_class: F1
+
+handlers:
+- url: .*/$|/index.html
+  static_files: firebase/public/index.html
+  upload: firebase/public/index.html
+  secure: always
+
+- url: /(.*\.(svg|png|jpg))$
+  static_files: firebase/public/\1
+  upload: firebase/public/.*\.(svg|png|jpg)$
+
+- url: .*
+  static_dir: firebase/public
+  secure: always

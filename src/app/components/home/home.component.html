@@ -18,6 +18,26 @@
       <img src="{{ constants.iconGithub }}" />
     </div>
 
+
+    <span>8</span>
+    <span class="fb-text-color">Firebase RTDB</span>
+    <a
+      class="link-action fb-text-color"
+      href="https://owm-a8-fb.firebaseapp.com/"
+      routerLinkActive="active"
+      >Firebase
+      <img src="{{ constants.iconExtLink }}" />
+    </a>
+    <div class="flex-justify-center">
+      <a
+        class="link-action"
+        href="https://github.com/zakhcst/owm-a8-fb"
+        routerLinkActive="active"
+      >
+        <img src="{{ constants.iconExtLink }}" />
+      </a>
+    </div>
+
     <span>7</span>
     <span class="fb-text-color">Firebase RTDB</span>
     <a
@@ -39,9 +59,13 @@
 
     <span>7</span>
     <span class="fb-text-color">Firebase RTDB</span>
+    <!-- firebase deploy -->
+    <!-- href="https://owm-a7-fb.appspot.com/" -->
+    <!-- gcloud deploy -->
+    <!-- href="https://owm-a7-fb.appspot.com/" -->
     <a
       class="link-action gae-text-color"
-      href="https://owm-a7-fb.appspot.com/"
+      [routerLink]="['/toolbar/forecast-flex']"
       routerLinkActive="active"
       >GCP AE(f1)
       <img src="{{ constants.iconExtLink }}" />
