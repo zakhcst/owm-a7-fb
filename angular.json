@@ -41,7 +41,8 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": true,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "baseHref": "https://storage.googleapis.com/owm-a7-fb-bucket/"
             }
           }
         },
