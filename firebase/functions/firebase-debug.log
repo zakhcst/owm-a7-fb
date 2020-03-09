@@ -1,0 +1,583 @@
+[debug] [2020-03-10T01:59:20.979Z] ----------------------------------------------------------------------
+[debug] [2020-03-10T01:59:20.981Z] Command:       /usr/local/bin/node /usr/local/bin/firebase functions:shell --token 1//03SmXynT_egJVCgYIARAAGAMSNwF-L9IrGulwLGNdj0894TMmXRga3JY62jQ9OWFm3Nx6TQLfSlJ2jHKRjz22U1vJQhDHoGaQPEU --project owm-a7-fb
+[debug] [2020-03-10T01:59:20.981Z] CLI Version:   7.14.0
+[debug] [2020-03-10T01:59:20.981Z] Platform:      linux
+[debug] [2020-03-10T01:59:20.981Z] Node Version:  v10.19.0
+[debug] [2020-03-10T01:59:20.981Z] Time:          Tue Mar 10 2020 01:59:20 GMT+0000 (Coordinated Universal Time)
+[debug] [2020-03-10T01:59:20.981Z] ----------------------------------------------------------------------
+[debug] [2020-03-10T01:59:20.981Z] 
+[debug] [2020-03-10T01:59:20.989Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-10T01:59:20.989Z] > authorizing via --token option
+[debug] [2020-03-10T01:59:20.989Z] [iam] checking project owm-a7-fb for permissions ["firebase.projects.get"]
+[debug] [2020-03-10T01:59:20.990Z] > refreshing access token with scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-10T01:59:20.990Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-03-10T01:59:21.132Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-10T01:59:21.133Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/owm-a7-fb:testIamPermissions  
+
+[debug] [2020-03-10T01:59:21.837Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-10T01:59:21.853Z] [functions] Using node@10 from host.
+[info] ✔  functions: functions emulator started at http://localhost:5000
+[debug] [2020-03-10T01:59:21.861Z] [functions] Watching "/firebase/functions" for Cloud Functions...
+[debug] [2020-03-10T01:59:21.869Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T01:59:21.870Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-10T01:59:21.870Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T01:59:21.870Z] DEBUG: [worker-~diagnostic~-5c7999a3-e054-4a15-93f6-c1d7e7dfd72b]: Assigning socketPath: /tmp/fire_emu_21.sock
+[debug] [2020-03-10T01:59:21.870Z] DEBUG: [worker-~diagnostic~-5c7999a3-e054-4a15-93f6-c1d7e7dfd72b]: BUSY
+[debug] [2020-03-10T01:59:22.070Z] DEBUG: [runtime-status] [21] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T01:59:22.071Z] DEBUG: [runtime-status] [21] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T01:59:22.072Z] DEBUG: [runtime-status] [21] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T01:59:22.073Z] DEBUG: [runtime-status] [21] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T01:59:22.074Z] DEBUG: [runtime-status] [21] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  Error: Cannot find module './gcfInvocations'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (/firebase/functions/index.js:9:42)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-10T01:59:22.167Z] DEBUG: [worker-~diagnostic~-5c7999a3-e054-4a15-93f6-c1d7e7dfd72b]: exited
+[debug] [2020-03-10T01:59:22.168Z] DEBUG: [worker-~diagnostic~-5c7999a3-e054-4a15-93f6-c1d7e7dfd72b]: FINISHED
+[debug] [2020-03-10T02:01:26.534Z] DEBUG: File /firebase/functions/index.js changed, reloading triggers
+[debug] [2020-03-10T02:01:27.539Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-10T02:01:27.549Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:01:27.549Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-10T02:01:27.549Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:01:27.549Z] DEBUG: [worker-~diagnostic~-39d8feca-bf3a-42d1-9b11-916a55d4c7ee]: Assigning socketPath: /tmp/fire_emu_30.sock
+[debug] [2020-03-10T02:01:27.549Z] DEBUG: [worker-~diagnostic~-39d8feca-bf3a-42d1-9b11-916a55d4c7ee]: BUSY
+[debug] [2020-03-10T02:01:27.777Z] DEBUG: [runtime-status] [30] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:01:27.778Z] DEBUG: [runtime-status] [30] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:01:27.780Z] DEBUG: [runtime-status] [30] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:01:27.782Z] DEBUG: [runtime-status] [30] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:01:27.782Z] DEBUG: [runtime-status] [30] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:01:28.196Z] [functions[test]] http function initialized (http://localhost:5000/owm-a7-fb/us-central1/test).
+[debug] [2020-03-10T02:01:28.196Z] [functions[getip]] http function initialized (http://localhost:5000/owm-a7-fb/us-central1/getip).
+[debug] [2020-03-10T02:01:28.196Z] [functions[owmOnWrite]] function ignored because the database emulator does not exist or is not running.
+[debug] [2020-03-10T02:01:28.197Z] [functions[citiesOnWriteUpdate]] function ignored because the database emulator does not exist or is not running.
+[debug] [2020-03-10T02:01:28.197Z] [functions[citiesOnWriteRead]] function ignored because the database emulator does not exist or is not running.
+[debug] [2020-03-10T02:01:28.197Z] DEBUG: [worker-~diagnostic~-39d8feca-bf3a-42d1-9b11-916a55d4c7ee]: IDLE
+[debug] [2020-03-10T02:02:12.771Z] DEBUG: File /firebase/functions/rtbd/cities.js changed, reloading triggers
+[debug] [2020-03-10T02:02:13.779Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:02:13.779Z] DEBUG: [worker-~diagnostic~-39d8feca-bf3a-42d1-9b11-916a55d4c7ee]: FINISHING
+[debug] [2020-03-10T02:02:13.785Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:02:13.785Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:02:13.785Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:02:13.785Z] DEBUG: [worker-~diagnostic~-d901197a-7fe5-4ebf-88d3-a07732cf6719]: Assigning socketPath: /tmp/fire_emu_43.sock
+[debug] [2020-03-10T02:02:13.785Z] DEBUG: [worker-~diagnostic~-d901197a-7fe5-4ebf-88d3-a07732cf6719]: BUSY
+[debug] [2020-03-10T02:02:13.787Z] DEBUG: [worker-~diagnostic~-39d8feca-bf3a-42d1-9b11-916a55d4c7ee]: exited
+[debug] [2020-03-10T02:02:13.787Z] DEBUG: [worker-~diagnostic~-39d8feca-bf3a-42d1-9b11-916a55d4c7ee]: FINISHED
+[debug] [2020-03-10T02:02:13.993Z] DEBUG: [runtime-status] [43] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:02:13.994Z] DEBUG: [runtime-status] [43] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:02:13.996Z] DEBUG: [runtime-status] [43] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:02:13.997Z] DEBUG: [runtime-status] [43] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:02:13.998Z] DEBUG: [runtime-status] [43] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:02:14.410Z] DEBUG: [worker-~diagnostic~-d901197a-7fe5-4ebf-88d3-a07732cf6719]: IDLE
+[debug] [2020-03-10T02:02:26.917Z] DEBUG: File /firebase/functions/http/get-ip.js changed, reloading triggers
+[debug] [2020-03-10T02:02:27.922Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:02:27.923Z] DEBUG: [worker-~diagnostic~-d901197a-7fe5-4ebf-88d3-a07732cf6719]: FINISHING
+[debug] [2020-03-10T02:02:27.923Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:02:27.931Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:02:27.931Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:02:27.931Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:02:27.931Z] DEBUG: [worker-~diagnostic~-59ff06b2-8f3c-4245-84cc-49a10d707ec9]: Assigning socketPath: /tmp/fire_emu_56.sock
+[debug] [2020-03-10T02:02:27.931Z] DEBUG: [worker-~diagnostic~-59ff06b2-8f3c-4245-84cc-49a10d707ec9]: BUSY
+[debug] [2020-03-10T02:02:27.935Z] DEBUG: [worker-~diagnostic~-d901197a-7fe5-4ebf-88d3-a07732cf6719]: exited
+[debug] [2020-03-10T02:02:27.935Z] DEBUG: [worker-~diagnostic~-d901197a-7fe5-4ebf-88d3-a07732cf6719]: FINISHED
+[debug] [2020-03-10T02:02:28.149Z] DEBUG: [runtime-status] [56] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:02:28.151Z] DEBUG: [runtime-status] [56] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:02:28.153Z] DEBUG: [runtime-status] [56] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:02:28.154Z] DEBUG: [runtime-status] [56] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:02:28.155Z] DEBUG: [runtime-status] [56] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:02:28.588Z] DEBUG: [worker-~diagnostic~-59ff06b2-8f3c-4245-84cc-49a10d707ec9]: IDLE
+[debug] [2020-03-10T02:02:44.085Z] DEBUG: File /firebase/functions/rtbd/owm.js changed, reloading triggers
+[debug] [2020-03-10T02:02:45.086Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:02:45.086Z] DEBUG: [worker-~diagnostic~-59ff06b2-8f3c-4245-84cc-49a10d707ec9]: FINISHING
+[debug] [2020-03-10T02:02:45.086Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:02:45.093Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:02:45.094Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:02:45.094Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:02:45.094Z] DEBUG: [worker-~diagnostic~-3026860a-e317-46a0-8759-dacbe9517883]: Assigning socketPath: /tmp/fire_emu_69.sock
+[debug] [2020-03-10T02:02:45.094Z] DEBUG: [worker-~diagnostic~-3026860a-e317-46a0-8759-dacbe9517883]: BUSY
+[debug] [2020-03-10T02:02:45.097Z] DEBUG: [worker-~diagnostic~-59ff06b2-8f3c-4245-84cc-49a10d707ec9]: exited
+[debug] [2020-03-10T02:02:45.097Z] DEBUG: [worker-~diagnostic~-59ff06b2-8f3c-4245-84cc-49a10d707ec9]: FINISHED
+[debug] [2020-03-10T02:02:45.343Z] DEBUG: [runtime-status] [69] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:02:45.345Z] DEBUG: [runtime-status] [69] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:02:45.348Z] DEBUG: [runtime-status] [69] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:02:45.349Z] DEBUG: [runtime-status] [69] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:02:45.352Z] DEBUG: [runtime-status] [69] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:02:45.798Z] DEBUG: [worker-~diagnostic~-3026860a-e317-46a0-8759-dacbe9517883]: IDLE
+[debug] [2020-03-10T02:04:39.900Z] DEBUG: File /firebase/functions/utils/gcfInvocations.js changed, reloading triggers
+[debug] [2020-03-10T02:04:40.907Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:04:40.907Z] DEBUG: [worker-~diagnostic~-3026860a-e317-46a0-8759-dacbe9517883]: FINISHING
+[debug] [2020-03-10T02:04:40.907Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:04:40.913Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:04:40.913Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:04:40.913Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:04:40.914Z] DEBUG: [worker-~diagnostic~-6934bef8-4372-41cd-be20-dbe3581a99cb]: Assigning socketPath: /tmp/fire_emu_82.sock
+[debug] [2020-03-10T02:04:40.914Z] DEBUG: [worker-~diagnostic~-6934bef8-4372-41cd-be20-dbe3581a99cb]: BUSY
+[debug] [2020-03-10T02:04:40.915Z] DEBUG: [worker-~diagnostic~-3026860a-e317-46a0-8759-dacbe9517883]: exited
+[debug] [2020-03-10T02:04:40.915Z] DEBUG: [worker-~diagnostic~-3026860a-e317-46a0-8759-dacbe9517883]: FINISHED
+[debug] [2020-03-10T02:04:41.152Z] DEBUG: [runtime-status] [82] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:04:41.154Z] DEBUG: [runtime-status] [82] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:04:41.156Z] DEBUG: [runtime-status] [82] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:04:41.157Z] DEBUG: [runtime-status] [82] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:04:41.160Z] DEBUG: [runtime-status] [82] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:04:41.582Z] DEBUG: [worker-~diagnostic~-6934bef8-4372-41cd-be20-dbe3581a99cb]: IDLE
+[debug] [2020-03-10T02:11:16.900Z] DEBUG: File /firebase/functions/utils/gcfInvocations.js changed, reloading triggers
+[debug] [2020-03-10T02:11:17.906Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:11:17.906Z] DEBUG: [worker-~diagnostic~-6934bef8-4372-41cd-be20-dbe3581a99cb]: FINISHING
+[debug] [2020-03-10T02:11:17.906Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:11:17.914Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:11:17.915Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:11:17.915Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:11:17.915Z] DEBUG: [worker-~diagnostic~-a1b0ec20-0b13-4489-b41b-f5f3e61705e8]: Assigning socketPath: /tmp/fire_emu_95.sock
+[debug] [2020-03-10T02:11:17.915Z] DEBUG: [worker-~diagnostic~-a1b0ec20-0b13-4489-b41b-f5f3e61705e8]: BUSY
+[debug] [2020-03-10T02:11:17.917Z] DEBUG: [worker-~diagnostic~-6934bef8-4372-41cd-be20-dbe3581a99cb]: exited
+[debug] [2020-03-10T02:11:17.917Z] DEBUG: [worker-~diagnostic~-6934bef8-4372-41cd-be20-dbe3581a99cb]: FINISHED
+[debug] [2020-03-10T02:11:18.130Z] DEBUG: [runtime-status] [95] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:11:18.131Z] DEBUG: [runtime-status] [95] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:11:18.133Z] DEBUG: [runtime-status] [95] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:11:18.133Z] DEBUG: [runtime-status] [95] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:11:18.134Z] DEBUG: [runtime-status] [95] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:11:18.560Z] DEBUG: [worker-~diagnostic~-a1b0ec20-0b13-4489-b41b-f5f3e61705e8]: IDLE
+[debug] [2020-03-10T02:17:10.063Z] DEBUG: File /firebase/functions/pub-sub/index.js changed, reloading triggers
+[debug] [2020-03-10T02:17:11.063Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:17:11.063Z] DEBUG: [worker-~diagnostic~-a1b0ec20-0b13-4489-b41b-f5f3e61705e8]: FINISHING
+[debug] [2020-03-10T02:17:11.063Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:17:11.067Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:17:11.067Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:17:11.067Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:17:11.067Z] DEBUG: [worker-~diagnostic~-5164698c-b68d-4d63-acc1-233538ad0fcd]: Assigning socketPath: /tmp/fire_emu_108.sock
+[debug] [2020-03-10T02:17:11.067Z] DEBUG: [worker-~diagnostic~-5164698c-b68d-4d63-acc1-233538ad0fcd]: BUSY
+[debug] [2020-03-10T02:17:11.068Z] DEBUG: [worker-~diagnostic~-a1b0ec20-0b13-4489-b41b-f5f3e61705e8]: exited
+[debug] [2020-03-10T02:17:11.068Z] DEBUG: [worker-~diagnostic~-a1b0ec20-0b13-4489-b41b-f5f3e61705e8]: FINISHED
+[debug] [2020-03-10T02:17:11.291Z] DEBUG: [runtime-status] [108] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:17:11.293Z] DEBUG: [runtime-status] [108] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:17:11.294Z] DEBUG: [runtime-status] [108] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:17:11.295Z] DEBUG: [runtime-status] [108] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:17:11.297Z] DEBUG: [runtime-status] [108] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:17:11.728Z] DEBUG: [worker-~diagnostic~-5164698c-b68d-4d63-acc1-233538ad0fcd]: IDLE
+[debug] [2020-03-10T02:17:32.761Z] DEBUG: File /firebase/functions/pub-sub/index.js changed, reloading triggers
+[debug] [2020-03-10T02:17:33.768Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:17:33.769Z] DEBUG: [worker-~diagnostic~-5164698c-b68d-4d63-acc1-233538ad0fcd]: FINISHING
+[debug] [2020-03-10T02:17:33.769Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:17:33.779Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:17:33.779Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:17:33.779Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:17:33.779Z] DEBUG: [worker-~diagnostic~-e3072ca3-02df-40b1-9d3f-f4c616c4b9e6]: Assigning socketPath: /tmp/fire_emu_121.sock
+[debug] [2020-03-10T02:17:33.779Z] DEBUG: [worker-~diagnostic~-e3072ca3-02df-40b1-9d3f-f4c616c4b9e6]: BUSY
+[debug] [2020-03-10T02:17:33.781Z] DEBUG: [worker-~diagnostic~-5164698c-b68d-4d63-acc1-233538ad0fcd]: exited
+[debug] [2020-03-10T02:17:33.781Z] DEBUG: [worker-~diagnostic~-5164698c-b68d-4d63-acc1-233538ad0fcd]: FINISHED
+[debug] [2020-03-10T02:17:33.993Z] DEBUG: [runtime-status] [121] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:17:33.995Z] DEBUG: [runtime-status] [121] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:17:33.998Z] DEBUG: [runtime-status] [121] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:17:33.999Z] DEBUG: [runtime-status] [121] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:17:34.000Z] DEBUG: [runtime-status] [121] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:17:34.460Z] DEBUG: [worker-~diagnostic~-e3072ca3-02df-40b1-9d3f-f4c616c4b9e6]: IDLE
+[debug] [2020-03-10T02:20:31.986Z] DEBUG: File /firebase/functions/utils/disable-billing.js changed, reloading triggers
+[debug] [2020-03-10T02:20:32.994Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:20:32.995Z] DEBUG: [worker-~diagnostic~-e3072ca3-02df-40b1-9d3f-f4c616c4b9e6]: FINISHING
+[debug] [2020-03-10T02:20:32.995Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:20:32.999Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:20:32.999Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:20:32.999Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:20:32.999Z] DEBUG: [worker-~diagnostic~-0d67e61f-8eb2-45f7-9a09-fdb239350dbd]: Assigning socketPath: /tmp/fire_emu_134.sock
+[debug] [2020-03-10T02:20:32.999Z] DEBUG: [worker-~diagnostic~-0d67e61f-8eb2-45f7-9a09-fdb239350dbd]: BUSY
+[debug] [2020-03-10T02:20:33.002Z] DEBUG: [worker-~diagnostic~-e3072ca3-02df-40b1-9d3f-f4c616c4b9e6]: exited
+[debug] [2020-03-10T02:20:33.002Z] DEBUG: [worker-~diagnostic~-e3072ca3-02df-40b1-9d3f-f4c616c4b9e6]: FINISHED
+[debug] [2020-03-10T02:20:33.232Z] DEBUG: [runtime-status] [134] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:20:33.234Z] DEBUG: [runtime-status] [134] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:20:33.236Z] DEBUG: [runtime-status] [134] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:20:33.237Z] DEBUG: [runtime-status] [134] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:20:33.240Z] DEBUG: [runtime-status] [134] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:20:33.735Z] DEBUG: [worker-~diagnostic~-0d67e61f-8eb2-45f7-9a09-fdb239350dbd]: IDLE
+[debug] [2020-03-10T02:22:24.677Z] DEBUG: File /firebase/functions/utils/disable-billing.js changed, reloading triggers
+[debug] [2020-03-10T02:22:25.678Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:22:25.678Z] DEBUG: [worker-~diagnostic~-0d67e61f-8eb2-45f7-9a09-fdb239350dbd]: FINISHING
+[debug] [2020-03-10T02:22:25.679Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:22:25.687Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:22:25.687Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:22:25.687Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:22:25.687Z] DEBUG: [worker-~diagnostic~-52e34945-0efe-4eca-a8bb-cdf9d2382426]: Assigning socketPath: /tmp/fire_emu_147.sock
+[debug] [2020-03-10T02:22:25.687Z] DEBUG: [worker-~diagnostic~-52e34945-0efe-4eca-a8bb-cdf9d2382426]: BUSY
+[debug] [2020-03-10T02:22:25.688Z] DEBUG: [worker-~diagnostic~-0d67e61f-8eb2-45f7-9a09-fdb239350dbd]: exited
+[debug] [2020-03-10T02:22:25.688Z] DEBUG: [worker-~diagnostic~-0d67e61f-8eb2-45f7-9a09-fdb239350dbd]: FINISHED
+[debug] [2020-03-10T02:22:25.892Z] DEBUG: [runtime-status] [147] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:22:25.893Z] DEBUG: [runtime-status] [147] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:22:25.895Z] DEBUG: [runtime-status] [147] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:22:25.896Z] DEBUG: [runtime-status] [147] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:22:25.896Z] DEBUG: [runtime-status] [147] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:22:26.332Z] DEBUG: [worker-~diagnostic~-52e34945-0efe-4eca-a8bb-cdf9d2382426]: IDLE
+[debug] [2020-03-10T02:23:46.022Z] DEBUG: File /firebase/functions/utils/gcfInvocations.js changed, reloading triggers
+[debug] [2020-03-10T02:23:47.023Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:23:47.023Z] DEBUG: [worker-~diagnostic~-52e34945-0efe-4eca-a8bb-cdf9d2382426]: FINISHING
+[debug] [2020-03-10T02:23:47.023Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:23:47.029Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:23:47.029Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:23:47.031Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:23:47.031Z] DEBUG: [worker-~diagnostic~-ce14cc04-17f0-45aa-a792-710fd6026cd6]: Assigning socketPath: /tmp/fire_emu_160.sock
+[debug] [2020-03-10T02:23:47.031Z] DEBUG: [worker-~diagnostic~-ce14cc04-17f0-45aa-a792-710fd6026cd6]: BUSY
+[debug] [2020-03-10T02:23:47.032Z] DEBUG: [worker-~diagnostic~-52e34945-0efe-4eca-a8bb-cdf9d2382426]: exited
+[debug] [2020-03-10T02:23:47.032Z] DEBUG: [worker-~diagnostic~-52e34945-0efe-4eca-a8bb-cdf9d2382426]: FINISHED
+[debug] [2020-03-10T02:23:47.268Z] DEBUG: [runtime-status] [160] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:23:47.270Z] DEBUG: [runtime-status] [160] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:23:47.274Z] DEBUG: [runtime-status] [160] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:23:47.276Z] DEBUG: [runtime-status] [160] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:23:47.281Z] DEBUG: [runtime-status] [160] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:23:47.707Z] DEBUG: [worker-~diagnostic~-ce14cc04-17f0-45aa-a792-710fd6026cd6]: IDLE
+[debug] [2020-03-10T02:30:34.412Z] DEBUG: File /firebase/functions/pub-sub/index.js changed, reloading triggers
+[debug] [2020-03-10T02:30:35.425Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:30:35.425Z] DEBUG: [worker-~diagnostic~-ce14cc04-17f0-45aa-a792-710fd6026cd6]: FINISHING
+[debug] [2020-03-10T02:30:35.426Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:30:35.435Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:30:35.435Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:30:35.435Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:30:35.435Z] DEBUG: [worker-~diagnostic~-c155b8be-798e-4736-b1dc-6526806a73ff]: Assigning socketPath: /tmp/fire_emu_173.sock
+[debug] [2020-03-10T02:30:35.435Z] DEBUG: [worker-~diagnostic~-c155b8be-798e-4736-b1dc-6526806a73ff]: BUSY
+[debug] [2020-03-10T02:30:35.436Z] DEBUG: [worker-~diagnostic~-ce14cc04-17f0-45aa-a792-710fd6026cd6]: exited
+[debug] [2020-03-10T02:30:35.436Z] DEBUG: [worker-~diagnostic~-ce14cc04-17f0-45aa-a792-710fd6026cd6]: FINISHED
+[debug] [2020-03-10T02:30:35.646Z] DEBUG: [runtime-status] [173] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:30:35.647Z] DEBUG: [runtime-status] [173] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:30:35.649Z] DEBUG: [runtime-status] [173] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:30:35.650Z] DEBUG: [runtime-status] [173] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:30:35.651Z] DEBUG: [runtime-status] [173] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:30:36.088Z] DEBUG: [worker-~diagnostic~-c155b8be-798e-4736-b1dc-6526806a73ff]: IDLE
+[debug] [2020-03-10T02:31:09.061Z] DEBUG: File /firebase/functions/pub-sub/check-budget-pubsub.js changed, reloading triggers
+[debug] [2020-03-10T02:31:10.068Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:31:10.069Z] DEBUG: [worker-~diagnostic~-c155b8be-798e-4736-b1dc-6526806a73ff]: FINISHING
+[debug] [2020-03-10T02:31:10.069Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:31:10.074Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:31:10.074Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:31:10.074Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:31:10.074Z] DEBUG: [worker-~diagnostic~-4407eeba-94be-46b4-9b3a-ff960ba9a9ce]: Assigning socketPath: /tmp/fire_emu_186.sock
+[debug] [2020-03-10T02:31:10.074Z] DEBUG: [worker-~diagnostic~-4407eeba-94be-46b4-9b3a-ff960ba9a9ce]: BUSY
+[debug] [2020-03-10T02:31:10.076Z] DEBUG: [worker-~diagnostic~-c155b8be-798e-4736-b1dc-6526806a73ff]: exited
+[debug] [2020-03-10T02:31:10.076Z] DEBUG: [worker-~diagnostic~-c155b8be-798e-4736-b1dc-6526806a73ff]: FINISHED
+[debug] [2020-03-10T02:31:10.293Z] DEBUG: [runtime-status] [186] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:31:10.295Z] DEBUG: [runtime-status] [186] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:31:10.309Z] DEBUG: [runtime-status] [186] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:31:10.310Z] DEBUG: [runtime-status] [186] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:31:10.310Z] DEBUG: [runtime-status] [186] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:31:10.726Z] DEBUG: [worker-~diagnostic~-4407eeba-94be-46b4-9b3a-ff960ba9a9ce]: IDLE
+[debug] [2020-03-10T02:32:33.811Z] DEBUG: File /firebase/functions/pub-sub/check-budget-pubsub.js changed, reloading triggers
+[debug] [2020-03-10T02:32:34.817Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:32:34.817Z] DEBUG: [worker-~diagnostic~-4407eeba-94be-46b4-9b3a-ff960ba9a9ce]: FINISHING
+[debug] [2020-03-10T02:32:34.817Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:32:34.825Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:32:34.826Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:32:34.826Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:32:34.826Z] DEBUG: [worker-~diagnostic~-85c4bbae-2afa-4883-9a84-6ed6b2749fb6]: Assigning socketPath: /tmp/fire_emu_199.sock
+[debug] [2020-03-10T02:32:34.826Z] DEBUG: [worker-~diagnostic~-85c4bbae-2afa-4883-9a84-6ed6b2749fb6]: BUSY
+[debug] [2020-03-10T02:32:34.828Z] DEBUG: [worker-~diagnostic~-4407eeba-94be-46b4-9b3a-ff960ba9a9ce]: exited
+[debug] [2020-03-10T02:32:34.828Z] DEBUG: [worker-~diagnostic~-4407eeba-94be-46b4-9b3a-ff960ba9a9ce]: FINISHED
+[debug] [2020-03-10T02:32:35.036Z] DEBUG: [runtime-status] [199] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:32:35.038Z] DEBUG: [runtime-status] [199] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:32:35.039Z] DEBUG: [runtime-status] [199] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:32:35.040Z] DEBUG: [runtime-status] [199] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:32:35.041Z] DEBUG: [runtime-status] [199] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:32:35.479Z] DEBUG: [worker-~diagnostic~-85c4bbae-2afa-4883-9a84-6ed6b2749fb6]: IDLE
+[debug] [2020-03-10T02:35:08.680Z] DEBUG: File /firebase/functions/utils/disable-billing.js changed, reloading triggers
+[debug] [2020-03-10T02:35:09.681Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:35:09.681Z] DEBUG: [worker-~diagnostic~-85c4bbae-2afa-4883-9a84-6ed6b2749fb6]: FINISHING
+[debug] [2020-03-10T02:35:09.681Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:35:09.687Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:35:09.687Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:35:09.688Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:35:09.688Z] DEBUG: [worker-~diagnostic~-f2915c6a-a48b-49c2-96a0-5907c97f3425]: Assigning socketPath: /tmp/fire_emu_212.sock
+[debug] [2020-03-10T02:35:09.688Z] DEBUG: [worker-~diagnostic~-f2915c6a-a48b-49c2-96a0-5907c97f3425]: BUSY
+[debug] [2020-03-10T02:35:09.689Z] DEBUG: [worker-~diagnostic~-85c4bbae-2afa-4883-9a84-6ed6b2749fb6]: exited
+[debug] [2020-03-10T02:35:09.689Z] DEBUG: [worker-~diagnostic~-85c4bbae-2afa-4883-9a84-6ed6b2749fb6]: FINISHED
+[debug] [2020-03-10T02:35:09.907Z] DEBUG: [runtime-status] [212] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:35:09.910Z] DEBUG: [runtime-status] [212] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:35:09.912Z] DEBUG: [runtime-status] [212] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:35:09.915Z] DEBUG: [runtime-status] [212] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:35:09.919Z] DEBUG: [runtime-status] [212] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:35:10.368Z] DEBUG: [worker-~diagnostic~-f2915c6a-a48b-49c2-96a0-5907c97f3425]: IDLE
+[debug] [2020-03-10T02:44:09.245Z] DEBUG: File /firebase/functions/utils/gcfInvocations.js changed, reloading triggers
+[debug] [2020-03-10T02:44:10.249Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T02:44:10.249Z] DEBUG: [worker-~diagnostic~-f2915c6a-a48b-49c2-96a0-5907c97f3425]: FINISHING
+[debug] [2020-03-10T02:44:10.249Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T02:44:10.252Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:44:10.252Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T02:44:10.253Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:44:10.253Z] DEBUG: [worker-~diagnostic~-34fa7da2-dec8-4cd8-be38-a11e54e957bd]: Assigning socketPath: /tmp/fire_emu_225.sock
+[debug] [2020-03-10T02:44:10.253Z] DEBUG: [worker-~diagnostic~-34fa7da2-dec8-4cd8-be38-a11e54e957bd]: BUSY
+[debug] [2020-03-10T02:44:10.254Z] DEBUG: [worker-~diagnostic~-f2915c6a-a48b-49c2-96a0-5907c97f3425]: exited
+[debug] [2020-03-10T02:44:10.254Z] DEBUG: [worker-~diagnostic~-f2915c6a-a48b-49c2-96a0-5907c97f3425]: FINISHED
+[debug] [2020-03-10T02:44:10.492Z] DEBUG: [runtime-status] [225] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:44:10.493Z] DEBUG: [runtime-status] [225] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:44:10.495Z] DEBUG: [runtime-status] [225] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:44:10.496Z] DEBUG: [runtime-status] [225] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:44:10.500Z] DEBUG: [runtime-status] [225] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:44:10.933Z] DEBUG: [worker-~diagnostic~-34fa7da2-dec8-4cd8-be38-a11e54e957bd]: IDLE
+[debug] [2020-03-10T02:45:19.071Z] DEBUG: [worker-~diagnostic~-34fa7da2-dec8-4cd8-be38-a11e54e957bd]: exited
+[debug] [2020-03-10T02:45:19.072Z] DEBUG: [worker-~diagnostic~-34fa7da2-dec8-4cd8-be38-a11e54e957bd]: FINISHED
+[debug] [2020-03-10T02:46:21.940Z] ----------------------------------------------------------------------
+[debug] [2020-03-10T02:46:21.942Z] Command:       /usr/local/bin/node /usr/local/bin/firebase functions:shell --token 1//03SmXynT_egJVCgYIARAAGAMSNwF-L9IrGulwLGNdj0894TMmXRga3JY62jQ9OWFm3Nx6TQLfSlJ2jHKRjz22U1vJQhDHoGaQPEU --project owm-a7-fb
+[debug] [2020-03-10T02:46:21.942Z] CLI Version:   7.14.0
+[debug] [2020-03-10T02:46:21.942Z] Platform:      linux
+[debug] [2020-03-10T02:46:21.942Z] Node Version:  v10.19.0
+[debug] [2020-03-10T02:46:21.942Z] Time:          Tue Mar 10 2020 02:46:21 GMT+0000 (Coordinated Universal Time)
+[debug] [2020-03-10T02:46:21.942Z] ----------------------------------------------------------------------
+[debug] [2020-03-10T02:46:21.942Z] 
+[debug] [2020-03-10T02:46:21.950Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-10T02:46:21.950Z] > authorizing via --token option
+[debug] [2020-03-10T02:46:21.950Z] [iam] checking project owm-a7-fb for permissions ["firebase.projects.get"]
+[debug] [2020-03-10T02:46:21.951Z] > refreshing access token with scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-10T02:46:21.951Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-03-10T02:46:22.089Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-10T02:46:22.090Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/owm-a7-fb:testIamPermissions  
+
+[debug] [2020-03-10T02:46:22.811Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-10T02:46:22.817Z] [functions] Using node@10 from host.
+[info] ✔  functions: functions emulator started at http://localhost:5000
+[debug] [2020-03-10T02:46:22.827Z] [functions] Watching "/firebase/functions" for Cloud Functions...
+[debug] [2020-03-10T02:46:22.834Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T02:46:22.835Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-10T02:46:22.835Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T02:46:22.835Z] DEBUG: [worker-~diagnostic~-dcf32d11-b35b-4154-8894-66c03d9e5ada]: Assigning socketPath: /tmp/fire_emu_21.sock
+[debug] [2020-03-10T02:46:22.835Z] DEBUG: [worker-~diagnostic~-dcf32d11-b35b-4154-8894-66c03d9e5ada]: BUSY
+[debug] [2020-03-10T02:46:23.050Z] DEBUG: [runtime-status] [21] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:46:23.051Z] DEBUG: [runtime-status] [21] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:46:23.053Z] DEBUG: [runtime-status] [21] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:46:23.054Z] DEBUG: [runtime-status] [21] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:46:23.055Z] DEBUG: [runtime-status] [21] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:46:23.470Z] [functions[test]] http function initialized (http://localhost:5000/owm-a7-fb/us-central1/test).
+[debug] [2020-03-10T02:46:23.470Z] [functions[getip]] http function initialized (http://localhost:5000/owm-a7-fb/us-central1/getip).
+[debug] [2020-03-10T02:46:23.470Z] [functions[owmOnWrite]] function ignored because the database emulator does not exist or is not running.
+[debug] [2020-03-10T02:46:23.470Z] [functions[citiesOnWriteUpdate]] function ignored because the database emulator does not exist or is not running.
+[debug] [2020-03-10T02:46:23.470Z] [functions[citiesOnWriteRead]] function ignored because the database emulator does not exist or is not running.
+[info] i  functions: Loaded functions: test, getip, owmOnWrite, citiesOnWriteUpdate, citiesOnWriteRead
+[debug] [2020-03-10T02:46:23.476Z] DEBUG: [worker-~diagnostic~-dcf32d11-b35b-4154-8894-66c03d9e5ada]: IDLE
+[debug] [2020-03-10T02:46:37.827Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-10T02:46:37.827Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-10T02:46:37.827Z] Accepted request GET /owm-a7-fb/us-central1/test --> test
+[debug] [2020-03-10T02:46:37.832Z] DEBUG: [worker-pool] addWorker(test)
+[debug] [2020-03-10T02:46:37.832Z] DEBUG: [worker-pool] Adding worker with key test, total=1
+[debug] [2020-03-10T02:46:37.832Z] DEBUG: [worker-pool] submitWork(triggerId=test)
+[debug] [2020-03-10T02:46:37.832Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: Assigning socketPath: /tmp/fire_emu_34.sock
+[debug] [2020-03-10T02:46:37.833Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: BUSY
+[debug] [2020-03-10T02:46:38.038Z] DEBUG: [runtime-status] [34] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:46:38.039Z] DEBUG: [runtime-status] [34] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:46:38.041Z] DEBUG: [runtime-status] [34] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:46:38.042Z] DEBUG: [runtime-status] [34] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:46:38.043Z] DEBUG: [runtime-status] [34] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:46:38.448Z] DEBUG: [runtime-status] [34] Trigger "test" has been found, beginning invocation!
+[debug] [2020-03-10T02:46:38.448Z] [functions] Beginning execution of "test"
+[debug] [2020-03-10T02:46:38.448Z] DEBUG: [runtime-status] [34] triggerDefinition {"httpsTrigger":{},"name":"test","entryPoint":"test"}
+[debug] [2020-03-10T02:46:38.449Z] DEBUG: [runtime-status] [34] Running test in mode HTTPS
+[debug] [2020-03-10T02:46:38.452Z] DEBUG: [runtime-status] [34] Attempting to listen to socketPath: /tmp/fire_emu_34.sock
+[debug] [2020-03-10T02:46:38.461Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2020-03-10T02:46:38.481Z] DEBUG: [runtime-status] [34] Ephemeral server handling GET request
+[debug] [2020-03-10T02:46:39.162Z] DEBUG: [runtime-status] [34] Ephemeral server survived.
+[debug] [2020-03-10T02:46:39.162Z] [functions] Finished "test" in ~1s
+[debug] [2020-03-10T02:46:39.162Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: IDLE
+[debug] [2020-03-10T02:46:39.162Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-10T02:46:47.857Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-10T02:46:47.857Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-10T02:46:47.857Z] Accepted request GET /owm-a7-fb/us-central1/getip --> getip
+[debug] [2020-03-10T02:46:47.860Z] DEBUG: [worker-pool] addWorker(getip)
+[debug] [2020-03-10T02:46:47.861Z] DEBUG: [worker-pool] Adding worker with key getip, total=1
+[debug] [2020-03-10T02:46:47.861Z] DEBUG: [worker-pool] submitWork(triggerId=getip)
+[debug] [2020-03-10T02:46:47.861Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: Assigning socketPath: /tmp/fire_emu_47.sock
+[debug] [2020-03-10T02:46:47.861Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: BUSY
+[debug] [2020-03-10T02:46:48.055Z] DEBUG: [runtime-status] [47] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T02:46:48.057Z] DEBUG: [runtime-status] [47] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T02:46:48.058Z] DEBUG: [runtime-status] [47] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T02:46:48.060Z] DEBUG: [runtime-status] [47] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T02:46:48.060Z] DEBUG: [runtime-status] [47] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T02:46:48.481Z] DEBUG: [runtime-status] [47] Trigger "getip" has been found, beginning invocation!
+[debug] [2020-03-10T02:46:48.481Z] [functions] Beginning execution of "getip"
+[debug] [2020-03-10T02:46:48.481Z] DEBUG: [runtime-status] [47] triggerDefinition {"httpsTrigger":{},"name":"getip","entryPoint":"getip"}
+[debug] [2020-03-10T02:46:48.481Z] DEBUG: [runtime-status] [47] Running getip in mode HTTPS
+[debug] [2020-03-10T02:46:48.484Z] DEBUG: [runtime-status] [47] Attempting to listen to socketPath: /tmp/fire_emu_47.sock
+[debug] [2020-03-10T02:46:48.486Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2020-03-10T02:46:48.513Z] DEBUG: [runtime-status] [47] Ephemeral server handling GET request
+[debug] [2020-03-10T02:46:49.270Z] DEBUG: [runtime-status] [47] Ephemeral server survived.
+[debug] [2020-03-10T02:46:49.271Z] [functions] Finished "getip" in ~1s
+[debug] [2020-03-10T02:46:49.271Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: IDLE
+[debug] [2020-03-10T02:46:49.271Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-10T02:48:19.971Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-10T02:48:19.971Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-10T02:48:19.971Z] Accepted request GET /owm-a7-fb/us-central1/getip --> getip
+[debug] [2020-03-10T02:48:19.971Z] DEBUG: [worker-pool] submitWork(triggerId=getip)
+[debug] [2020-03-10T02:48:19.971Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: Assigning socketPath: /tmp/fire_emu_47.sock
+[debug] [2020-03-10T02:48:19.972Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: BUSY
+[debug] [2020-03-10T02:48:19.975Z] DEBUG: [runtime-status] [47] Trigger "getip" has been found, beginning invocation!
+[debug] [2020-03-10T02:48:19.975Z] [functions] Beginning execution of "getip"
+[debug] [2020-03-10T02:48:19.975Z] DEBUG: [runtime-status] [47] triggerDefinition {"httpsTrigger":{},"name":"getip","entryPoint":"getip"}
+[debug] [2020-03-10T02:48:19.975Z] DEBUG: [runtime-status] [47] Running getip in mode HTTPS
+[debug] [2020-03-10T02:48:19.975Z] DEBUG: [runtime-status] [47] Attempting to listen to socketPath: /tmp/fire_emu_47.sock
+[debug] [2020-03-10T02:48:19.975Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2020-03-10T02:48:19.981Z] DEBUG: [runtime-status] [47] Ephemeral server handling GET request
+[debug] [2020-03-10T02:48:20.088Z] DEBUG: [runtime-status] [47] Ephemeral server survived.
+[debug] [2020-03-10T02:48:20.088Z] [functions] Finished "getip" in ~1s
+[debug] [2020-03-10T02:48:20.088Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: IDLE
+[debug] [2020-03-10T02:48:20.089Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-10T02:48:29.892Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-10T02:48:29.892Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-10T02:48:29.893Z] Accepted request GET /owm-a7-fb/us-central1/getip --> getip
+[debug] [2020-03-10T02:48:29.893Z] DEBUG: [worker-pool] submitWork(triggerId=getip)
+[debug] [2020-03-10T02:48:29.893Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: Assigning socketPath: /tmp/fire_emu_47.sock
+[debug] [2020-03-10T02:48:29.893Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: BUSY
+[debug] [2020-03-10T02:48:29.896Z] DEBUG: [runtime-status] [47] Trigger "getip" has been found, beginning invocation!
+[debug] [2020-03-10T02:48:29.896Z] [functions] Beginning execution of "getip"
+[debug] [2020-03-10T02:48:29.897Z] DEBUG: [runtime-status] [47] triggerDefinition {"httpsTrigger":{},"name":"getip","entryPoint":"getip"}
+[debug] [2020-03-10T02:48:29.897Z] DEBUG: [runtime-status] [47] Running getip in mode HTTPS
+[debug] [2020-03-10T02:48:29.898Z] DEBUG: [runtime-status] [47] Attempting to listen to socketPath: /tmp/fire_emu_47.sock
+[debug] [2020-03-10T02:48:29.898Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2020-03-10T02:48:29.901Z] DEBUG: [runtime-status] [47] Ephemeral server handling GET request
+[debug] [2020-03-10T02:48:30.005Z] DEBUG: [runtime-status] [47] Ephemeral server survived.
+[debug] [2020-03-10T02:48:30.006Z] [functions] Finished "getip" in ~1s
+[debug] [2020-03-10T02:48:30.006Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: IDLE
+[debug] [2020-03-10T02:48:30.006Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-10T02:48:32.979Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-10T02:48:32.980Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-10T02:48:32.980Z] Accepted request GET /owm-a7-fb/us-central1/test --> test
+[debug] [2020-03-10T02:48:32.980Z] DEBUG: [worker-pool] submitWork(triggerId=test)
+[debug] [2020-03-10T02:48:32.981Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: Assigning socketPath: /tmp/fire_emu_34.sock
+[debug] [2020-03-10T02:48:32.981Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: BUSY
+[debug] [2020-03-10T02:48:32.982Z] DEBUG: [runtime-status] [34] Trigger "test" has been found, beginning invocation!
+[debug] [2020-03-10T02:48:32.983Z] [functions] Beginning execution of "test"
+[debug] [2020-03-10T02:48:32.983Z] DEBUG: [runtime-status] [34] triggerDefinition {"httpsTrigger":{},"name":"test","entryPoint":"test"}
+[debug] [2020-03-10T02:48:32.983Z] DEBUG: [runtime-status] [34] Running test in mode HTTPS
+[debug] [2020-03-10T02:48:32.986Z] DEBUG: [runtime-status] [34] Attempting to listen to socketPath: /tmp/fire_emu_34.sock
+[debug] [2020-03-10T02:48:32.987Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2020-03-10T02:48:32.990Z] DEBUG: [runtime-status] [34] Ephemeral server handling GET request
+[debug] [2020-03-10T02:48:33.102Z] DEBUG: [runtime-status] [34] Ephemeral server survived.
+[debug] [2020-03-10T02:48:33.103Z] [functions] Finished "test" in ~1s
+[debug] [2020-03-10T02:48:33.103Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: IDLE
+[debug] [2020-03-10T02:48:33.103Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-10T02:48:35.735Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-10T02:48:35.736Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-10T02:48:35.737Z] Accepted request GET /owm-a7-fb/us-central1/test --> test
+[debug] [2020-03-10T02:48:35.737Z] DEBUG: [worker-pool] submitWork(triggerId=test)
+[debug] [2020-03-10T02:48:35.738Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: Assigning socketPath: /tmp/fire_emu_34.sock
+[debug] [2020-03-10T02:48:35.738Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: BUSY
+[debug] [2020-03-10T02:48:35.741Z] DEBUG: [runtime-status] [34] Trigger "test" has been found, beginning invocation!
+[debug] [2020-03-10T02:48:35.741Z] [functions] Beginning execution of "test"
+[debug] [2020-03-10T02:48:35.741Z] DEBUG: [runtime-status] [34] triggerDefinition {"httpsTrigger":{},"name":"test","entryPoint":"test"}
+[debug] [2020-03-10T02:48:35.741Z] DEBUG: [runtime-status] [34] Running test in mode HTTPS
+[debug] [2020-03-10T02:48:35.741Z] DEBUG: [runtime-status] [34] Attempting to listen to socketPath: /tmp/fire_emu_34.sock
+[debug] [2020-03-10T02:48:35.741Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2020-03-10T02:48:35.745Z] DEBUG: [runtime-status] [34] Ephemeral server handling GET request
+[debug] [2020-03-10T02:48:35.959Z] DEBUG: [runtime-status] [34] Ephemeral server survived.
+[debug] [2020-03-10T02:48:35.959Z] [functions] Finished "test" in ~1s
+[debug] [2020-03-10T02:48:35.960Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: IDLE
+[debug] [2020-03-10T02:48:35.960Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-10T03:02:03.528Z] DEBUG: File /firebase/functions/index.js changed, reloading triggers
+[debug] [2020-03-10T03:02:04.531Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T03:02:04.532Z] DEBUG: [worker-~diagnostic~-dcf32d11-b35b-4154-8894-66c03d9e5ada]: FINISHING
+[debug] [2020-03-10T03:02:04.533Z] DEBUG: [worker-pool] Shutting down IDLE worker (test)
+[debug] [2020-03-10T03:02:04.534Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: FINISHING
+[debug] [2020-03-10T03:02:04.534Z] DEBUG: [worker-pool] Shutting down IDLE worker (getip)
+[debug] [2020-03-10T03:02:04.535Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: FINISHING
+[debug] [2020-03-10T03:02:04.542Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T03:02:04.542Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T03:02:04.542Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T03:02:04.542Z] DEBUG: [worker-~diagnostic~-4acfb8da-4dc0-42ab-bc0e-d267ac4e5532]: Assigning socketPath: /tmp/fire_emu_60.sock
+[debug] [2020-03-10T03:02:04.542Z] DEBUG: [worker-~diagnostic~-4acfb8da-4dc0-42ab-bc0e-d267ac4e5532]: BUSY
+[debug] [2020-03-10T03:02:04.545Z] DEBUG: [worker-~diagnostic~-dcf32d11-b35b-4154-8894-66c03d9e5ada]: exited
+[debug] [2020-03-10T03:02:04.545Z] DEBUG: [worker-~diagnostic~-dcf32d11-b35b-4154-8894-66c03d9e5ada]: FINISHED
+[debug] [2020-03-10T03:02:04.545Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: exited
+[debug] [2020-03-10T03:02:04.545Z] DEBUG: [worker-test-3c1c5314-44a8-424a-807f-8b5361e7b04b]: FINISHED
+[debug] [2020-03-10T03:02:04.545Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: exited
+[debug] [2020-03-10T03:02:04.545Z] DEBUG: [worker-getip-8a92d240-f033-4a0f-86b3-a9b54ae690bc]: FINISHED
+[debug] [2020-03-10T03:02:04.781Z] DEBUG: [runtime-status] [60] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T03:02:04.783Z] DEBUG: [runtime-status] [60] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T03:02:04.785Z] DEBUG: [runtime-status] [60] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T03:02:04.786Z] DEBUG: [runtime-status] [60] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T03:02:04.787Z] DEBUG: [runtime-status] [60] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T03:02:05.241Z] DEBUG: [worker-~diagnostic~-4acfb8da-4dc0-42ab-bc0e-d267ac4e5532]: IDLE
+[debug] [2020-03-10T03:04:28.185Z] DEBUG: File /firebase/functions/index.js changed, reloading triggers
+[debug] [2020-03-10T03:04:29.187Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T03:04:29.187Z] DEBUG: [worker-~diagnostic~-4acfb8da-4dc0-42ab-bc0e-d267ac4e5532]: FINISHING
+[debug] [2020-03-10T03:04:29.188Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-10T03:04:29.188Z] DEBUG: [worker-pool] Cleaned up workers for test: 1 --> 0
+[debug] [2020-03-10T03:04:29.188Z] DEBUG: [worker-pool] Cleaned up workers for getip: 1 --> 0
+[debug] [2020-03-10T03:04:29.194Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T03:04:29.194Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T03:04:29.194Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T03:04:29.194Z] DEBUG: [worker-~diagnostic~-d6705806-4859-4000-b68f-7434316f8a0f]: Assigning socketPath: /tmp/fire_emu_73.sock
+[debug] [2020-03-10T03:04:29.195Z] DEBUG: [worker-~diagnostic~-d6705806-4859-4000-b68f-7434316f8a0f]: BUSY
+[debug] [2020-03-10T03:04:29.197Z] DEBUG: [worker-~diagnostic~-4acfb8da-4dc0-42ab-bc0e-d267ac4e5532]: exited
+[debug] [2020-03-10T03:04:29.197Z] DEBUG: [worker-~diagnostic~-4acfb8da-4dc0-42ab-bc0e-d267ac4e5532]: FINISHED
+[debug] [2020-03-10T03:04:29.413Z] DEBUG: [runtime-status] [73] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T03:04:29.415Z] DEBUG: [runtime-status] [73] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T03:04:29.416Z] DEBUG: [runtime-status] [73] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T03:04:29.417Z] DEBUG: [runtime-status] [73] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T03:04:29.419Z] DEBUG: [runtime-status] [73] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  Error: Topic name may not have a /
+    at _topicWithOptions (/firebase/functions/node_modules/firebase-functions/lib/providers/pubsub.js:43:15)
+    at Object.topic (/firebase/functions/node_modules/firebase-functions/lib/providers/pubsub.js:37:12)
+    at Object.<anonymous> (/firebase/functions/index.js:35:46)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-10T03:04:29.912Z] DEBUG: [worker-~diagnostic~-d6705806-4859-4000-b68f-7434316f8a0f]: exited
+[debug] [2020-03-10T03:04:29.912Z] DEBUG: [worker-~diagnostic~-d6705806-4859-4000-b68f-7434316f8a0f]: FINISHED
+[debug] [2020-03-10T03:04:48.260Z] DEBUG: File /firebase/functions/index.js changed, reloading triggers
+[debug] [2020-03-10T03:04:49.271Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 0
+[debug] [2020-03-10T03:04:49.279Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T03:04:49.280Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-10T03:04:49.280Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T03:04:49.280Z] DEBUG: [worker-~diagnostic~-4854c052-6072-4033-9e6f-061234c35dda]: Assigning socketPath: /tmp/fire_emu_86.sock
+[debug] [2020-03-10T03:04:49.280Z] DEBUG: [worker-~diagnostic~-4854c052-6072-4033-9e6f-061234c35dda]: BUSY
+[debug] [2020-03-10T03:04:49.486Z] DEBUG: [runtime-status] [86] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T03:04:49.488Z] DEBUG: [runtime-status] [86] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T03:04:49.490Z] DEBUG: [runtime-status] [86] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T03:04:49.491Z] DEBUG: [runtime-status] [86] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T03:04:49.492Z] DEBUG: [runtime-status] [86] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T03:04:49.931Z] [functions[checkBudgetPubSub]] function ignored because the pubsub emulator does not exist or is not running.
+[debug] [2020-03-10T03:04:49.933Z] DEBUG: [worker-~diagnostic~-4854c052-6072-4033-9e6f-061234c35dda]: IDLE
+[debug] [2020-03-10T03:05:50.707Z] DEBUG: File /firebase/functions/index.js changed, reloading triggers
+[debug] [2020-03-10T03:05:51.722Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-10T03:05:51.723Z] DEBUG: [worker-~diagnostic~-4854c052-6072-4033-9e6f-061234c35dda]: FINISHING
+[debug] [2020-03-10T03:05:51.728Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-10T03:05:51.728Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-10T03:05:51.728Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-10T03:05:51.728Z] DEBUG: [worker-~diagnostic~-f9222f82-d0e1-4989-8882-7173a8e4e963]: Assigning socketPath: /tmp/fire_emu_99.sock
+[debug] [2020-03-10T03:05:51.730Z] DEBUG: [worker-~diagnostic~-f9222f82-d0e1-4989-8882-7173a8e4e963]: BUSY
+[debug] [2020-03-10T03:05:51.738Z] DEBUG: [worker-~diagnostic~-4854c052-6072-4033-9e6f-061234c35dda]: exited
+[debug] [2020-03-10T03:05:51.738Z] DEBUG: [worker-~diagnostic~-4854c052-6072-4033-9e6f-061234c35dda]: FINISHED
+[debug] [2020-03-10T03:05:51.956Z] DEBUG: [runtime-status] [99] Functions runtime initialized. {"cwd":"/firebase/functions","node_version":"10.19.0"}
+[debug] [2020-03-10T03:05:51.957Z] DEBUG: [runtime-status] [99] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-10T03:05:51.959Z] DEBUG: [runtime-status] [99] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/firebase/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-10T03:05:51.960Z] DEBUG: [runtime-status] [99] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to /root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-10T03:05:51.962Z] DEBUG: [runtime-status] [99] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/firebase/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-10T03:05:52.411Z] DEBUG: [worker-~diagnostic~-f9222f82-d0e1-4989-8882-7173a8e4e963]: IDLE

@@ -1,1 +1,1 @@
-docker build . -t firebase-app-8
+docker build . -t firebase-app-v7-nodev10

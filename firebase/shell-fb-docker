@@ -1,10 +1,14 @@
-export eval echo $(cat fb_token) && \
+export eval echo $(cat $HOME/projects/owm-a7-fb-credentials/fb_token) && \
 docker run \
   -it \
   -e "FB_TOKEN=$FB_TOKEN" \
+  -e "GCP_PROJECT=owm-a7-fb" \
   --rm \
+  -e "GOOGLE_APPLICATION_CREDENTIALS=/root/credentials/owm-a7-fb-42f2218b2354-firebase-adminsdk-he3s2.json" \
   -v ${HOME}/projects/owm-a7-fb/firebase/functions:/firebase/functions \
-  -v ${HOME}/.config:/root/.config \
-  firebase-app-8 \
-  /bin/bash
-  #/bin/bash -c "echo FB_TOKEN:$FB_TOKEN && cd functions && ls -la && firebase functions:shell --token $FB_TOKEN --project 'owm-a7-fb'"
+  -v ${HOME}/projects/owm-a7-fb-credentials:/root/credentials \
+  firebase-app-v7-nodev10 \
+  /bin/bash -c "echo FB_TOKEN:$FB_TOKEN && cd functions && ls -la && firebase functions:shell --token $FB_TOKEN --project 'owm-a7-fb'"
+
+  #-v ${HOME}/.config:/root/.config \
+  #-e "GOOGLE_APPLICATION_CREDENTIALS=/root/credentials/owm-a7-fb-869b248d786e-appspot.json" \
