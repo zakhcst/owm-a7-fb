@@ -2,6 +2,6 @@ export eval echo $(cat fb_token) && \
 docker run \
   -it \
   --rm \
-  firebase-app \
+  firebase-app-v7-nodev10 \
   /bin/bash -c "echo FB_TOKEN:$FB_TOKEN && cd functions && firebase serve --only functions --token $FB_TOKEN --project 'owm-a7-fb' --debug"
 
