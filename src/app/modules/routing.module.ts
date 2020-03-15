@@ -17,7 +17,7 @@ const selectCities = { path: '', title: 'selectCities', type: 'selectCities' };
 
 const appRoutes: Routes = [
   {
-    path: 'toolbar',
+    path: 'v1',
     component: HeaderToolbarComponent,
     data: {
       toolbarActions: {

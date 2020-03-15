@@ -11,23 +11,19 @@ export class ConstantsService {
   public static readonly owmData = 'owm';
   public static readonly historyLog = 'history-log';
   public static readonly errorsLog = 'errors-log';
-  public static readonly default5DayForecastUrl =
-    'https://api.openweathermap.org/data/2.5/forecast';
+  public static readonly default5DayForecastUrl = 'https://api.openweathermap.org/data/2.5/forecast';
   public static readonly defaultUnits = 'metric';
-  public static readonly defaultCityId =
-    localStorage.getItem('lastCityId') || '2643743'; // Defaults to London, UK
+  public static readonly defaultCityId = localStorage.getItem('lastCityId') || '2643743'; // Defaults to London, UK
   public static readonly defaultAPPID = 'a354c550c575036102a4dce8d36e75d1';
   public static readonly owmFallbackData = 'assets/owm-fallback-data.json';
-  public static readonly getIpUrl =
-    'https://us-central1-owm-a7-fb.cloudfunctions.net/getip';
+  public static readonly getIpUrl = 'https://us-central1-owm-a7-fb.cloudfunctions.net/getip';
   public static readonly ipv4RE = new RegExp(
     '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
   );
   public static readonly owmIconsUrl = 'https://openweathermap.org/img/w/';
   public static readonly iconsOwm = 'assets/icons-list/';
   public static readonly iconWind = 'assets/icons8-windsock-16.png';
-  public static readonly iconPressure =
-    'assets/icons8-atmospheric-pressure-16.png';
+  public static readonly iconPressure = 'assets/icons8-atmospheric-pressure-16.png';
   public static readonly iconHumidity = 'assets/icons8-hygrometer-16.png';
   public static readonly iconGithub = 'assets/icon32-github.svg';
   public static readonly iconExtLink = 'assets/icon24-external-link.svg';
