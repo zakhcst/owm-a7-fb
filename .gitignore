@@ -6,6 +6,7 @@
 /out-tsc
 firebase/.firebase/
 firebase/public
+firebase/functions/firebase-debug.log
 
 # dependencies
 /node_modules
